@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "dashboard": "pages.dashboard",
+    "logins": "pages.logins",
+    "users": "pages.users",
+    "teams": "pages.teams",
+    "reports": "pages.reports",
+    "tools": "pages.tools",
+    "settings": "pages.settings"
+  },
+  "welcome": "welcome",
+  "common": {
+    "pages": {
+      "dashboard": "common.pages.dashboard"
+    }
+  }
+}

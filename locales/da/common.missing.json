@@ -1,0 +1,11 @@
+{
+  "pages": {
+    "dashboard": "pages.dashboard"
+  },
+  "welcome": "welcome",
+  "common": {
+    "pages": {
+      "dashboard": "common.pages.dashboard"
+    }
+  }
+}
