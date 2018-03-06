@@ -25,4 +25,6 @@ Go to http://localhost:3000 in your browser
 yarn build
 
 yarn start
+
+Go to http://localhost:3000 in your browser
 ```
