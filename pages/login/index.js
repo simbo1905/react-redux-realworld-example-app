@@ -38,5 +38,6 @@ class Page extends React.Component {
 export default withDefaults(Page, {
   mapStateToProps: (state) => state,
   mapDispatchToProps: { logIn },
+  guarded: false,
   translations: ['login'],
 });

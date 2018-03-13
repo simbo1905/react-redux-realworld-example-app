@@ -3,6 +3,7 @@
  */
 
  import Api from '@/api/ApiHelper';
+ import Auth from '@/models/Auth';
  import { signUpRequest, logInRequest, logOutRequest } from '@/api/requests/auth';
  import { setUser } from '@/redux/user/actions';
  import Router from 'next/router';
@@ -21,7 +22,7 @@
         dispatch(setUser(user))
 
         // Save token in cookie
-        Api.setToken(token.access_token);
+        Auth.setToken(token.access_token);
 
         return response;
       }).catch(error => {
@@ -44,7 +45,7 @@
          dispatch(setUser(response.data.user));
 
          // Set token as cookie
-         Api.setToken(response.data.token.access_token);
+         Auth.setToken(response.data.token.access_token);
 
          // Return resolved promise
          return response;
@@ -64,7 +65,7 @@
     export const logOut = () => dispatch => {
       // Log out in API
       logOutRequest().then(() => {
-        Api.removeToken();
+        Auth.removeToken();
       });
 
       // Remove user from state

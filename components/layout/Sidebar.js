@@ -10,7 +10,6 @@ import Link from 'next/link';
 
 const Sidebar = (props) => {
   const { t } = props;
-  console.log(props);
   return (
     <div className="sidebar">
       <nav className="sidebar-nav">

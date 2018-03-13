@@ -13,11 +13,11 @@ import queryString from 'query-string';
 class Page extends Component {
 
   static async getInitialProps ({store, req, isServer }) {
-    if (isServer) {
-      const cookies = queryString.parse(req.headers.cookie);
-      console.log('@@@set token!', cookies.token);
-      Api.setToken(cookies.token);
-    }
+    // if (isServer) {
+    //   const cookies = queryString.parse(req.headers.cookie);
+    //   console.log('@@@set token!', cookies.token);
+    //   Api.setToken(cookies.token);
+    // }
     return store.dispatch(fetchUserProfile()).then(() => {
       return {};
     });

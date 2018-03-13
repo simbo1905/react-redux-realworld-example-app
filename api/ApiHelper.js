@@ -4,54 +4,17 @@
 
  import axios from 'axios';
  import config from '@/config/api';
+ import Auth from '@/models/Auth';
  import Cookies from 'js-cookie';
  const { baseURL } = config;
 
   class ApiHelper {
-
-    constructor(options = {}) {
-      this.token = Cookies.get('token');
-    }
-
-    /**
-     * Authentication Token
-     */
-
-      getToken() {
-        return this.token || null;
-      }
-
-      setToken(token) {
-        if (token) {
-          Cookies.set('token', token);
-          this.token = token;
-        } else {
-          this.token = null
-        }
-      }
-
-      refreshToken(token) {
-        if (token) {
-          this.token = token;
-        } else {
-          this.token = null
-        }
-      }
-
-      removeToken() {
-        Cookies.remove('token');
-        this.token = null;
-      }
 
     /**
      * Request
      */
 
       request() {
-        const token = this.token;
-
-        console.log('token!', token);
-
         // Create instance
         const request = axios.create({
           baseURL,
@@ -67,7 +30,7 @@
         // Request interceptor
         request.interceptors.request.use((config) => {
         // Add auth token before request
-        // console.log('Attaching Authorization', `Bearer ${Cookies.get('token')}`);
+        const token = Auth.getToken();
         config.headers.common = {
             Authorization: `Bearer ${token}`,
         };
