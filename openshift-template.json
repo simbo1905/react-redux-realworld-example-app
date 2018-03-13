@@ -193,6 +193,7 @@
               "namespace": "${NAMESPACE}",
               "name": "nodejs:6"
             },
+            "incremental" : true,
             "env":  [
               {
                   "name": "NPM_MIRROR",
