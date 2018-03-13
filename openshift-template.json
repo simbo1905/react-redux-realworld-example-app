@@ -21,7 +21,7 @@
       "app": "nodejs-example"
   },
   "objects": [
-        {
+   {
       "apiVersion": "v1",
       "kind": "ImageStream",
       "metadata": {
@@ -34,7 +34,7 @@
         "tags": [
           {
             "annotations": {
-              "description": "Build and run Node.js applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/8/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Node.js available on OpenShift, including major versions updates.",
+              "description": "Build and run Node.js applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/8/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Node.js available on OpenShift, including major versions updates.",
               "iconClass": "icon-nodejs",
               "openshift.io/display-name": "Node.js (Latest)",
               "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -50,7 +50,7 @@
           },
           {
             "annotations": {
-              "description": "DEPRECATED: Build and run Node.js 0.10 applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/0.10/README.md.",
+              "description": "DEPRECATED: Build and run Node.js 0.10 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/0.10/README.md.",
               "iconClass": "icon-nodejs",
               "openshift.io/display-name": "Node.js 0.10",
               "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -61,13 +61,13 @@
             },
             "from": {
               "kind": "DockerImage",
-              "name": "docker.io/openshift/nodejs-010-centos7:latest"
+              "name": "registry.access.redhat.com/openshift3/nodejs-010-rhel7:latest"
             },
             "name": "0.10"
           },
           {
             "annotations": {
-              "description": "Build and run Node.js 4 applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/4/README.md.",
+              "description": "Build and run Node.js 4 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/4/README.md.",
               "iconClass": "icon-nodejs",
               "openshift.io/display-name": "Node.js 4",
               "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -78,13 +78,13 @@
             },
             "from": {
               "kind": "DockerImage",
-              "name": "docker.io/centos/nodejs-4-centos7:latest"
+              "name": "registry.access.redhat.com/rhscl/nodejs-4-rhel7:latest"
             },
             "name": "4"
           },
           {
             "annotations": {
-              "description": "Build and run Node.js 6 applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/6/README.md.",
+              "description": "Build and run Node.js 6 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container.",
               "iconClass": "icon-nodejs",
               "openshift.io/display-name": "Node.js 6",
               "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -95,13 +95,13 @@
             },
             "from": {
               "kind": "DockerImage",
-              "name": "docker.io/centos/nodejs-6-centos7:latest"
+              "name": "registry.access.redhat.com/rhscl/nodejs-6-rhel7:latest"
             },
             "name": "6"
           },
           {
             "annotations": {
-              "description": "Build and run Node.js 8 applications on CentOS 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container/blob/master/8/README.md.",
+              "description": "Build and run Node.js 8 applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-nodejs-container.",
               "iconClass": "icon-nodejs",
               "openshift.io/display-name": "Node.js 8",
               "openshift.io/provider-display-name": "Red Hat, Inc.",
@@ -111,7 +111,7 @@
             },
             "from": {
               "kind": "DockerImage",
-              "name": "docker.io/centos/nodejs-8-centos7:latest"
+              "name": "registry.access.redhat.com/rhscl/nodejs-8-rhel7:latest"
             },
             "name": "8"
           }
@@ -182,7 +182,7 @@
           },
           "contextDir": "${CONTEXT_DIR}",
           "sourceSecret": {
-              "name": "scmsecret2"
+              "name": "${SCMSECRET}"
           }
         },
         "strategy": {
@@ -191,7 +191,7 @@
             "from": {
               "kind": "ImageStreamTag",
               "namespace": "${NAMESPACE}",
-              "name": "nodejs:6"
+              "name": "nodejs:latest"
             },
             "incremental" : true,
             "env":  [
@@ -380,6 +380,12 @@
       "displayName": "Custom NPM Mirror URL",
       "description": "The custom NPM mirror URL",
       "value": ""
+    },
+    {
+      "name": "SCMSECRET",
+      "displayName": "SCM Secret",
+      "description": "The SSH Key Secret to pull the source code.",
+      "required": true
     }
   ]
 }
