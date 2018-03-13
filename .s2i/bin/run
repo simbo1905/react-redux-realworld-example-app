@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Running default /usr/libexec/s2i/run"
+
+export_vars=$(cgroup-limits); export $export_vars
+
+exec /usr/libexec/s2i/run
