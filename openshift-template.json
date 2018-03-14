@@ -185,6 +185,11 @@
               "name": "${SCMSECRET}"
           }
         },
+        "resources": {
+          "limits": {
+            "memory": "1024Mi"
+          }
+        },
         "strategy": {
           "type": "Source",
           "sourceStrategy": {
