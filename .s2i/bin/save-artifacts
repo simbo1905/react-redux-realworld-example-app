@@ -1,5 +1,5 @@
 #!/bin/bash
 pushd /opt/app-root/src >/dev/null
-tar cf - .next node_modules .babelrc 
+tar cf - .next node_modules .babelrc .npm
 popd >/dev/null
 
