@@ -1,5 +1,5 @@
 #!/bin/bash
 pushd /opt/app-root/src >/dev/null
-tar cf - .next node_modules .npm .npm-global
+tar cf - .next node_modules .npm 
 popd >/dev/null
 
