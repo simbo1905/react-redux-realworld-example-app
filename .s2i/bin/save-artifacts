@@ -1,3 +1,5 @@
 #!/bin/bash
-echo "Running default /usr/libexec/s2i/save-artifacts"
-exec /usr/libexec/s2i/save-artifacts
+pushd /opt/app-root/src >/dev/null
+tar cf - .next node_modules .babelrc 
+popd >/dev/null
+

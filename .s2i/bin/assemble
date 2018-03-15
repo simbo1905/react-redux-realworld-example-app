@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Running default /usr/libexec/s2i/assemble"
+echo "Running default /usr/libexec/s2i/assemble from ${PWD}"
 
 /usr/libexec/s2i/assemble
 rc=$?
