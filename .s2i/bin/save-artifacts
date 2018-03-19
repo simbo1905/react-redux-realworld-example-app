@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Running default /usr/libexec/s2i/save-artifacts"
+exec /usr/libexec/s2i/save-artifacts
