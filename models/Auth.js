@@ -16,6 +16,7 @@
 
       getToken() {
         const token = Cookies.get('token');
+        console.log('gettoken', token);
         return token || this.token || null;
       }
 
