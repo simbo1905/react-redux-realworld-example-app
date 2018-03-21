@@ -1,20 +1,11 @@
-# build output
-dist
-.next
-
-# dependencies
-node_modules
-package-lock.json
-test/node_modules
-
-# logs & pids
-*.log
-pids
-
-# coverage
-.nyc_output
+# Don't check auto-generated stuff into git
 coverage
+build
+node_modules
+stats.json
 
-# test output
-test/**/out
+# Cruft
 .DS_Store
+npm-debug.log
+.idea
+.next/

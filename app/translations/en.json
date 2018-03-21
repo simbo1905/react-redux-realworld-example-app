@@ -1,0 +1,16 @@
+{
+  "app.pages.dashboard.title": "Dashboard",
+  "app.pages.profile.title": "Profile",
+  "app.pages.company.title": "Company",
+  "app.pages.passwords.title": "Passwords",
+  "app.pages.billing.title": "Billing",
+  "app.pages.users.title": "Users",
+  "app.pages.tools.title": "Tools",
+  "app.pages.reports.title": "Reports",
+  "app.pages.groups.title": "Groups",
+
+  "app.auth.logout": "Log out",
+
+  "app.sidebar.dividers.settings": "Settings",
+  "app.sidebar.dividers.items": "Items"
+}
