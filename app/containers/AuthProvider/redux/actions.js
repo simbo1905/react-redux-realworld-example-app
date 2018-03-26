@@ -9,6 +9,7 @@ import {
   LOGIN_FAILED,
   LOGIN_SUCCESS,
   LOGIN_IN_PROGRESS,
+  LOGOUT_BEGIN,
 } from './constants';
 
 /**
@@ -37,3 +38,7 @@ export const loginSuccess = () => ({
 /**
  * Log out
  */
+
+export const logOut = () => ({
+  type: LOGOUT_BEGIN,
+});

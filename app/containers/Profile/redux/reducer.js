@@ -5,7 +5,13 @@
  */
 
 
-import { PROFILE_SET_DATA, PROFILE_FETCH_SUCCESS, PROFILE_FETCH_ERROR, PROFILE_FETCH_BEGIN } from './constants';
+import {
+  PROFILE_SET_DATA,
+  PROFILE_FETCH_SUCCESS,
+  PROFILE_FETCH_ERROR,
+  PROFILE_FETCH_BEGIN,
+  PROFILE_RESET_DATA,
+} from './constants';
 
 const initialState = {
   data: null,
@@ -16,6 +22,7 @@ const initialState = {
 function profile(state = initialState, action) {
   switch (action.type) {
     case PROFILE_SET_DATA: return { ...state, data: action.data };
+    case PROFILE_RESET_DATA: return { ...state, data: null };
     case PROFILE_FETCH_BEGIN: return { ...state, fetching: true };
     case PROFILE_FETCH_SUCCESS: return { ...state, fetching: false, error: null };
     case PROFILE_FETCH_ERROR: return { ...state, fetching: false, error: action.error };

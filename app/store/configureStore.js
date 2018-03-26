@@ -8,9 +8,28 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { routerMiddleware } from 'react-router-redux';
-import formActionSaga from 'redux-form-saga';
 import createSagaMiddleware from 'redux-saga';
+
+/**
+ * Import global sagas
+ */
+
+import formActionSaga from 'redux-form-saga';
+import authSaga from 'containers/AuthProvider/redux/saga';
+import profileSaga from 'containers/Profile/redux/saga';
+
+const sagas = [
+  formActionSaga,
+  authSaga,
+  profileSaga,
+];
+
+/**
+ * Import global reducers
+ */
+
 import createReducer from './reducers';
+
 
 const logger = createLogger({
   collapsed: true,
@@ -64,11 +83,16 @@ export default function configureStore(initialState = {}, history) {
 
   const persistor = persistStore(store);
 
-  // Extensions
-  sagaMiddleware.run(formActionSaga);
+  // Run sagas
+  sagas.forEach((saga) => {
+    sagaMiddleware.run(saga);
+  });
+
   store.runSaga = sagaMiddleware.run;
-  store.injectedReducers = {}; // Reducer registry
   store.injectedSagas = {}; // Saga registry
+
+  // Injected reducers
+  store.injectedReducers = {}; // Reducer registry
 
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */

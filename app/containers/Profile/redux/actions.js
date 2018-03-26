@@ -6,9 +6,8 @@
 
 import {
   PROFILE_SET_DATA,
+  PROFILE_RESET_DATA,
   PROFILE_FETCH_BEGIN,
-  PROFILE_FETCH_ERROR,
-  PROFILE_FETCH_SUCCESS,
 } from './constants';
 
 /**
@@ -20,6 +19,14 @@ export function setProfileData(data) {
     data,
   };
 }
+
+/**
+ * Reset profile
+ * (remove local data)
+ */
+export const resetProfile = () => ({
+  type: PROFILE_RESET_DATA,
+});
 
 
 /**
