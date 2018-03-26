@@ -3246,7 +3246,7 @@ eslint-visitor-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
 
-eslint@4.9.0^:
+eslint@4.19.0^:
   version "4.19.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.19.0.tgz#9e900efb5506812ac374557034ef6f5c3642fc4c"
   dependencies:
