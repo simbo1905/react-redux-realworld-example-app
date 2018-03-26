@@ -2,13 +2,16 @@
  * Auth Model
  */
 
-
-
 export default class Auth {
   constructor() {
     this.accessTokenKey = 'uniqkey_access_token';
     this.token = null;
   }
+
+  isAuthenticated() {
+    return !!this.getToken();
+  }
+
   /**
    * Access Token
    */
@@ -22,6 +25,6 @@ export default class Auth {
   }
 
   removeToken() {
-    localStorage.removeToken(this.accessTokenKey);
+    localStorage.removeItem(this.accessTokenKey);
   }
 }
