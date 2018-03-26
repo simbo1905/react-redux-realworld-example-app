@@ -20,6 +20,4 @@ const makeSelectAuthProvider = () => createSelector(
 );
 
 export default makeSelectAuthProvider;
-export {
-  selectAuthProviderDomain,
-};
+export { selectAuthProviderDomain };
