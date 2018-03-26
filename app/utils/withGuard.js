@@ -34,7 +34,7 @@ export default function (ComposedComponent) {
        */
       redirectIfNotAuthenticated = () => {
         if (!this.userCanAccess()) {
-          this.context.router.history.push('/');
+          this.context.router.history.push('/login');
         }
       }
 

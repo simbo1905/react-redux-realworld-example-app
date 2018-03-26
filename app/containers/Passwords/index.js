@@ -1,15 +1,13 @@
 /**
- *
- * PagePasswords
- *
+ * Passwords
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import withGuard from 'utils/withGuard';
 import {
   Row,
   Col,
@@ -59,7 +57,7 @@ export class PagePasswords extends React.Component {
 
   toggleLarge = () => {
     this.setState({
-      large: !this.state.large
+      large: !this.state.large,
     });
   }
 
@@ -500,24 +498,15 @@ export class PagePasswords extends React.Component {
   }
 }
 
-PagePasswords.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
-
 const mapStateToProps = createStructuredSelector({
   passwords: makeSelectPasswords(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
-
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withConnect = connect(mapStateToProps);
 const withSaga = injectSaga({ key: 'passwords', saga });
 
 export default compose(
   withSaga,
   withConnect,
+  withGuard,
 )(PagePasswords);
