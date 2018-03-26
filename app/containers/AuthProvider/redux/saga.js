@@ -5,15 +5,14 @@
 import { SubmissionError } from 'redux-form';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { replace } from 'react-router-redux';
+import AuthModel from 'models/Auth';
+const Auth = new AuthModel();
 
 // Requets
 import { logInRequest } from 'api/requests/auth';
 
 // Profile
 import { setProfileData } from 'containers/Profile/redux/actions';
-import {
-  PROFILE_SET_DATA,
-} from 'containers/Profile/redux/constants';
 
 // Actions
 import { submitLoginForm } from './actions';
@@ -59,6 +58,9 @@ function* handleLoginSaga(action) {
       ...user,
       access_token,
     }));
+
+    // Save auth token in localStorage
+    Auth.setToken(access_token);
 
     // Redirect user on login
     yield put(replace('/dashboard'));

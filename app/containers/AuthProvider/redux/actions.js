@@ -15,7 +15,7 @@ import {
  * Login
  */
 
-// Submit login form
+// Submit login form (redux-form action)
 export const submitLoginForm = createFormAction('login');
 
 // Login in progress

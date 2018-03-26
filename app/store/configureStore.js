@@ -3,14 +3,19 @@
  */
 
 import { createStore, applyMiddleware, compose } from 'redux';
+import { createLogger } from 'redux-logger';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import { routerMiddleware } from 'react-router-redux';
 import formActionSaga from 'redux-form-saga';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+const logger = createLogger({
+  collapsed: true,
+  duration: true,
+});
 
 const persistConfig = {
   key: 'uniqkey',
@@ -27,6 +32,7 @@ export default function configureStore(initialState = {}, history) {
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
   const middlewares = [
+    logger,
     sagaMiddleware,
     routerMiddleware(history),
   ];
