@@ -15,13 +15,14 @@ import createReducer from './reducers';
 const logger = createLogger({
   collapsed: true,
   duration: true,
+  diff: true,
 });
 
 const persistConfig = {
   key: 'uniqkey',
   storage,
   blacklist: ['auth', 'app'],
-}
+};
 
 const persistedReducer = persistReducer(persistConfig, createReducer);
 

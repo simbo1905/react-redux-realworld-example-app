@@ -54,10 +54,7 @@ function* handleLoginSaga(action) {
 
     // Save profile data from response
     const { user, token: { access_token } } = response.data;
-    yield put(setProfileData({
-      ...user,
-      access_token,
-    }));
+    yield put(setProfileData(user));
 
     // Save auth token in localStorage
     Auth.setToken(access_token);

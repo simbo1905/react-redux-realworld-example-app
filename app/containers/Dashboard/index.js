@@ -9,24 +9,27 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
+import { compose, bindActionCreators } from 'redux';
 import { Row, Col, Jumbotron, Button } from 'reactstrap';
 
 import { makeSelectProfile } from 'containers/Profile/redux/selectors';
+import { fetchProfile } from 'containers/Profile/redux/actions';
 
 export class Dashboard extends Component {
   static propTypes = {
+    fetchProfile: PropTypes.func.isRequired,
     profile: PropTypes.shape({
       name: PropTypes.string,
     }),
   }
 
   componentDidMount() {
-
+    this.props.fetchProfile();
   }
 
   render() {
     const { name } = this.props.profile;
+    console.log('dashboard props', this.props);
     return (
       <div>
         <Helmet>
@@ -57,11 +60,9 @@ const mapStateToProps = createStructuredSelector({
   profile: makeSelectProfile(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchProfile,
+}, dispatch);
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 

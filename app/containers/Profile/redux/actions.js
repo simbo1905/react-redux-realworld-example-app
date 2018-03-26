@@ -6,6 +6,9 @@
 
 import {
   PROFILE_SET_DATA,
+  PROFILE_FETCH_BEGIN,
+  PROFILE_FETCH_ERROR,
+  PROFILE_FETCH_SUCCESS,
 } from './constants';
 
 /**
@@ -17,3 +20,15 @@ export function setProfileData(data) {
     data,
   };
 }
+
+
+/**
+ * Asynchronous actions
+ */
+
+/**
+ * Fetch profile (and set data)
+ */
+export const fetchProfile = () => ({
+  type: PROFILE_FETCH_BEGIN,
+});

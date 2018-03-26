@@ -26,13 +26,13 @@ class ApiHelper {
     // Create instance
     const request = axios.create({
       baseURL: `${baseURL}/`,
-      validateStatus: (status) => {
-        if (status >= 400) {
-          return false;
-        }
-
-        return status >= 200 && status < 300; // default
-      },
+      // validateStatus: (status) => {
+      //   if (status >= 400) {
+      //     return false;
+      //   }
+      //
+      //   return status >= 200 && status < 300; // default
+      // },
     });
 
     // Request interceptor
