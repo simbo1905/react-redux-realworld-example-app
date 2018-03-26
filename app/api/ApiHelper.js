@@ -25,7 +25,7 @@
    request() {
       // Create instance
     const request = axios.create({
-        baseURL,
+        baseURL: `${baseURL}/`,
         validateStatus: (status) => {
           if (status >= 400) {
             return false;

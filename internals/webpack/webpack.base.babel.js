@@ -4,6 +4,8 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const DotenvPlugin = require('webpack-dotenv-plugin');
+require('dotenv').config();
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
@@ -103,13 +105,17 @@ module.exports = (options) => ({
   plugins: options.plugins.concat([
     // new webpack.ProvidePlugin({
     // }),
-
+    new DotenvPlugin({
+      sample: path.resolve(process.cwd(), '.env.example'),
+      path: path.resolve(process.cwd(), '.env'),
+    }),
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
     // inside your code for any environment checks; UglifyJS will automatically
     // drop any unreachable code.
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        // API_ROOT: JSON.stringify(process.env.API_ROOT),
       },
     }),
     new webpack.NamedModulesPlugin(),

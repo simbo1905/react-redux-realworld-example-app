@@ -3,5 +3,5 @@
  */
 
 module.exports = {
-  baseURL: 'https://staging.uniqkey.eu/api/',
+  baseURL: process.env.API_ROOT,
 };
