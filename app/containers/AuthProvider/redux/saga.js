@@ -93,5 +93,5 @@ function* handleLogOut() {
   }
 
   // Redirect to home
-  yield put(replace('/'));
+  yield put(replace('/login'));
 }

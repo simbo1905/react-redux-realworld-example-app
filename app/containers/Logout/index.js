@@ -18,7 +18,7 @@ export class Logout extends React.Component { // eslint-disable-line react/prefe
   render() {
     return (
       <div>
-        Logged out..
+        Logging out..
       </div>
     );
   }
