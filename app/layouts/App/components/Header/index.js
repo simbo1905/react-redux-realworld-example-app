@@ -1,3 +1,4 @@
+// eslint-disable
 import React, { Component } from 'react';
 import {
   Nav,
@@ -36,9 +37,6 @@ class Header extends Component {
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
         <NavbarBrand href="#"></NavbarBrand>
-        <NavbarToggler className="d-md-down-none mr-auto" onClick={this.sidebarToggle}>
-          <span className="navbar-toggler-icon"></span>
-        </NavbarToggler>
 
         <Nav className="d-md-down-none" navbar>
           <NavItem className="px-3">
