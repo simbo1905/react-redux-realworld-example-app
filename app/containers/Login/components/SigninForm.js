@@ -50,7 +50,8 @@ const SigninForm = ({ handleSubmit }) => {
 export default reduxForm({
   form: 'login',
   initialValues: {
-    id: 'e81d2ba0-2080-11e8-a48d-c9b184077023',
-    email: 'r.asmuswoelk@gmail.com',
+    id: 'b93adf40-310c-11e8-bd28-753fa082566f',
+    email: 'tom@petty.com',
+    password: '1234',
   },
 })(SigninForm);

@@ -3,20 +3,45 @@
  */
 
 import { createStore, applyMiddleware, compose } from 'redux';
-
-import { routerMiddleware } from 'react-router-redux';
-import formActionSaga from 'redux-form-saga';
-import createSagaMiddleware from 'redux-saga';
-import createReducer from './reducers';
-
+import { createLogger } from 'redux-logger';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
+import { routerMiddleware } from 'react-router-redux';
+import createSagaMiddleware from 'redux-saga';
+
+/**
+ * Import global sagas
+ */
+
+import formActionSaga from 'redux-form-saga';
+import authSaga from 'containers/AuthProvider/redux/saga';
+import profileSaga from 'containers/Profile/redux/saga';
+
+const sagas = [
+  formActionSaga,
+  authSaga,
+  profileSaga,
+];
+
+/**
+ * Import global reducers
+ */
+
+import createReducer from './reducers';
+
+
+const logger = createLogger({
+  collapsed: true,
+  duration: true,
+  diff: true,
+});
 
 const persistConfig = {
   key: 'uniqkey',
   storage,
   blacklist: ['auth', 'app'],
-}
+};
 
 const persistedReducer = persistReducer(persistConfig, createReducer);
 
@@ -27,6 +52,7 @@ export default function configureStore(initialState = {}, history) {
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
   const middlewares = [
+    logger,
     sagaMiddleware,
     routerMiddleware(history),
   ];
@@ -57,11 +83,16 @@ export default function configureStore(initialState = {}, history) {
 
   const persistor = persistStore(store);
 
-  // Extensions
-  sagaMiddleware.run(formActionSaga);
+  // Run sagas
+  sagas.forEach((saga) => {
+    sagaMiddleware.run(saga);
+  });
+
   store.runSaga = sagaMiddleware.run;
-  store.injectedReducers = {}; // Reducer registry
   store.injectedSagas = {}; // Saga registry
+
+  // Injected reducers
+  store.injectedReducers = {}; // Reducer registry
 
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */
