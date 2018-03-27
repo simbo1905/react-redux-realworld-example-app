@@ -1,8 +1,9 @@
-#UniqKey dashboard
+# UniqKey dashboard
 
 ## Installation
 ```
-  yarn install
+  1. Duplicate .env.example and rename to .env
+  2. yarn install
 ```
 
 ## Development
@@ -12,5 +13,6 @@
 
 ## Production
 ```
-  yarn build
+  1. yarn build
+  2. yarn start:prod
 ```
