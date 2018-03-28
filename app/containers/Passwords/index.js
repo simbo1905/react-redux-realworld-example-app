@@ -59,7 +59,7 @@ export class PagePasswords extends React.Component {
 
   toggleLarge = () => {
     this.setState({
-      large: !this.state.large
+      large: !this.state.large,
     });
   }
 
