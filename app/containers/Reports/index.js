@@ -1,7 +1,5 @@
 /**
- *
  * Reports
- *
  */
 
 
@@ -30,6 +28,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import withGuard from 'utils/withGuard';
 
 import mapImage from '../../../dummy-dash/public/img/map.png';
 
@@ -361,4 +360,5 @@ const withSaga = injectSaga({ key: 'reports', saga });
 export default compose(
   withSaga,
   withConnect,
+  withGuard,
 )(Reports);

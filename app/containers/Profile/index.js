@@ -1,7 +1,5 @@
 /**
- *
  * Profile
- *
  */
 
 import React from 'react';
@@ -11,6 +9,7 @@ import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose, bindActionCreators } from 'redux';
+import withGuard from 'utils/withGuard';
 
 import injectSaga from 'utils/injectSaga';
 import makeSelectProfile from './redux/selectors';
@@ -53,4 +52,5 @@ const withSaga = injectSaga({ key: 'profile', saga });
 export default compose(
   withSaga,
   withConnect,
+  withGuard,
 )(Profile);

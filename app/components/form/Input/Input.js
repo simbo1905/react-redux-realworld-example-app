@@ -5,28 +5,33 @@
  * but can be used as a standalone component as well
  */
 
-  import React from 'react';
-  import PropTypes from 'prop-types';
-  import { Input as BootstrapInput } from 'reactstrap';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Input as BootstrapInput } from 'reactstrap';
 
-  const propTypes = {
-    meta: PropTypes.object,
-    input: PropTypes.object.isRequired,
-    children: PropTypes.oneOfType([
-      PropTypes.array,
-      PropTypes.element,
-    ]),
-  };
+const propTypes = {
+  meta: PropTypes.object,
+  input: PropTypes.object.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.element,
+  ]),
+};
 
-  const Input = ({ meta, input, children, ...rest }) => (
-    <BootstrapInput
-      {...input}
-      {...rest}
-    >
-      {children}
-    </BootstrapInput>
-  );
+const Input = ({
+  meta,
+  input,
+  children,
+  ...rest
+}) => (
+  <BootstrapInput
+    {...input}
+    {...rest}
+  >
+    {children}
+  </BootstrapInput>
+);
 
-  Input.propTypes = propTypes;
+Input.propTypes = propTypes;
 
-  export default Input;
+export default Input;

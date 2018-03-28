@@ -28,8 +28,7 @@ const sagas = [
  * Import global reducers
  */
 
-import createReducer from './reducers';
-
+import createReducer from './reducers'; // eslint-disable-line
 
 const logger = createLogger({
   collapsed: true,

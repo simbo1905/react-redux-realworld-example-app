@@ -20,6 +20,4 @@ const makeSelectBilling = () => createSelector(
 );
 
 export default makeSelectBilling;
-export {
-  selectBillingDomain,
-};
+export { selectBillingDomain };

@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import withGuard from 'utils/withGuard';
 
 
 import {
@@ -256,4 +257,5 @@ const withSaga = injectSaga({ key: 'tools', saga });
 export default compose(
   withSaga,
   withConnect,
+  withGuard,
 )(Tools);

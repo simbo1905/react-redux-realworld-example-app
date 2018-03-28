@@ -92,6 +92,9 @@ function* handleLogOut() {
     console.log('Error while logging out', error.response); //eslint-disable-line
   }
 
+  // Remove token from local storage
+  Auth.removeToken();
+
   // Redirect to home
   yield put(replace('/login'));
 }

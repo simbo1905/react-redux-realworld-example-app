@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import withGuard from 'utils/withGuard';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
@@ -29,7 +30,6 @@ export class Dashboard extends Component {
 
   render() {
     const { name } = this.props.profile;
-    console.log('dashboard props', this.props);
     return (
       <div>
         <Helmet>
@@ -66,4 +66,4 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(withConnect)(Dashboard);
+export default compose(withConnect, withGuard)(Dashboard);

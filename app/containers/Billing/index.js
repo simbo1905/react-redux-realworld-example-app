@@ -1,7 +1,5 @@
 /**
- *
  * Billing
- *
  */
 
 import React from 'react';
@@ -10,6 +8,7 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import withGuard from 'utils/withGuard';
 
 import {
   Row,
@@ -181,4 +180,5 @@ const withSaga = injectSaga({ key: 'billing', saga });
 export default compose(
   withSaga,
   withConnect,
+  withGuard,
 )(Billing);
