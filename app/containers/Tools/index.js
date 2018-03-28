@@ -41,7 +41,7 @@ import makeSelectTools from './redux/selectors';
 import saga from './redux/saga';
 
 export class Tools extends React.Component {
-constructor(props) {
+  constructor(props) {
     super(props);
     this.toggleLarge = this.toggleLarge.bind(this);
     this.toggle = this.toggle.bind(this);
@@ -110,7 +110,7 @@ constructor(props) {
                     <div className="message table-hover">
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
-                          <img src={ipAvatar} className="img-avatar" alt="IP Address Range"/>
+                          <img src={ipAvatar} className="img-avatar" alt="IP Address Range" />
                         </div>
                       </div>
                       <div>
@@ -125,7 +125,7 @@ constructor(props) {
                     <div className="message table-hover">
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
-                          <img src={timeAvatar} className="img-avatar" alt="Time Based Range"/>
+                          <img src={timeAvatar} className="img-avatar" alt="Time Based Range" />
                         </div>
                       </div>
                       <div>
@@ -140,7 +140,7 @@ constructor(props) {
                     <div className="message table-hover">
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
-                          <img src={locationAvatar} className="img-avatar" alt="Geo Location Rule"/>
+                          <img src={locationAvatar} className="img-avatar" alt="Geo Location Rule" />
                         </div>
                       </div>
                       <div>
@@ -157,7 +157,7 @@ constructor(props) {
                     <div className="message table-hover">
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
-                          <img src={ipAvatar} className="img-avatar" alt="IP Address Range"/>
+                          <img src={ipAvatar} className="img-avatar" alt="IP Address Range" />
                         </div>
                       </div>
                       <div>
@@ -172,7 +172,7 @@ constructor(props) {
                     <div className="message table-hover">
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
-                          <img src={timeAvatar} className="img-avatar" alt="Time Based Range"/>
+                          <img src={timeAvatar} className="img-avatar" alt="Time Based Range" />
                         </div>
                       </div>
                       <div>
@@ -187,7 +187,7 @@ constructor(props) {
                     <div className="message table-hover">
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
-                          <img src={ipAvatar} className="img-avatar" alt="IP Address Range"/>
+                          <img src={ipAvatar} className="img-avatar" alt="IP Address Range" />
                         </div>
                       </div>
                       <div>
@@ -202,7 +202,7 @@ constructor(props) {
                     <div className="message table-hover">
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
-                          <img src={locationAvatar} className="img-avatar" alt="Geo Location Rule"/>
+                          <img src={locationAvatar} className="img-avatar" alt="Geo Location Rule" />
                         </div>
                       </div>
                       <div>
@@ -227,7 +227,7 @@ constructor(props) {
             *regular google maps. center of the map will be our coordinates for our geo-location rule.*
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggleLarge}>Rule it</Button>{' '}
+            <Button color="primary" onClick={this.toggleLarge}>Rule it</Button>
             <Button color="secondary" onClick={this.toggleLarge}>Cancel</Button>
           </ModalFooter>
         </Modal>
