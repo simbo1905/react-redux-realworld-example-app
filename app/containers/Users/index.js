@@ -86,10 +86,10 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
         <Card>
           <CardHeader>
             <Row>
-              <Col className="col-sm-8">
-                <Input className="col-md-12 mr-3 rounded" placeholder="User search.." />
+              <Col sm="8">
+                <Input sm="12" className="mr-3 rounded" placeholder="User search.." />
               </Col>
-              <Col className="col-sm-4 text-right align-self-center">
+              <Col sm="4" className="text-right align-self-center">
                 <Dropdown nav isOpen={this.state.dropdownOpen[0]} toggle={() => {this.toggle(0)}} className="float-right list-style-none">
                   <DropdownToggle nav caret>
                     <i className="icon-follow-user" /> Users
@@ -106,7 +106,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
           </CardHeader>
           <CardBody>
             <Row className="pb-3">
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="2" xxl="1" className="mb-3">
                 <div className="message table-hover">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -128,7 +128,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="2" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -141,13 +141,13 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   <div className="text-truncate font-weight-bold">Hanna Wichmann</div>
                   <small className="text-muted"><i className="icon-user" />  hannah@gmail.com
                   </small>
-                  <small className="text-muted"> <i className="icon-shield"></i> 87%
+                  <small className="text-muted"><i className="icon-shield"></i> 87%
                   </small>
-                  <small className="text-muted"> <i className="icon-lock"></i> 2
+                  <small className="text-muted"><i className="icon-lock"></i> 2
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4" xl="2" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -160,13 +160,13 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   <div className="text-truncate font-weight-bold">Elliot Alderson</div>
                   <small className="text-muted"><i className="icon-user" /> er2806@robot.org
                   </small>
-                  <small className="text-muted"> <i className="icon-shield"></i> 100%
+                  <small className="text-muted"><i className="icon-shield"></i> 100%
                   </small>
-                  <small className="text-muted"> <i className="icon-lock"></i> 99+
+                  <small className="text-muted"><i className="icon-lock"></i> 99+
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="2" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -181,9 +181,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   </small>
                 </div>
               </Col>
-            </Row>
-            <Row className="py-3">
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="2" xxl="1" className="mb-3">
                 <div className="success">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -198,7 +196,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6" md="6" lg="3" xl="2" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -213,7 +211,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6" md="6" lg="3" xl="2" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -228,7 +226,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6" md="6" lg="3" xl="2" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -240,10 +238,8 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                   </div>
                   <div className="text-truncate font-weight-bold">Matthew Adair</div>
                   <small className="text-muted"><i className="icon-user" />  matthew@adair-family.ad
-
                   </small>
                 </div>
-
               </Col>
             </Row>
           </CardBody>

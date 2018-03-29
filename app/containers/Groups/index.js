@@ -109,7 +109,7 @@ export class Groups extends PureComponent { // eslint-disable-line react/prefer-
           </CardHeader>
           <CardBody>
             <Row>
-              <Col xs="12" sm="6" md="4" lg="3" xl="2" xxl="1" className="mb-3">
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -144,9 +144,8 @@ export class Groups extends PureComponent { // eslint-disable-line react/prefer-
                     </div>
                   </div>
                 </div>
-
               </Col>
-              <Col xs="12" sm="6" md="4" lg="3" xl="2" xxl="1" className="mb-3">
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -157,19 +156,19 @@ export class Groups extends PureComponent { // eslint-disable-line react/prefer-
                     <small className="text-muted float-right mt-1">2 users</small>
                   </div>
                   <div className="text-truncate font-weight-bold">Accounting</div>
-                  <small className="text-muted"><div className="avatars-stack mt-2">
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar2} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <small className="text-muted">
+                    <div className="avatars-stack mt-2">
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar2} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar3} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
                     </div>
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar3} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                    </div>
-                  </div>
                   </small>
                 </div>
-
               </Col>
-              <Col xs="12" sm="6" md="4" lg="3" xl="2" xxl="1" className="mb-3">
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -180,45 +179,42 @@ export class Groups extends PureComponent { // eslint-disable-line react/prefer-
                     <small className="text-muted float-right mt-1">4 users</small>
                   </div>
                   <div className="text-truncate font-weight-bold">Administration</div>
-                  <small className="text-muted"><div className="avatars-stack mt-2">
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar2} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <small className="text-muted">
+                    <div className="avatars-stack mt-2">
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar2} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar3} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar4} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar5} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
                     </div>
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar3} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                    </div>
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar4} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                    </div>
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar5} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                    </div>
-                  </div>
                   </small>
                 </div>
-
               </Col>
-              <Col xs="12" sm="6" md="4" lg="3" xl="2" xxl="1" className="mb-3">
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={AvatarF} className="img-avatar" alt="Wordpress"/>
+                      <img src={AvatarF} className="img-avatar" alt="Freela" />
                     </div>
                   </div>
                   <div>
                     <small className="text-muted float-right mt-1"></small>
                   </div>
                   <div className="text-truncate font-weight-bold">Freelancers connected</div>
-
                 </div>
-
               </Col>
-
-              <Col xs="12" sm="6" md="4" lg="3" xl="2" xxl="1" className="mb-3">
+              <Col xs="12" sm="6"md="6" lg="4" xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={AvatarC} className="img-avatar" alt="Wordpress"/>
+                      <img src={AvatarC} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -249,33 +245,33 @@ export class Groups extends PureComponent { // eslint-disable-line react/prefer-
                     </div>
                   </div>
                 </div>
-
               </Col>
-              <Col xs="12" sm="6" md="4" lg="3" xl="2" xxl="1" className="mb-3">
+              <Col xs="12" sm="6"md="6" lg="4" xl="2" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={AvatarS} className="img-avatar" alt="Wordpress" />
+                      <img src={AvatarS} className="img-avatar" alt="Sales" />
                     </div>
                   </div>
                   <div>
                     <small className="text-muted float-right mt-1">4 users</small>
                   </div>
                   <div className="text-truncate font-weight-bold">Sales</div>
-                  <small className="text-muted"><div className="avatars-stack mt-2">
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar4} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <small className="text-muted">
+                    <div className="avatars-stack mt-2">
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar4} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar5} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar5} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
+                      <div className="avatar avatar-xs">
+                        <img src={Avatar7} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                      </div>
                     </div>
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar5} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                    </div>
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar5} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                    </div>
-                    <div className="avatar avatar-xs">
-                      <img src={Avatar7} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                    </div>
-                  </div>
                   </small>
                 </div>
 
@@ -296,13 +292,13 @@ export class Groups extends PureComponent { // eslint-disable-line react/prefer-
             <Row>
               <Col>
                 <Label className="col-md-3 mt-3">Company Name*</Label>
-                <input className={'col-md-8 my-3 py-1 rounded border-1'} required placeholder={'BigBizz Ltd.'}></input>
-                <Label className="col-md-3 mt-3 validate" type={'email'} required >Work E-mail Address*</Label>
-                <input className={'col-md-8 my-3 rounded'} required  placeholder={'@big.biz'}></input>
+                <Input className="col-md-8 my-3 py-1 rounded border-1" required placeholder="BigBizz Ltd." />
+                <Label className="col-md-3 mt-3 validate" type="email" required>Work E-mail Address*</Label>
+                <Input className="col-md-8 my-3 rounded" required placeholder="@big.biz" />
                 <Label className="col-md-3 mt-3">Company website*</Label>
-                <input className={'col-md-8 my-3 rounded'} required  placeholder={'www.'}></input>
+                <Input className="col-md-8 my-3 rounded" required placeholder="www." />
                 <Label className="col-md-3 mt-3">Promo code</Label>
-                <input className={'col-md-8 my-3 rounded'}   placeholder={'XXX XXX XXX'}></input>
+                <Input className="col-md-8 my-3 rounded" placeholder="XXX XXX XXX" />
               </Col>
             </Row>
           </ModalBody>

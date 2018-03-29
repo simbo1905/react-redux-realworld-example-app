@@ -100,7 +100,7 @@ export class PagePasswords extends React.Component {
           </CardHeader>
           <CardBody>
             <Row className="pb-3">
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message table-hover">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -117,7 +117,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -134,7 +134,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -151,7 +151,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -169,9 +169,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-            </Row>
-            <Row className="py-3">
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -188,7 +186,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -205,7 +203,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -237,9 +235,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-            </Row>
-            <Row className="py-3">
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -256,7 +252,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -273,7 +269,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -290,7 +286,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -307,9 +303,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-            </Row>
-            <Row className="py-3">
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -326,7 +320,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -341,7 +335,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -358,7 +352,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -375,9 +369,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-            </Row>
-            <Row className="py-3">
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
@@ -394,7 +386,7 @@ export class PagePasswords extends React.Component {
                   </small>
                 </div>
               </Col>
-              <Col>
+              <Col xs="12" sm="6"md="6" lg="4"xl="3" xxl="1" className="mb-3">
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
