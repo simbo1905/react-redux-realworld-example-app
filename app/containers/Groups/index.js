@@ -23,6 +23,7 @@ export class Groups extends PureComponent { // eslint-disable-line react/prefer-
           <title>Groups</title>
         </Helmet>
         <FormattedMessage {...messages.header} />
+
       </div>
     );
   }
