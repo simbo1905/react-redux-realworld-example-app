@@ -40,7 +40,6 @@ import Avatar6 from 'static/images/avatars/6.jpg';
 import Avatar7 from 'static/images/avatars/7.jpg';
 import Avatar8 from 'static/images/avatars/8.jpg';
 
-
 import injectSaga from 'utils/injectSaga';
 import makeSelectUsers from './redux/selectors';
 import saga from './redux/saga';
@@ -88,12 +87,12 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
           <CardHeader>
             <Row>
               <Col className="col-sm-8">
-                <Input className='col-md-12 mr-3 rounded' placeholder="User search.." />
+                <Input className="col-md-12 mr-3 rounded" placeholder="User search.." />
               </Col>
-              <Col className="col-sm-4 text-right">
+              <Col className="col-sm-4 text-right align-self-center">
                 <Dropdown nav isOpen={this.state.dropdownOpen[0]} toggle={() => {this.toggle(0)}} className="float-right list-style-none">
                   <DropdownToggle nav caret>
-                    <i className="icon-user" /> Users
+                    <i className="icon-follow-user" /> Users
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem header></DropdownItem>
@@ -106,12 +105,12 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
             </Row>
           </CardHeader>
           <CardBody>
-            <Row>
+            <Row className="pb-3">
               <Col>
                 <div className="message table-hover">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar1} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar1} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -133,7 +132,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar2} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar2} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -152,7 +151,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar3} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar3} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -171,7 +170,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar4} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar4} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -188,7 +187,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                 <div className="success">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar5} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar5} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -203,7 +202,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar6} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar6} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -218,7 +217,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar7} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar7} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>
@@ -233,7 +232,7 @@ export class Users extends React.Component { // eslint-disable-line react/prefer
                 <div className="message">
                   <div className="py-1 mr-3 float-left">
                     <div className="avatar">
-                      <img src={Avatar8} className="img-avatar" alt="Wordpress"/>
+                      <img src={Avatar8} className="img-avatar" alt="Wordpress" />
                     </div>
                   </div>
                   <div>

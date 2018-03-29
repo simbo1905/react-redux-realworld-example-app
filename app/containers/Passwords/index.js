@@ -85,7 +85,7 @@ export class PagePasswords extends React.Component {
               <Col className="col-sm-2 col-md-4 align-self-center">
                 <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} className="float-right list-style-none">
                   <DropdownToggle nav caret>
-                    <i className="icon-user-follow" />  Password
+                    <i className="icon-lock" />  Password
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem onClick={this.toggleLarge}>
@@ -99,7 +99,7 @@ export class PagePasswords extends React.Component {
             </Row>
           </CardHeader>
           <CardBody>
-            <Row className="py-3">
+            <Row className="pb-3">
               <Col>
                 <div className="message table-hover">
                   <div className="py-1 mr-3 float-left">
