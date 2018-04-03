@@ -20,6 +20,4 @@ const makeSelectReports = () => createSelector(
 );
 
 export default makeSelectReports;
-export {
-  selectReportsDomain,
-};
+export { selectReportsDomain };

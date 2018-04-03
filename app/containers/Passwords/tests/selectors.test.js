@@ -1,4 +1,4 @@
-// 
+//
 // import { selectPagePasswordsDomain } from '../selectors';
 
 describe('selectPagePasswordsDomain', () => {

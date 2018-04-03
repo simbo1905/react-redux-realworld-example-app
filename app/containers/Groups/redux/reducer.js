@@ -5,13 +5,11 @@
  */
 
 
-import {
-  DEFAULT_ACTION,
-} from './constants';
+import { DEFAULT_ACTION } from './constants';
 
 const initialState = {};
 
-function groups(state = initialState, action) {
+function groupsReducer(state = initialState, action) {
   switch (action.type) {
     case DEFAULT_ACTION:
       return state;
@@ -20,4 +18,4 @@ function groups(state = initialState, action) {
   }
 }
 
-export default groups;
+export default groupsReducer;

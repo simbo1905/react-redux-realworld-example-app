@@ -2,7 +2,7 @@
 import { defaultAction } from '../redux/actions';
 import { DEFAULT_ACTION } from '../redux/constants';
 
-describe('PageGroups actions', () => {
+describe('Qrauth actions', () => {
   describe('Default Action', () => {
     it('has a type of DEFAULT_ACTION', () => {
       const expected = {

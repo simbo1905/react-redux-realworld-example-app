@@ -4,8 +4,10 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import AuthProvider from 'containers/AuthProvider';
 import SigninForm from './components/SigninForm';
+
 
 class Login extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -16,6 +18,7 @@ class Login extends React.Component { // eslint-disable-line react/prefer-statel
         </Helmet>
         <div style={{ margin: 'auto', width: '300px' }}>
           <SigninForm />
+          <Link to="/qrauth" href="/qrauth" >QR auth</Link>
         </div>
       </div>
     );

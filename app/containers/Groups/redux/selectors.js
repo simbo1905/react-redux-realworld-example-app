@@ -20,6 +20,4 @@ const makeSelectGroups = () => createSelector(
 );
 
 export default makeSelectGroups;
-export {
-  selectGroupsDomain,
-};
+export { selectGroupsDomain };
