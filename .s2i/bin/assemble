@@ -7,6 +7,8 @@ rc=$?
 if [ $rc -eq 0 ]; then
     echo "After successful assembling running 'touch /opt/app-root/src/.env'"
     touch /opt/app-root/src/.env
+    echo "After successful assembling running 'npm run build:dll'"
+    npm run build:dll
 else
     echo "After failed assembling"
 fi
