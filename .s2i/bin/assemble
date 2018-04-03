@@ -1,6 +1,4 @@
 #!/bin/bash
-echo "Before assembling running 'touch /opt/app-root/src/.env'"
-touch /opt/app-root/src/.env
 
 echo "Running default /usr/libexec/s2i/assemble from ${PWD}"
 /usr/libexec/s2i/assemble

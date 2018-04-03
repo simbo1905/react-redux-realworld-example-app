@@ -10,6 +10,7 @@ if [[ -n "$SOURCE_REPOSITORY_REF" ]]; then
     -p SOURCE_REPOSITORY_REF=$SOURCE_REPOSITORY_REF \
     -p SCMSECRET=scmsecret2 \
   | oc create -f -	
+  cat .env.staging | xargs oc set env bc webapp 
 else
   echo "git status didn't resolve a git branch"
   exit 1
