@@ -22,8 +22,10 @@ import BaseLayout from 'layouts/Base';
  */
 
 import Login from 'containers/Login';
+import Logout from 'containers/Logout';
 import Dashboard from 'containers/Dashboard';
 import Users from 'containers/Users';
+import Home from 'containers/Home';
 import Passwords from 'containers/Passwords';
 import Groups from 'containers/Groups';
 import Profile from 'containers/Profile';
@@ -37,6 +39,8 @@ import PageNotFound from 'containers/PageNotFound';
  * Layout Route wrapper
  * Use this to wrap pages in different layouts
  */
+
+/* eslint-disable */
   const RouteWithWrapper = ({ WrapperComponent, component, ...rest }) => {
     const Component = component;
     return (
@@ -50,6 +54,8 @@ import PageNotFound from 'containers/PageNotFound';
       />
     );
   };
+/* eslint-enable */
+
 
 export default function App() {
   return (
@@ -61,7 +67,7 @@ export default function App() {
         <meta name="description" content="UniqKey - Stay safe" />
       </Helmet>
       <Switch>
-        <Redirect exact from="/" to="/dashboard" />
+        <Route from="/logout" component={Logout} />
         <RouteWithWrapper path="/login" WrapperComponent={BaseLayout} component={Login} />
         <RouteWithWrapper path="/dashboard" WrapperComponent={AppLayout} component={Dashboard} />
         <RouteWithWrapper path="/users" WrapperComponent={AppLayout} component={Users} />
@@ -72,6 +78,7 @@ export default function App() {
         <RouteWithWrapper path="/groups" WrapperComponent={AppLayout} component={Groups} />
         <RouteWithWrapper path="/billing" WrapperComponent={AppLayout} component={Billing} />
         <RouteWithWrapper path="/company" WrapperComponent={AppLayout} component={Company} />
+        <RouteWithWrapper exact path="/" WrapperComponent={BaseLayout} component={Home} />
         <RouteWithWrapper path="" WrapperComponent={BaseLayout} component={PageNotFound} />
         <RouteWithWrapper WrapperComponent={BaseLayout} component={PageNotFound} />
       </Switch>

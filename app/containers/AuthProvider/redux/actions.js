@@ -9,13 +9,14 @@ import {
   LOGIN_FAILED,
   LOGIN_SUCCESS,
   LOGIN_IN_PROGRESS,
+  LOGOUT_BEGIN,
 } from './constants';
 
 /**
  * Login
  */
 
-// Submit login form
+// Submit login form (redux-form action)
 export const submitLoginForm = createFormAction('login');
 
 // Login in progress
@@ -37,3 +38,7 @@ export const loginSuccess = () => ({
 /**
  * Log out
  */
+
+export const logOut = () => ({
+  type: LOGOUT_BEGIN,
+});

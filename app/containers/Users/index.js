@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import withGuard from 'utils/withGuard';
 
 import injectSaga from 'utils/injectSaga';
 import makeSelectUsers from './redux/selectors';
@@ -50,4 +51,5 @@ const withSaga = injectSaga({ key: 'users', saga });
 export default compose(
   withSaga,
   withConnect,
+  withGuard,
 )(Users);

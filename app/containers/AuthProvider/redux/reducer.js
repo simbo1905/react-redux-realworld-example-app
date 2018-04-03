@@ -9,10 +9,11 @@ import {
   LOGIN_IN_PROGRESS,
   LOGIN_FAILED,
   LOGIN_SUCCESS,
-  LOGIN_RESET,
+  AUTH_RESET,
 } from './constants';
 
 const initialState = {
+  // Log in
   login_in_progress: false,
   login_success: false,
   login_failed: false,
@@ -20,6 +21,9 @@ const initialState = {
 
 function authProviderReducer(state = initialState, action) {
   switch (action.type) {
+    /**
+     * Login
+     */
     case LOGIN_IN_PROGRESS:
       return {
         ...state,
@@ -37,13 +41,17 @@ function authProviderReducer(state = initialState, action) {
         login_in_progress: false,
         login_failed: true,
       };
-    case LOGIN_RESET:
+    case AUTH_RESET:
       return {
         ...state,
         login_failed: false,
         login_success: false,
         login_in_progress: false,
       };
+
+    /**
+     * Log out
+     */
     default:
       return state;
   }

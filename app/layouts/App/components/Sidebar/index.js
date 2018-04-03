@@ -1,16 +1,13 @@
+// eslint-disable
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import { Badge, Nav, NavItem, NavLink as RsNavLink } from 'reactstrap';
 import classNames from 'classnames';
 import nav from './_nav';
-import SidebarFooter from './components/SidebarFooter';
-import SidebarForm from './components/SidebarForm';
-import SidebarHeader from './components/SidebarHeader';
-import SidebarMinimizer from './components/SidebarMinimizer';
-import { FormattedMessage } from 'react-intl';
+import css from './Sidebar.scss';
 
 class Sidebar extends Component {
-
   constructor(props) {
     super(props);
 
@@ -43,7 +40,6 @@ class Sidebar extends Component {
 
 
   render() {
-
     const props = this.props;
 
     // badge addon to NavItem
@@ -143,16 +139,12 @@ class Sidebar extends Component {
 
     // sidebar-nav root
     return (
-      <div className="sidebar">
-        <SidebarHeader/>
-        <SidebarForm/>
+      <div className={classNames('sidebar', css.sidebar)}>
         <nav className="sidebar-nav">
           <Nav>
             {navList(nav.items)}
           </Nav>
         </nav>
-        <SidebarFooter/>
-        <SidebarMinimizer/>
       </div>
     )
   }

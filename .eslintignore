@@ -1,0 +1,7 @@
+[
+  "dummy-dash/*",
+  "build/*",
+  "node_modules/*",
+  "server/*",
+  "internals/*"
+]

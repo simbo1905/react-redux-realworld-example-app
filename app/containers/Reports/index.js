@@ -1,7 +1,5 @@
 /**
- *
  * Reports
- *
  */
 
 import React from 'react';
@@ -11,6 +9,7 @@ import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import withGuard from 'utils/withGuard';
 
 import injectSaga from 'utils/injectSaga';
 import makeSelectReports from './redux/selectors';
@@ -50,4 +49,5 @@ const withSaga = injectSaga({ key: 'reports', saga });
 export default compose(
   withSaga,
   withConnect,
+  withGuard,
 )(Reports);
