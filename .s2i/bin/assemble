@@ -1,11 +1,8 @@
 #!/bin/bash
 echo "Before assembling running 'touch /opt/app-root/src/.env'"
 touch /opt/app-root/src/.env
-echo "Before assembling assembling running 'npm run build:dll'"
-npm run build:dll
 
 echo "Running default /usr/libexec/s2i/assemble from ${PWD}"
-
 /usr/libexec/s2i/assemble
 rc=$?
 
@@ -14,5 +11,8 @@ if [ $rc -eq 0 ]; then
 else
     echo "After failed assembling"
 fi
+
+echo "After assembling running 'npm run build:dll'"
+npm run build:dll
 
 exit $?
