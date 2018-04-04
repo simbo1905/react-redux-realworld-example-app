@@ -16,12 +16,4 @@ else
   exit 1
 fi
 
-# need to await until the backed pod is up then run "php artisan migrate". get the pod name with:
-# oc get pods
-# when you see backend-xxx then run:
-# oc exec backend-xxx php artisan migrate
-
-# NUKE EVERYTHING WITH THE COMMAND BELOW
-# note this doesnt delete secrets - which is a good thing! - manually delete them from the webui resources section
-#oc get all |  awk '!/NAME/ {print $1}' | while read NAME ; do oc delete $NAME; done
 
