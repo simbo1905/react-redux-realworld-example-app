@@ -13,15 +13,12 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-export default class GroupForm extends React.Component {
+class GroupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
     };
-
-    // this.toggle = this.toggle.bind(this);
-    // this.show = this.show.bind(this);
   }
 
   toggle() {
@@ -43,26 +40,30 @@ export default class GroupForm extends React.Component {
 
   render() {
     const {
-      handleSubmit, pristine, submitting,
+      error, submitting, handleSubmit,
     } = this.props;
 
     return (
-      <Modal isOpen={this.state.modal} toggle={this.toggle}>
+      <Modal isOpen={this.state.modal} toggle={() => { this.toggle(); }}>
         <ModalHeader>Create new Group</ModalHeader>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <ModalBody>
             <Row>
               <Col>
+                {/*<div>submitting: {submitting}</div>*/}
+                {/*<div>error: {error && <strong>{error}</strong>} </div>*/}
+                <input type="hidden" name="id" />
+                <input type="hidden" name="organization_id" />
                 <Label className="col-md-3 mt-3">Group Name*</Label>
-                <Input id="name" className="col-md-12 my-3 py-1 rounded border-1" required placeholder="Group name"/>
-                <Label id="description" className="col-md-3 mt-3">Description</Label>
-                <Input type="textarea" className="col-md-12 rounded" style={{height: 200}}/>
+                <Input tag={Field} component="input" name="name" className="col-md-12 my-3 py-1 rounded border-1" required placeholder="Group name" />
+                <Label className="col-md-3 mt-3">Description</Label>
+                <Input tag={Field} component="textarea" name="description" className="col-md-12 rounded" style={{height: 200}} />
               </Col>
             </Row>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" type="submit" disabled={pristine || submitting}>Save</Button>
-            <Button color="secondary" onClick={this.hide}>Cancel</Button>
+            <Button color="primary" type="submit" disabled={submitting}>Save</Button>
+            <Button color="secondary" onClick={() => { this.hide(); }}>Cancel</Button>
           </ModalFooter>
         </form>
       </Modal>
@@ -72,16 +73,10 @@ export default class GroupForm extends React.Component {
 
 GroupForm.propTypes = {
   handleSubmit: PropTypes.func,
-  // toggle: PropTypes.func,
-  // show: PropTypes.func,
-  // hide: PropTypes.func,
-
-  pristine: PropTypes.bool,
   submitting: PropTypes.bool,
-  // isOpen: PropTypes.bool,
 };
 
-
-// export default reduxForm({
-//   form: 'group-form', // a unique identifier for this form
-// })(GroupForm);
+export default reduxForm({
+  form: 'group-form', // a unique identifier for this form
+  fields: ['id', 'organization_id', 'name', 'description'],
+})(GroupForm);

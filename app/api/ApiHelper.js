@@ -26,6 +26,9 @@ class ApiHelper {
     // Create instance
     const request = axios.create({
       baseURL: `${baseURL}/`,
+      validateStatus: (status) => {
+        return status < 500;
+      },
       // validateStatus: (status) => {
       //   if (status >= 400) {
       //     return false;
@@ -47,7 +50,7 @@ class ApiHelper {
 
           if (token) {
             axiosConfig.headers.common = {
-              Authorization: `Bearer ${token}`,
+              Authorization: token,
             };
           }
         }

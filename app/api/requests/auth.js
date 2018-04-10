@@ -87,4 +87,4 @@ export const qrRequest = (guid) => Api.request().post('/devices/token', guid)
       return response;
     }
     throw new Error(response);
-  }).catch((error) => error);
+  });

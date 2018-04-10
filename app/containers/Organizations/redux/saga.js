@@ -6,7 +6,7 @@ import {
 // Constants
 import {
   ORGANIZATIONS_LIST_REQUESTED,
-  ORGANIZATIONS_LIST_SUCCEDED,
+  ORGANIZATIONS_LIST_SUCCEEDED,
   ORGANIZATIONS_LIST_FAILED,
 } from './constants';
 
@@ -22,7 +22,7 @@ function* fetchOrganizations() {
   try {
     const response = yield call(fetchOrganizationsRequest);
     const organizations = response.data;
-    yield put({ type: ORGANIZATIONS_LIST_SUCCEDED, organizations });
+    yield put({ type: ORGANIZATIONS_LIST_SUCCEEDED, organizations });
   } catch (e) {
     yield put({ type: ORGANIZATIONS_LIST_FAILED, message: e.message });
   }

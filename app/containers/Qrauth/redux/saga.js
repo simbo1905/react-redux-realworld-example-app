@@ -43,6 +43,6 @@ function* handleQRCheck(action) {
 
     // If our request fails
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }

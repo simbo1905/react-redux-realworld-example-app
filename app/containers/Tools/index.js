@@ -36,7 +36,7 @@ import {
   ModalFooter,
 } from 'reactstrap';
 
-import PasswordGenerator from '../../../dummy-dash/src/components/PasswordGenerator/';
+// import PasswordGenerator from '../../../dummy-dash/src/components/PasswordGenerator/';
 
 import makeSelectTools from './redux/selectors';
 import saga from './redux/saga';
@@ -47,7 +47,7 @@ export class Tools extends React.Component {
     this.toggleLarge = this.toggleLarge.bind(this);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      dropdownOpen: [false, false]
+      dropdownOpen: [false, false],
     };
   }
   toggle(i) {
@@ -55,12 +55,12 @@ export class Tools extends React.Component {
       return (index === i ? !element : false);
     });
     this.setState({
-      dropdownOpen: newArray
+      dropdownOpen: newArray,
     });
   }
   toggleLarge() {
     this.setState({
-      large: !this.state.large
+      large: !this.state.large,
     });
   }
   // eslint-disable-line react/prefer-stateless-function
@@ -221,7 +221,7 @@ export class Tools extends React.Component {
             </Card>
           </Col>
         </Row>
-        <PasswordGenerator />
+        {/*<PasswordGenerator />*/}
         <Modal isOpen={this.state.large} toggle={this.toggleLarge} className={'modal-lg ' + this.props.className}>
           <ModalHeader toggle={this.toggleLarge}>Add Geo Location Rule</ModalHeader>
           <ModalBody>

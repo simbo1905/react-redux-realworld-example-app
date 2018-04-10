@@ -27,6 +27,7 @@ import passwordsReducer from 'containers/Passwords/redux/reducer';
 import billingReducer from 'containers/Billing/redux/reducer';
 import toolsReducer from 'containers/Tools/redux/reducer';
 import groupsReducer from 'containers/Groups/redux/reducer';
+import organizationsReducer from 'containers/Organizations/redux/reducer';
 
 /*
  * routeReducer
@@ -61,6 +62,7 @@ function routeReducer(state = routeInitialState, action) {
  */
 const rootReducer = combineReducers({
   groups: groupsReducer,
+  organizations: organizationsReducer,
   tools: toolsReducer,
   billing: billingReducer,
   reports: reportsReducer,

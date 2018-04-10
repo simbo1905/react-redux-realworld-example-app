@@ -48,7 +48,7 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
     const qrdata = {
       type: 'web',
       guid: this.guid,
-      public_key: null,
+      publicKey: 'this-is-public-key',
     };
     return (
       <div>
