@@ -112,7 +112,6 @@ class InfoForm extends React.Component {
     return (
       <Modal isOpen={this.state.modal} toggle={() => { this.toggle(); }} className="modal-lg">
         <ModalHeader toggle={() => { this.toggle(); }}>
-          {group.id}
           <strong>{group.name}</strong>
           <div>{group.description}</div>
         </ModalHeader>

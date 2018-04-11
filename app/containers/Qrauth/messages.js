@@ -7,7 +7,7 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   header: {
-    id: 'app.containers.Qrauth.header',
-    defaultMessage: 'This is Qrauth container !',
+    id: 'app.containers.qrauth.header',
+    defaultMessage: 'Auth by QR code',
   },
 });

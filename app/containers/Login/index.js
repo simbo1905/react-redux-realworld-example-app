@@ -10,6 +10,10 @@ import SigninForm from './components/SigninForm';
 
 
 class Login extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  componentWillMount() {
+    // fixme: temprorary
+    this.props.history.push('/qrauth');
+  }
   render() {
     return (
       <div style={{ height: '100vh', display: 'flex' }}>

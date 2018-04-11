@@ -27,7 +27,7 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
     this.guid = uuidv1();
     const intervalId = setInterval(() => {
       this.checkQRLogin();
-    }, 1000);
+    }, 2000);
     this.setState({ intervalId });
   }
 
@@ -54,7 +54,7 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
       <div>
         <div style={{ margin: 'auto', width: '300px' }}>
           <QRCode value={JSON.stringify(qrdata)} size="300" />
-          <div>{JSON.stringify(qrdata)}</div>
+          {/*<div>{JSON.stringify(qrdata)}</div>*/}
         </div>
         <FormattedMessage {...messages.header} />
       </div>
