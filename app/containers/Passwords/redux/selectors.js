@@ -20,6 +20,4 @@ const makeSelectPasswords = () => createSelector(
 );
 
 export default makeSelectPasswords;
-export {
-  selectPasswordsDomain,
-};
+export { selectPasswordsDomain };

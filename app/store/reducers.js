@@ -5,22 +5,21 @@
 import { combineReducers } from 'redux';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-
-const persistConfig = {
-  key: 'uniqkey',
-  storage,
-};
+// import storage from 'redux-persist/lib/storage';
+//
+// const persistConfig = {
+//   key: 'uniqkey',
+//   storage,
+// };
 
 /**
  * Import reducers
  */
-
 import { reducer as formReducer } from 'redux-form';
 import appReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import authProvderReducer from 'containers/AuthProvider/redux/reducer';
+import qrauthReducer from 'containers/Qrauth/redux/reducer';
 import profileReducer from 'containers/Profile/redux/reducer';
 import usersReducer from 'containers/Users/redux/reducer';
 import reportsReducer from 'containers/Reports/redux/reducer';
@@ -28,6 +27,7 @@ import passwordsReducer from 'containers/Passwords/redux/reducer';
 import billingReducer from 'containers/Billing/redux/reducer';
 import toolsReducer from 'containers/Tools/redux/reducer';
 import groupsReducer from 'containers/Groups/redux/reducer';
+import organizationsReducer from 'containers/Organizations/redux/reducer';
 
 /*
  * routeReducer
@@ -62,18 +62,20 @@ function routeReducer(state = routeInitialState, action) {
  */
 const rootReducer = combineReducers({
   groups: groupsReducer,
+  organizations: organizationsReducer,
   tools: toolsReducer,
   billing: billingReducer,
   reports: reportsReducer,
   passwords: passwordsReducer,
   users: usersReducer,
   auth: authProvderReducer,
+  qrauth: qrauthReducer,
   profile: profileReducer,
   form: formReducer,
   route: routeReducer,
   app: appReducer,
   language: languageProviderReducer,
   // ...injectedReducers,
-})
+});
 
 export default rootReducer;

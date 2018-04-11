@@ -1,4 +1,4 @@
-// 
+//
 // import { selectPageReportsDomain } from '../selectors';
 
 describe('selectPageReportsDomain', () => {

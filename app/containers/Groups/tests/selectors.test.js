@@ -1,4 +1,3 @@
-// 
 // import { selectPageGroupsDomain } from '../selectors';
 
 describe('selectPageGroupsDomain', () => {

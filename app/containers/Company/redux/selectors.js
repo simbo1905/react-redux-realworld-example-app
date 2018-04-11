@@ -20,6 +20,4 @@ const makeSelectCompany = () => createSelector(
 );
 
 export default makeSelectCompany;
-export {
-  selectCompanyDomain,
-};
+export { selectCompanyDomain };
