@@ -163,7 +163,7 @@ export class Groups extends React.Component {
                     </div>
                     <div className="avatars-stack mt-2">
                       {group.users.map((user) =>
-                      <div className="avatar avatar-s">
+                      <div key={user.id} className="avatar avatar-s">
                         <img src={Avatar2} className="img-avatar" title={user.name + ' [' + user.email + ']'} />
                       </div>
                       )}
