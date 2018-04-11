@@ -1,10 +1,6 @@
 
-import {
-  defaultAction,
-} from '../actions';
-import {
-  DEFAULT_ACTION,
-} from '../constants';
+import { defaultAction } from '../redux/actions';
+import { DEFAULT_ACTION } from '../redux/constants';
 
 describe('PageGroups actions', () => {
   describe('Default Action', () => {

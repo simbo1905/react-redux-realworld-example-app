@@ -1,4 +1,4 @@
-// 
+//
 // import { selectPageBillingDomain } from '../selectors';
 
 describe('selectPageBillingDomain', () => {

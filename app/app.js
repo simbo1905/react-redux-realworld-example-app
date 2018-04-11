@@ -74,7 +74,7 @@ const render = (messages) => {
       <PersistGate loading={null} persistor={persistor}>
         <LanguageProvider messages={messages}>
           <ConnectedRouter history={history}>
-              <App />
+            <App />
           </ConnectedRouter>
         </LanguageProvider>
       </PersistGate>

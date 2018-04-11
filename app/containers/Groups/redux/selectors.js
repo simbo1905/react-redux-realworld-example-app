@@ -4,6 +4,7 @@ import { createSelector } from 'reselect';
  * Direct selector to the Groups state domain
  */
 const selectGroupsDomain = (state) => state.groups;
+const selectOrganizationsDomain = (state) => state.organizations;
 
 /**
  * Other specific selectors
@@ -19,7 +20,13 @@ const makeSelectGroups = () => createSelector(
   (substate) => substate
 );
 
-export default makeSelectGroups;
+const makeSelectOrganizations = () => createSelector(
+  selectOrganizationsDomain,
+  (substate) => substate
+);
+
 export {
   selectGroupsDomain,
+  makeSelectGroups,
+  makeSelectOrganizations,
 };

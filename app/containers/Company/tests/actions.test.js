@@ -1,10 +1,6 @@
 
-import {
-  defaultAction,
-} from '../actions';
-import {
-  DEFAULT_ACTION,
-} from '../constants';
+import { defaultAction } from '../actions';
+import { DEFAULT_ACTION } from '../constants';
 
 describe('PageCompany actions', () => {
   describe('Default Action', () => {

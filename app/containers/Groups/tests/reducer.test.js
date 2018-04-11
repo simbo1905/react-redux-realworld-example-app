@@ -1,9 +1,9 @@
 
 
-import pageGroupsReducer from '../reducer';
+import groupsReducer from '../redux/reducer';
 
 describe('pageGroupsReducer', () => {
   it('returns the initial state', () => {
-    expect(pageGroupsReducer(undefined, {})).toEqual({});
+    expect(groupsReducer(undefined, {})).toEqual({});
   });
 });
