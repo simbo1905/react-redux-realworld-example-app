@@ -43,11 +43,11 @@ class InfoForm extends React.Component {
       modal: !this.state.modal,
     });
   }
-  show() {
+  show(groupId) {
     this.setState({
       modal: true,
     });
-    this.fetchAttachedList();
+    this.fetchAttachedList(groupId);
   }
   hide() {
     this.setState({
@@ -58,15 +58,15 @@ class InfoForm extends React.Component {
     this.setState({email: event.target.value});
   }
 
-  fetchAttachedList() {
+  fetchAttachedList(groupId) {
     const {
       group,
     } = this.props;
 
     console.log('fetchAttachedList');
-    console.log(this.props);
+    console.log(groupId || group.id);
     this.setState( {users: []});
-    return attachedUsersRequest(group.id)
+    return attachedUsersRequest(groupId || group.id)
       .then((response) => {
         this.setState( {users: response.data});
       });
