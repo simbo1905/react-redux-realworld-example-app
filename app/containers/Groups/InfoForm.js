@@ -25,6 +25,8 @@ import {
 class InfoForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log('InfoForm construct');
+    console.log(props);
     this.state = {
       modal: false,
       email: '',
@@ -60,6 +62,9 @@ class InfoForm extends React.Component {
     const {
       group,
     } = this.props;
+
+    console.log('fetchAttachedList');
+    console.log(this.props);
     this.setState( {users: []});
     return attachedUsersRequest(group.id)
       .then((response) => {
@@ -71,6 +76,9 @@ class InfoForm extends React.Component {
     const {
       group,
     } = this.props;
+
+    console.log('inviteUser');
+    console.log(this.props);
     return inviteUserRequest(group.id, this.state.email)
       .then((response) => {
         if (response.status === 201) {
@@ -108,6 +116,10 @@ class InfoForm extends React.Component {
     const {
       group,
     } = this.props;
+
+    if (! this.state.modal) {
+      return '';
+    }
 
     return (
       <Modal isOpen={this.state.modal} toggle={() => { this.toggle(); }} className="modal-lg">
