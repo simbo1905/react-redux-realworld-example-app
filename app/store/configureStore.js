@@ -37,7 +37,7 @@ const logger = createLogger({
 });
 
 const persistConfig = {
-  key: 'uniqkey-v1',
+  key: 'uniqkey-v2',
   storage,
   blacklist: ['auth', 'app'],
 };

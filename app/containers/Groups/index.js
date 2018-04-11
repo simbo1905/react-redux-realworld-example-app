@@ -87,7 +87,7 @@ export class Groups extends React.Component {
   showGroupInfo(index) {
     this.props.groups.current = this.props.groups.list[index];
     console.log(this.infoForm.wrappedInstance.props);
-    this.infoForm.wrappedInstance.show(this.props.groups.current.id);
+    this.infoForm.wrappedInstance.show(this.props.groups.current);
   }
 
   onSubmit = (values) => {

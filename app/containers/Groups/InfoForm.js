@@ -28,6 +28,7 @@ class InfoForm extends React.Component {
     console.log('InfoForm construct');
     console.log(props);
     this.state = {
+      group: {},
       modal: false,
       email: '',
       inviteError: '',
@@ -36,6 +37,7 @@ class InfoForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.inviteUser = this.inviteUser.bind(this);
     this.fetchAttachedList = this.fetchAttachedList.bind(this);
+    this.show = this.show.bind(this);
   }
 
   toggle() {
@@ -43,11 +45,15 @@ class InfoForm extends React.Component {
       modal: !this.state.modal,
     });
   }
-  show(groupId) {
+  show(group) {
     this.setState({
       modal: true,
     });
-    this.fetchAttachedList(groupId);
+    this.group = group;
+    console.log('show');
+    console.log(group);
+    console.log(this.group);
+    this.fetchAttachedList();
   }
   hide() {
     this.setState({
@@ -58,27 +64,28 @@ class InfoForm extends React.Component {
     this.setState({email: event.target.value});
   }
 
-  fetchAttachedList(groupId) {
-    const {
-      group,
-    } = this.props;
+  fetchAttachedList() {
+    // const {
+    //   group,
+    // } = this.state;
+    const group = this.group;
 
     console.log('fetchAttachedList');
-    console.log(groupId || group.id);
+    console.log(this.state);
     this.setState( {users: []});
-    return attachedUsersRequest(groupId || group.id)
+    return attachedUsersRequest(group.id)
       .then((response) => {
         this.setState( {users: response.data});
       });
   };
 
   inviteUser() {
-    const {
-      group,
-    } = this.props;
+    // const {
+    //   group,
+    // } = this.state;
+    const group = this.group;
 
     console.log('inviteUser');
-    console.log(this.props);
     return inviteUserRequest(group.id, this.state.email)
       .then((response) => {
         if (response.status === 201) {
@@ -95,9 +102,10 @@ class InfoForm extends React.Component {
   }
 
   detachUser(userId) {
-    const {
-      group,
-    } = this.props;
+    // const {
+    //   group,
+    // } = this.state;
+    const group = this.group;
     return detachUserRequest(group.id, userId)
       .then((response) => {
         if (response.status === 200) {
@@ -113,9 +121,10 @@ class InfoForm extends React.Component {
   }
 
   render() {
-    const {
-      group,
-    } = this.props;
+    // const {
+    //   group,
+    // } = this.state;
+    const group = this.group;
 
     if (! this.state.modal) {
       return '';
