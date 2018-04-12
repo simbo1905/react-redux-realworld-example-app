@@ -11,6 +11,9 @@
 
   "app.auth.logout": "Log out",
 
+  "app.login.qrauth.title": "Scan the QR code <br/>using your UniqKey-app",
+  "app.login.qrauth.sub": "This allows you to safely sign in to your account. Once you scan the QR code you will be redirected to your dashboard.",
+
   "app.sidebar.dividers.settings": "Settings",
   "app.sidebar.dividers.items": "Items"
 }

@@ -176,7 +176,7 @@ export class Groups extends React.Component {
         </Card>
 
         <GroupForm value="const" onSubmit={this.onSubmit} ref={(ref) => { this.groupForm = ref; }} />
-        <InfoForm group={groups.current} ref={(ref) => { this.infoForm = ref; }} />
+        <InfoForm {...this.props} ref={(ref) => { this.infoForm = ref; }} />
 
       </div>
     );

@@ -39,7 +39,7 @@ const logger = createLogger({
 const persistConfig = {
   key: 'uniqkey-v2',
   storage,
-  blacklist: ['auth', 'app'],
+  blacklist: ['auth', 'app', 'organizations', 'groups'],
 };
 
 const persistedReducer = persistReducer(persistConfig, createReducer);
