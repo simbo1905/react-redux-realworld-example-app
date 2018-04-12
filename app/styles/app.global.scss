@@ -1,0 +1,22 @@
+  body {
+    font-family: 'Lato', 'Helvetica', 'Arial';
+  }
+
+  // Override Boostrap variables
+  @import "bootstrap-variables";
+
+  // Icons
+  $simple-line-font-path: "../../node_modules/simple-line-icons/fonts/";
+  @import "node_modules/simple-line-icons/scss/simple-line-icons";
+
+  // Import Bootstrap source files
+  @import "node_modules/bootstrap/scss/bootstrap";
+
+  // Override core variables
+  @import "core-variables";
+
+  // Import core styles
+  @import "core/core";
+
+  // Custom styles
+  @import "custom";

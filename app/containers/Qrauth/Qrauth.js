@@ -18,7 +18,7 @@ import messages from './messages';
 
 import { CHECK_QR_TOKEN } from './redux/constants';
 
-import css from './Qrauth.css';
+import css from './Qrauth.scss';
 
 const QRCode = require('qrcode.react');
 const uuidv1 = require('uuid/v1');
@@ -53,7 +53,7 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
       publicKey: 'this-is-public-key',
     };
     return (
-      <div clasName={css.wrapper}>
+      <div className={css.myCustomWrapper}>
           <QRCode value={JSON.stringify(qrdata)} size="300" />
       </div>
     );
