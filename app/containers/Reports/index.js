@@ -36,7 +36,6 @@ import makeSelectReports from './redux/selectors';
 import saga from './redux/saga';
 
 export class Reports extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
   constructor(props) {
     super(props);
     this.state = {
@@ -50,13 +49,13 @@ export class Reports extends React.Component { // eslint-disable-line react/pref
 
   toggleLarge() {
     this.setState({
-      large: !this.state.large
+      large: !this.state.large,
     });
   }
 
   toggleDanger() {
     this.setState({
-      danger: !this.state.danger
+      danger: !this.state.danger,
     });
   }
 
@@ -278,14 +277,16 @@ export class Reports extends React.Component { // eslint-disable-line react/pref
           </Col>
         </Row>
 
-        <Modal isOpen={this.state.large} toggle={this.toggleLarge} className={'modal-lg' + this.props.className}>
+        <Modal isOpen={this.state.large} toggle={this.toggleLarge}>
           <ModalHeader toggle={this.toggleLarge}>Wordpress login request granted by @johnny</ModalHeader>
           <ModalBody>
             <Table size="sm">
               <tbody>
                 <tr>
                   <th>Service:</th>
-                  <th><a href="#">Wordpress</a></th>
+                  <th>
+                    <a href="#">Wordpress</a>
+                  </th>
                 </tr>
                 <tr>
                   <th>Request:</th>
@@ -293,11 +294,14 @@ export class Reports extends React.Component { // eslint-disable-line react/pref
                 </tr>
                 <tr>
                   <th>User:</th>
-                  <th>@johnny <small onClick={this.toggleDanger}>(revoke access to Wordpress)</small></th>
+                  <th>
+                    @johnny
+                    <small onClick={this.toggleDanger}>(revoke access to Wordpress)</small>
+                  </th>
                 </tr>
                 <tr>
                   <th>Approved from:</th>
-                  <th>Android device (MAC: 34:EI:82:B2:H5) <small onClick={this.toggleDanger}>(Blacklist device)</small></th>
+                  <th>Android device (MAC: 34:EI:82:B2:H5) <button onClick={this.toggleDanger}>(Blacklist device)</button></th>
                 </tr>
                 <tr>
                   <th>Status:</th>

@@ -2,6 +2,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 // const OfflinePlugin = require('offline-plugin');
 
 module.exports = require('./webpack.base.babel')({
@@ -12,11 +14,12 @@ module.exports = require('./webpack.base.babel')({
 
   // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
+    filename: 'app.[chunkhash].js',
+    chunkFilename: 'app.[chunkhash].chunk.js',
   },
 
   plugins: [
+    // new ExtractTextPlugin('app.[chunkhash].css'),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
