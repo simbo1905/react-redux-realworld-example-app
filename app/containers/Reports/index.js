@@ -30,7 +30,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import withGuard from 'utils/withGuard';
 
-import mapImage from '../../../dummy-dash/public/img/map.png';
+// import mapImage from '../../../dummy-dash/public/img/map.png';
 
 import makeSelectReports from './redux/selectors';
 import saga from './redux/saga';
@@ -317,7 +317,7 @@ export class Reports extends React.Component { // eslint-disable-line react/pref
                 </tr>
               </tbody>
             </Table>
-            <img src={mapImage} alt="should be a embedded google map" className="col-md-12"></img>
+            {/*<img src={mapImage} alt="should be a embedded google map" className="col-md-12"></img>*/}
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggleLarge}>Do Something</Button>{' '}
