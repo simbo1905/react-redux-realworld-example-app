@@ -20,6 +20,4 @@ const makeSelectTools = () => createSelector(
 );
 
 export default makeSelectTools;
-export {
-  selectToolsDomain,
-};
+export { selectToolsDomain };

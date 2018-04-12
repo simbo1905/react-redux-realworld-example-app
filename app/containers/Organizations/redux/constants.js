@@ -1,0 +1,11 @@
+/*
+ *
+ * Organizations constants
+ *
+ */
+
+export const ORGANIZATIONS_LIST_REQUESTED = 'app/Organizations/ORGANIZATIONS_LIST_REQUESTED';
+export const ORGANIZATIONS_LIST_SUCCEEDED = 'app/Organizations/ORGANIZATIONS_LIST_SUCCEEDED';
+export const ORGANIZATIONS_LIST_FAILED = 'app/Organizations/ORGANIZATIONS_LIST_FAILED';
+export const ORGANIZATIONS_CURRENT_CHANGED = 'app/Organizations/ORGANIZATIONS_CURRENT_CHANGED';
+

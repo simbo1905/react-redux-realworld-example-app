@@ -26,6 +26,9 @@ class ApiHelper {
     // Create instance
     const request = axios.create({
       baseURL: `${baseURL}/`,
+      validateStatus: (status) => {
+        return status < 500;
+      },
       // validateStatus: (status) => {
       //   if (status >= 400) {
       //     return false;
@@ -36,24 +39,25 @@ class ApiHelper {
     });
 
     // Request interceptor
-    request.interceptors.request.use((axiosConfig) => {
+    request.interceptors.request.use(
+      (axiosConfig) => {
       // Add auth token before request
       // We get this token directly from localStorage
       // which is based on our redux-store
 
-      if (this.shouldAttachToken) {
-        const token = Auth.getToken();
+        if (this.shouldAttachToken) {
+          const token = Auth.getToken();
 
-        if (token) {
-          axiosConfig.headers.common = {
-            Authorization: `Bearer ${token}`,
-          };
+          if (token) {
+            axiosConfig.headers.common = {
+              Authorization: token,
+            };
+          }
         }
-      }
 
-      return axiosConfig;
-    },
-    (error) => Promise.reject(error)
+        return axiosConfig;
+      },
+      (error) => Promise.reject(error)
     );
 
     // Response interceptor

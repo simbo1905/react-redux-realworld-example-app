@@ -20,6 +20,4 @@ const makeSelectUsers = () => createSelector(
 );
 
 export default makeSelectUsers;
-export {
-  makeSelectUsers,
-};
+export { makeSelectUsers };

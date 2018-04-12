@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 /**
  * Layouts
@@ -22,6 +22,7 @@ import BaseLayout from 'layouts/Base';
  */
 
 import Login from 'containers/Login';
+import Qrauth from 'containers/Qrauth';
 import Logout from 'containers/Logout';
 import Dashboard from 'containers/Dashboard';
 import Users from 'containers/Users';
@@ -69,6 +70,7 @@ export default function App() {
       <Switch>
         <Route from="/logout" component={Logout} />
         <RouteWithWrapper path="/login" WrapperComponent={BaseLayout} component={Login} />
+        <RouteWithWrapper path="/qrauth" WrapperComponent={BaseLayout} component={Qrauth} />
         <RouteWithWrapper path="/dashboard" WrapperComponent={AppLayout} component={Dashboard} />
         <RouteWithWrapper path="/users" WrapperComponent={AppLayout} component={Users} />
         <RouteWithWrapper path="/passwords" WrapperComponent={AppLayout} component={Passwords} />

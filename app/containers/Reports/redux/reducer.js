@@ -5,9 +5,7 @@
  */
 
 
-import {
-  DEFAULT_ACTION,
-} from './constants';
+import { DEFAULT_ACTION } from './constants';
 
 const initialState = {};
 
