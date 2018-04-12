@@ -18,7 +18,7 @@ import Avatar2 from 'static/images/avatars/2.jpg';
 import {
   attachedUsersRequest,
   inviteUserRequest,
-  detachUserRequest
+  detachUserRequest,
 } from '../../api/requests/groups';
 
 
@@ -53,31 +53,37 @@ class InfoForm extends React.Component {
     });
   }
   handleChange(event) {
-    this.setState({email: event.target.value});
+    this.setState({ email: event.target.value });
   }
 
   fetchAttachedList() {
     const {
-      group,
+      groups,
     } = this.props;
-    this.setState( {users: []});
+    const group = groups.current;
+
+    console.log('fetchAttachedList');
+    this.setState({ users: [] });
     return attachedUsersRequest(group.id)
       .then((response) => {
-        this.setState( {users: response.data});
+        this.setState({ users: response.data });
       });
-  };
+  }
 
   inviteUser() {
     const {
-      group,
+      groups,
     } = this.props;
+    const group = groups.current;
+
+    console.log('inviteUser');
     return inviteUserRequest(group.id, this.state.email)
       .then((response) => {
         if (response.status === 201) {
-          this.setState( {inviteError: '', email: ''});
+          this.setState({ inviteError: '', email: '' });
           this.fetchAttachedList();
         } else {
-          this.setState({inviteError: response.data.message || response.statusText});
+          this.setState({ inviteError: response.data.message || response.statusText });
         }
       })
       .catch((error) => {
@@ -88,14 +94,16 @@ class InfoForm extends React.Component {
 
   detachUser(userId) {
     const {
-      group,
+      groups,
     } = this.props;
+    const group = groups.current;
+
     return detachUserRequest(group.id, userId)
       .then((response) => {
         if (response.status === 200) {
           this.fetchAttachedList();
         } else {
-          this.setState({inviteError: response.data.message || response.statusText});
+          this.setState({ inviteError: response.data.message || response.statusText });
         }
       })
       .catch((error) => {
@@ -106,8 +114,13 @@ class InfoForm extends React.Component {
 
   render() {
     const {
-      group,
+      groups,
     } = this.props;
+    const group = groups.current;
+
+    if (!this.state.modal) {
+      return '';
+    }
 
     return (
       <Modal isOpen={this.state.modal} toggle={() => { this.toggle(); }} className="modal-lg">
@@ -123,8 +136,8 @@ class InfoForm extends React.Component {
             <Col sm="10">
               <Row>
                 {this.state.users.map((user) =>
-                  <Col key={user.id} sm={4} className="mb-3">
-                    <div className="message table-hover" onClick={() => { if (window.confirm('Detach this user?')) this.detachUser(user.id); }} style={{cursor: 'pointer'}}>
+                  (<Col key={user.id} sm={4} className="mb-3">
+                    <div className="message table-hover" onClick={() => { if (window.confirm('Detach this user?')) this.detachUser(user.id); }} style={{ cursor: 'pointer' }}>
                       <div className="py-1 mr-3 float-left">
                         <div className="avatar">
                           <img src={Avatar2} className="img-avatar" alt={user.name} />
@@ -137,15 +150,14 @@ class InfoForm extends React.Component {
                       <small className="text-muted">
                         <i className="icon-user" /> {user.email}
                       </small>
-                      {/*<small className="text-muted">*/}
-                        {/*<i className="icon-shield" /> 92%*/}
-                      {/*</small>*/}
-                      {/*<small className="text-muted">*/}
-                        {/*<i className="icon-lock" /> 5*/}
-                      {/*</small>*/}
+                      {/* <small className="text-muted"> */}
+                      {/* <i className="icon-shield" /> 92% */}
+                      {/* </small> */}
+                      {/* <small className="text-muted"> */}
+                      {/* <i className="icon-lock" /> 5 */}
+                      {/* </small> */}
                     </div>
-                  </Col>
-                )}
+                   </Col>))}
               </Row>
             </Col>
           </Row>
@@ -163,8 +175,8 @@ class InfoForm extends React.Component {
           </Row>
         </ModalBody>
         <ModalFooter>
-          {/*<Button color="primary" type="submit" >Edit Users</Button>*/}
-          {/*<Button color="warning" onClick={() => { this.hide(); }}>Delete Group</Button>*/}
+          {/* <Button color="primary" type="submit" >Edit Users</Button> */}
+          {/* <Button color="warning" onClick={() => { this.hide(); }}>Delete Group</Button> */}
           <Button color="secondary" onClick={() => { this.hide(); }}>Close</Button>
         </ModalFooter>
       </Modal>
@@ -173,7 +185,7 @@ class InfoForm extends React.Component {
 }
 
 InfoForm.propTypes = {
-  group: PropTypes.object,
+  groups: PropTypes.object,
   submitting: PropTypes.bool,
 };
 

@@ -317,7 +317,7 @@ export class Reports extends React.Component { // eslint-disable-line react/pref
                 </tr>
               </tbody>
             </Table>
-            <img src={mapImage} alt="should be a embedded google map" className="col-md-12"></img>
+            {/*<img src={mapImage} alt="should be a embedded google map" className="col-md-12"></img>*/}
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggleLarge}>Do Something</Button>{' '}
