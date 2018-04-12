@@ -6,8 +6,12 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  header: {
-    id: 'app.containers.qrauth.header',
-    defaultMessage: 'Auth by QR code',
+  title: {
+    id: 'app.login.qrauth.title',
+    defaultMessage: 'Scan the QR code <br/>using your UniqKey-app',
+  },
+  sub: {
+    id: 'app.login.qrauth.sub',
+    defaultMessage: 'This allows you to safely sign in to your account. Once you scan the QR code you will be redirected to your dashboard.',
   },
 });

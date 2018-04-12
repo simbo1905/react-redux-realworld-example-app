@@ -5,6 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const DotenvPlugin = require('webpack-dotenv-plugin');
+const autoprefixer = require('autoprefixer');
 require('dotenv').config();
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
@@ -16,7 +17,7 @@ process.noDeprecation = true;
 module.exports = (options) => ({
   entry: options.entry,
   output: Object.assign({ // Compile into js/build.js
-    path: path.resolve(process.cwd(), 'build'),
+    path: path.resolve(process.cwd(), 'public'),
     publicPath: '/',
   }, options.output), // Merge with env dependent settings
   module: {
@@ -30,31 +31,107 @@ module.exports = (options) => ({
         },
       },
       {
-        test: /\.scss$/,
-        use: [{
-          loader: 'style-loader', // creates style nodes from JS strings
-        }, {
-          loader: 'css-loader', // translates CSS into CommonJS
-        }, {
-          loader: 'sass-loader', // compiles Sass to CSS
-        }],
-      },
-      {
-        // Preprocess our own .css files
-        // This is the place to add your own loaders (e.g. sass/less etc.)
-        // for a list of loaders, see https://webpack.js.org/loaders/#styling
-        test: /\.css$/,
-        exclude: /node_modules/,
+        test: /\.global\.scss$/,
         use: [
-          'style-loader',
+          require.resolve('style-loader'),
           {
-            loader: 'css-loader',
+            loader: require.resolve('css-loader'),
             options: {
-              modules: true,
+              importLoaders: 2,
             },
+          },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              // Necessary for external CSS imports to work
+              // https://github.com/facebookincubator/create-react-app/issues/2677
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'), // eslint-disable-line
+                autoprefixer({
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie < 9', // React doesn't support IE8 anyway
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
+          },
+          {
+            loader: require.resolve('sass-loader'),
           },
         ],
       },
+      {
+        test: /\.scss$/,
+        exclude: /\.global\.scss$/,
+        use: [
+          require.resolve('style-loader'),
+          {
+            loader: require.resolve('css-loader'),
+            options: {
+              importLoaders: 2,
+              modules: true,
+            },
+          },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              // Necessary for external CSS imports to work
+              // https://github.com/facebookincubator/create-react-app/issues/2677
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'), // eslint-disable-line
+                autoprefixer({
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie < 9', // React doesn't support IE8 anyway
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
+          },
+          {
+            loader: require.resolve('sass-loader'),
+          },
+        ],
+      },
+      // {
+      //   test: /\.scss$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: 'style-loader', // creates style nodes from JS strings
+      //     use: [
+      //       {
+      //         // loader: 'css-loader', // translates CSS into CommonJS
+      //         loader: 'css-loader?modules&importLoader=1&sourceMap&localIdentName=[name]__[local]___[hash:base64:5]', // translates CSS into CommonJS
+      //       }, {
+      //         loader: 'sass-loader', // compiles Sass to CSS
+      //       },
+      //     ],
+      //   }),
+      // },
+      // {
+      //   // Preprocess our own .css files
+      //   // This is the place to add your own loaders (e.g. sass/less etc.)
+      //   // for a list of loaders, see https://webpack.js.org/loaders/#styling
+      //   test: /\.css$/,
+      //   exclude: /node_modules/,
+      //   use: [
+      //     'style-loader',
+      //     {
+      //       loader: 'css-loader',
+      //       options: {
+      //         modules: true,
+      //       },
+      //     },
+      //   ],
+      // },
       {
         // Preprocess 3rd party .css files located in node_modules
         test: /\.css$/,
@@ -103,6 +180,7 @@ module.exports = (options) => ({
     ],
   },
   plugins: options.plugins.concat([
+    // new ExtractTextPlugin('app.[chunkhash].css', { allChunks: true }),
     // new webpack.ProvidePlugin({
     // }),
     new DotenvPlugin({

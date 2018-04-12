@@ -18,7 +18,7 @@ import createHistory from 'history/createBrowserHistory';
 import { PersistGate } from 'redux-persist/integration/react';
 
 // Global styles
-import 'styles/app.scss';
+import 'styles/app.global.scss';
 
 // Import root app
 import App from 'containers/App';
