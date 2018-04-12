@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
@@ -17,6 +17,8 @@ import saga from './redux/saga';
 import messages from './messages';
 
 import { CHECK_QR_TOKEN } from './redux/constants';
+
+import Logo from 'static/logo/logo-white.svg';
 
 import css from './Qrauth.scss';
 
@@ -53,8 +55,21 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
       publicKey: 'this-is-public-key',
     };
     return (
-      <div className={css.myCustomWrapper}>
-          <QRCode value={JSON.stringify(qrdata)} size="300" />
+      <div className={css.wrapper}>
+        <div className={css.logoWrap}>
+          <a href="https://www.uniqkey.ey">
+            <img className={css.logo} src={Logo} alt="UniqKey" />
+          </a>
+        </div>
+        <header className={css.header}>
+          <h1 className={css.headerTitle}>
+            <FormattedHTMLMessage {...messages.title} />
+          </h1>
+          <h2 className={css.headerSub}><FormattedHTMLMessage {...messages.sub} /></h2>
+        </header>
+        <div className={css.QRCodeWrap}>
+          <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size="100" />
+        </div>
       </div>
     );
   }
