@@ -30,7 +30,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import withGuard from 'utils/withGuard';
 
-// import mapImage from '../../../dummy-dash/public/img/map.png';
+import mapImage from 'static/images/reports/map.png';
 
 import makeSelectReports from './redux/selectors';
 import saga from './redux/saga';
