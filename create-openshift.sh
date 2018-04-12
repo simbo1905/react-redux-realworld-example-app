@@ -9,7 +9,7 @@ if [[ -n "$SOURCE_REPOSITORY_REF" ]]; then
     -p SOURCE_REPOSITORY_URL=git@github.com:UniqKey/web-application.git \
     -p SOURCE_REPOSITORY_REF=$SOURCE_REPOSITORY_REF \
     -p SCMSECRET=scmsecret2 \
-    -p MEMORY_LIMIT=256Mi \
+    -p MEMORY_LIMIT=400Mi \
   | oc create -f -	
   cat .env.staging | xargs oc set env bc webapp 
 else
