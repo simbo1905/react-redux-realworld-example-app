@@ -31,13 +31,29 @@ module.exports = (options) => ({
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader', // creates style nodes from JS strings
-        }, {
-          loader: 'css-loader', // translates CSS into CommonJS
-        }, {
-          loader: 'sass-loader', // compiles Sass to CSS
-        }],
+        use: [
+          {
+            loader: 'style-loader',
+            // options: { sourceMap: IS_DEV }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: '[sha512:hash:base32]-[name]-[local]',
+              modules: true,
+              // sourceMap: IS_DEV
+            },
+          }, {
+            loader: 'postcss-loader',
+            // options: { sourceMap: IS_DEV }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+            // includePaths: modulePaths,
+            // sourceMap: IS_DEV
+            },
+          }],
       },
       {
         // Preprocess our own .css files
