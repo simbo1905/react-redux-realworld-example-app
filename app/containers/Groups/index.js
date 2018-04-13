@@ -153,7 +153,7 @@ export class Groups extends React.Component {
                     </div>
                     <div>
                       <small className="text-muted float-right mt-1">
-                        {group.users.length} user(s)<br />
+                        {group.users.filter((user) => user.status === 'active').length} user(s)<br />
                         {/*<Button onClick={() => { this.removeGroup(group); }}>[ remove ]</Button>*/}
                         {/*<Button onClick={() => { this.editGroup(group); }}>[ edit ]</Button>*/}
                       </small>
@@ -162,7 +162,7 @@ export class Groups extends React.Component {
                       {group.name}
                     </div>
                     <div className="avatars-stack mt-2">
-                      {group.users.map((user) =>
+                      {group.users.filter((user) => user.status === 'active').map((user) =>
                       <div key={user.id} className="avatar avatar-s">
                         <img src={Avatar2} className="img-avatar" title={user.name + ' [' + user.email + ']'} />
                       </div>

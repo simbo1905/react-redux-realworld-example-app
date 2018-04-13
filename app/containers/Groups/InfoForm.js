@@ -146,7 +146,11 @@ class InfoForm extends React.Component {
                       <div>
                         <small className="text-muted float-right mt-1">Strong</small>
                       </div>
-                      <div className="text-truncate font-weight-bold">{user.name}</div>
+                      <div className="text-truncate font-weight-bold">
+                        <span className={user.status !== 'active' ? 'text-danger' : ''}>
+                          {user.name}
+                        </span>
+                      </div>
                       <small className="text-muted">
                         <i className="icon-user" /> {user.email}
                       </small>
