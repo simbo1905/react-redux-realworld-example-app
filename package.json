@@ -165,7 +165,8 @@
     "simple-line-icons": "^2.4.1",
     "styled-components": "^3.2.3",
     "thinbus-srp": "^1.8.0",
-    "warning": "3.0.0"
+    "warning": "3.0.0",
+    "webpack": "^3.5.5"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "2.0.1",
