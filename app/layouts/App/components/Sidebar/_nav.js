@@ -56,7 +56,7 @@ export default {
       url: '/billing',
     },
     {
-      name: 'app.auth.logout',
+      name: 'app.pages.logout.title',
       icon: 'icon-logout',
       url: '/logout',
     },

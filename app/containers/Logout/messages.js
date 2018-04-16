@@ -7,11 +7,7 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   title: {
-    id: 'app.pages.billing.title',
-    defaultMessage: 'Billing',
-  },
-  header: {
-    id: 'app.containers.billing.header',
-    defaultMessage: 'Billing',
+    id: 'app.pages.logout.title',
+    defaultMessage: 'Logout',
   },
 });
