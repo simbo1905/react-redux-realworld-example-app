@@ -13,5 +13,17 @@
   "app.containers.tools.header": "",
   "app.containers.users.header": "",
   "app.login.qrauth.sub": "",
-  "app.login.qrauth.title": ""
+  "app.login.qrauth.title": "",
+  "app.pages.billing.title": "",
+  "app.pages.company.title": "",
+  "app.pages.dashboard.title": "",
+  "app.pages.groups.title": "",
+  "app.pages.logout.title": "",
+  "app.pages.passwords.title": "",
+  "app.pages.profile.title": "",
+  "app.pages.reports.title": "",
+  "app.pages.tools.title": "",
+  "app.pages.users.title": "",
+  "app.sidebar.dividers.items": "",
+  "app.sidebar.dividers.settings": ""
 }
