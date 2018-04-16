@@ -2,4 +2,5 @@
  * Onboarding constants
  */
 
-export const DEFAULT_ACTION = 'app/Onboarding/DEFAULT_ACTION';
+export const ONBOARDING_LOADING_START = 'app/Onboarding/LOADING_START';
+export const ONBOARDING_LOADING_STOP = 'app/Onboarding/LOADING_STOP';

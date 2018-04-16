@@ -7,7 +7,12 @@
 }
 
 .input {
+  border-width: 3px;
   padding: 1em 1em;
   font-size: 0.9em;
   border-radius: 0.5em;
+
+  &.hasError {
+    border-color: #ff4d4d;
+  }
 }

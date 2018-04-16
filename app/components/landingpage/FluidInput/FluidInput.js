@@ -14,9 +14,11 @@ const FluidInput = ({
   meta,
   ...rest
 }) => {
+
   const classNames = classnames(
     'form-control',
     css.input,
+    { [css.hasError]: meta.error && meta.submitFailed },
   );
   return (
     <div className={css.formGroup}>

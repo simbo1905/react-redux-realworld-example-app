@@ -3,15 +3,23 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import FluidHeader from 'components/landingpage/FluidHeader';
 import FluidButton from 'components/landingpage/FluidButton';
 import FluidFormWrap from 'components/landingpage/FluidFormWrap';
+
+import { connect } from 'react-redux';
+
 import messages from './messages';
 import css from './OnboardingStart.scss';
 import SignupForm from './components/SignupForm';
 
 class OnboardingStart extends Component { /* eslint-disable-line */
+  static propTypes = {
+    loading: PropTypes.bool,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +34,7 @@ class OnboardingStart extends Component { /* eslint-disable-line */
 
   render() {
     const { showForm } = this.state;
+    console.log('heyo', this.props.loading);
     return (
       <div>
         { !showForm &&
@@ -47,7 +56,9 @@ class OnboardingStart extends Component { /* eslint-disable-line */
                 title={<FormattedHTMLMessage {...messages.title2} />}
                 sub={<FormattedHTMLMessage {...messages.sub} />}
               />
-              <SignupForm />
+              <SignupForm
+                loading={this.props.loading}
+              />
             </div>
           )
         }
@@ -56,4 +67,8 @@ class OnboardingStart extends Component { /* eslint-disable-line */
   }
 }
 
-export default OnboardingStart;
+const mapStateToProps = (state) => ({
+  loading: state.onboarding.loading,
+});
+
+export default connect(mapStateToProps)(OnboardingStart);
