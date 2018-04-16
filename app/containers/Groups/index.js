@@ -15,8 +15,8 @@ import InfoForm from './InfoForm';
 import { saveGroupRequestAPI } from '../../api/requests/groups';
 
 import {
-  organizationsListRequested,
-  organizationsCurrentChangeRequested,
+  fetchOrganizationsList,
+  changeCurrentOrganization,
 } from '../Organizations/redux/actions';
 
 import {
@@ -56,7 +56,7 @@ export class Groups extends React.Component {
   }
 
   componentDidMount() {
-    this.props.organizationsListRequested();
+    this.props.fetchOrganizationsList();
   }
 
   toggleDropDown() {
@@ -83,8 +83,8 @@ export class Groups extends React.Component {
   }
   showGroupInfo(index) {
     this.props.groups.current = this.props.groups.list[index];
-    console.log(this.props.groups.current);
-    this.infoForm.wrappedInstance.show();
+    console.log(this.infoForm.wrappedInstance.props);
+    this.infoForm.wrappedInstance.show(this.props.groups.current);
   }
 
   onSubmit = (values) => saveGroupRequestAPI(values).then(() => {
@@ -182,7 +182,7 @@ Groups.propTypes = {
   organizations: PropTypes.object,
   groups: PropTypes.object,
   users: PropTypes.object,
-  organizationsListRequested: PropTypes.func,
+  fetchOrganizationsList: PropTypes.func,
   groupsListRequested: PropTypes.func,
   onOrganizationChanged: PropTypes.func,
   loadGroupData: PropTypes.func,
@@ -192,10 +192,10 @@ Groups.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    organizationsListRequested: () => dispatch(organizationsListRequested()),
+    fetchOrganizationsList: () => dispatch(fetchOrganizationsList()),
     groupsListRequested: (organizationId) => dispatch(groupsListRequested(organizationId)),
     onOrganizationChanged: (event) => {
-      dispatch(organizationsCurrentChangeRequested(event.target.value));
+      dispatch(changeCurrentOrganization(event.target.value));
       dispatch(groupsListRequested(event.target.value));
     },
     loadGroupData: (group) => dispatch(initialize('group-form', group)),

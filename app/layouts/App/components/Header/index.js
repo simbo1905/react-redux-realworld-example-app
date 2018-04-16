@@ -1,5 +1,7 @@
 // eslint-disable
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+
 import {
   Dropdown,
   DropdownToggle,
@@ -14,17 +16,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import {
-  organizationsListRequested,
-  organizationsCurrentChangeRequested
-} from '../../../../../app/containers/Organizations/redux/actions';
+  fetchOrganizationsList,
+  changeCurrentOrganization,
+} from 'containers/Organizations/redux/actions';
 
-import {
-  groupsListRequested,
-} from '../../../../../app/containers/Groups/redux/actions';
+import { groupsListRequested } from 'containers/Groups/redux/actions';
 
 
 import injectSaga from 'utils/injectSaga';
-import organizationSaga from '../../../../../app/containers/Organizations/redux/saga';
+import organizationSaga from 'containers/Organizations/redux/saga';
 
 class Header extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    this.props.organizationsListRequested();
+    this.props.fetchOrganizationsList();
   }
 
   toggleDropDown() {
@@ -66,7 +66,7 @@ class Header extends Component {
   }
 
   render() {
-    if ( this.props.organizations.list.length === 0) return '';
+    if (this.props.organizations.list.length === 0) return '';
     return (
       <header className="app-header navbar">
         <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>
@@ -81,8 +81,7 @@ class Header extends Component {
           <DropdownMenu>
             <DropdownItem header>Company</DropdownItem>
             {this.props.organizations.list.map((organization) =>
-              <DropdownItem key={organization.id} onClick={() => this.props.onOrganizationChanged(organization.id)}>{organization.name}</DropdownItem>
-            )}
+              <DropdownItem key={organization.id} onClick={() => this.props.onOrganizationChanged(organization.id)}>{organization.name}</DropdownItem>)}
             <DropdownItem disabled>Add company...</DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -99,19 +98,15 @@ class Header extends Component {
 
 Header.propTypes = {
   organizations: PropTypes.object,
-  organizationsListRequested: PropTypes.func,
+  fetchOrganizationsList: PropTypes.func,
   onOrganizationChanged: PropTypes.func,
 };
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    organizationsListRequested: () => dispatch(organizationsListRequested()),
-    onOrganizationChanged: (id) => {
-      dispatch(organizationsCurrentChangeRequested(id));
-      dispatch(groupsListRequested(id));
-    },
-  };
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchOrganizationsList,
+  changeCurrentOrganization,
+  groupsListRequested,
+}, dispatch);
 
 const mapStateToProps = (state) => ({
   groups: state.groups,
