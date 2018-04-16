@@ -1,0 +1,49 @@
+
+/**
+ * FluidHeader
+ */
+.fluidHeader {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.fluidHeaderTitle {
+  font-weight: bold;
+  font-size: 1.9em;
+  margin: 0 auto 0.4em auto;
+}
+
+.fluidHeaderSub {
+  margin: auto;
+  font-size: 0.8em;
+  line-height: 135%;
+}
+
+/**
+ * Responsiveness
+ */
+
+@media screen and (min-width: 600px) {
+  .fluidHeader {
+    font-size: 22px;
+  }
+  .fluidHeaderSub {
+    max-width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .fluidHeader {
+    font-size: 1.8vw;
+  }
+  .fluidHeaderSub {
+    max-width: 40vw;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .fluidHeader {
+    font-size: 36px;
+  }
+}

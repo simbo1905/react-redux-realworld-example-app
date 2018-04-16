@@ -11,6 +11,8 @@ import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
+import FluidHeader from 'components/landingpage/FluidHeader';
+
 import uuidv1 from 'uuid/v1';
 import QRCode from 'qrcode.react';
 
@@ -60,14 +62,12 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
             <img className={css.logo} src={Logo} alt="UniqKey" />
           </a>
         </div>
-        <header className={css.header}>
-          <h1 className={css.headerTitle}>
-            <FormattedHTMLMessage {...messages.title} />
-          </h1>
-          <h2 className={css.headerSub}><FormattedMessage {...messages.sub} /></h2>
-        </header>
+        <FluidHeader
+          title={<FormattedHTMLMessage {...messages.title} />}
+          sub={<FormattedHTMLMessage {...messages.sub} />}
+        />
         <div className={css.QRCodeWrap}>
-          <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size="600" />
+          <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size={600} />
         </div>
       </div>
     );

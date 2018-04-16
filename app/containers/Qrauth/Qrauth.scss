@@ -16,31 +16,12 @@
 }
 
 /**
- * Header
- */
-.header {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-.headerTitle {
-  font-weight: bold;
-  font-size: 1.9em;
-  margin: 0 auto 0.4em auto;
-}
-
-.headerSub {
-  margin: auto;
-  font-size: 0.8em;
-  line-height: 135%;
-}
-
-/**
  * Logo
  */
 
 .logo {
   width: 80px;
+  max-width: 200px;
 }
 
 .logoWrap {
@@ -58,7 +39,8 @@
 
 .QRCode {
   border-radius: 12px;
-  width: 220px;
+  width: 220px !important;
+  height: 220px !important;
 }
 
 /**
@@ -70,11 +52,9 @@
     font-size: 22px;
     padding: 40px;
   }
-  .headerSub {
-    max-width: 70vw;
-  }
   .QRCode {
     width: 300px !important;
+    height: 300px !important;
   }
 }
 
@@ -85,9 +65,6 @@
   .wrapper {
     font-size: 1.8vw;
     padding: 60px 40px;
-  }
-  .headerSub {
-    max-width: 40vw;
   }
   .logoWrap {
     justify-content: flex-start;
@@ -100,5 +77,6 @@
   }
   .QRCode {
     width: 400px !important;
+    height: 400px !important;
   }
 }
