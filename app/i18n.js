@@ -7,18 +7,22 @@
 import { addLocaleData } from 'react-intl';
 import enLocaleData from 'react-intl/locale-data/en';
 import daLocaleData from 'react-intl/locale-data/da';
+import frLocaleData from 'react-intl/locale-data/fr';
 
-import { DEFAULT_LOCALE } from 'containers/App/constants';
+import { DEFAULT_LOCALE } from './config/i18n';
 
-import enTranslationMessages from './en.json';
-import daTranslationMessages from './da.json';
+import enTranslationMessages from './translations/en.json';
+import daTranslationMessages from './translations/da.json';
+import frTranslationMessages from './translations/fr.json';
 
 addLocaleData(enLocaleData);
 addLocaleData(daLocaleData);
+addLocaleData(frLocaleData);
 
 export const appLocales = [
   'en',
   'da',
+  'fr',
 ];
 
 export const formatTranslationMessages = (locale, messages) => {
@@ -36,4 +40,5 @@ export const formatTranslationMessages = (locale, messages) => {
 export const translationMessages = {
   en: formatTranslationMessages('en', enTranslationMessages),
   da: formatTranslationMessages('da', daTranslationMessages),
+  fr: formatTranslationMessages('fr', frTranslationMessages),
 };

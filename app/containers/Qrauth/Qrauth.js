@@ -67,7 +67,7 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
           <h2 className={css.headerSub}><FormattedMessage {...messages.sub} /></h2>
         </header>
         <div className={css.QRCodeWrap}>
-          <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size="100" />
+          <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size="600" />
         </div>
       </div>
     );

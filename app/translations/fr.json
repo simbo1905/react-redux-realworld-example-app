@@ -13,5 +13,5 @@
   "app.containers.tools.header": "",
   "app.containers.users.header": "",
   "app.login.qrauth.sub": "",
-  "app.login.qrauth.title": "Scan QR-koden med din UniqKey-app"
+  "app.login.qrauth.title": ""
 }

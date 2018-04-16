@@ -1,19 +1,17 @@
 {
-  "app.pages.dashboard.title": "Dashboard",
-  "app.pages.profile.title": "Profile",
-  "app.pages.company.title": "Company",
-  "app.pages.passwords.title": "Passwords",
-  "app.pages.billing.title": "Billing",
-  "app.pages.users.title": "Users",
-  "app.pages.tools.title": "Tools",
-  "app.pages.reports.title": "Reports",
-  "app.pages.groups.title": "Groups",
-
-  "app.auth.logout": "Log out",
-
-  "app.login.qrauth.title": "Scan the QR code <br/>using your UniqKey-app",
+  "app.containers.404.header": "",
+  "app.containers.Home.header": "",
+  "app.containers.Organizations.header": "",
+  "app.containers.billing.header": "",
+  "app.containers.company.header": "",
+  "app.containers.dashboard.header": "",
+  "app.containers.groups.header": "",
+  "app.containers.login.header": "",
+  "app.containers.passwords.header": "",
+  "app.containers.profile.header": "",
+  "app.containers.reports.header": "",
+  "app.containers.tools.header": "",
+  "app.containers.users.header": "",
   "app.login.qrauth.sub": "This allows you to safely sign in to your account. Once you scan the QR code you will be redirected to your dashboard.",
-
-  "app.sidebar.dividers.settings": "Settings",
-  "app.sidebar.dividers.items": "Items"
+  "app.login.qrauth.title": "Scan the QR code <br/>using your UniqKey-app"
 }
