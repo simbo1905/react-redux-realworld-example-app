@@ -19,7 +19,7 @@ import {
   attachedUsersRequest,
   inviteUserRequest,
   detachUserRequest,
-} from '../../api/requests/groups';
+} from 'api/requests/groups';
 
 
 class InfoForm extends React.Component {

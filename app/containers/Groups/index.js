@@ -12,7 +12,9 @@ import { compose } from 'redux';
 import withGuard from 'utils/withGuard';
 import GroupForm from './GroupForm';
 import InfoForm from './InfoForm';
-import { saveGroupRequestAPI } from '../../api/requests/groups';
+import { saveGroupRequestAPI } from 'api/requests/groups';
+import { bindActionCreators } from 'redux';
+
 
 import {
   fetchOrganizationsList,
@@ -190,19 +192,16 @@ Groups.propTypes = {
   removeGroup: PropTypes.func,
 };
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    fetchOrganizationsList: () => dispatch(fetchOrganizationsList()),
-    groupsListRequested: (organizationId) => dispatch(groupsListRequested(organizationId)),
-    onOrganizationChanged: (event) => {
-      dispatch(changeCurrentOrganization(event.target.value));
-      dispatch(groupsListRequested(event.target.value));
-    },
-    loadGroupData: (group) => dispatch(initialize('group-form', group)),
-    saveGroup: (group) => dispatch(groupCreateRequested('group-form', group)),
-    removeGroup: (group) => dispatch(groupRemoveRequested(group)),
-  };
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchOrganizationsList,
+  groupsListRequested,
+  onOrganizationChanged: (event) => {
+    dispatch(changeCurrentOrganization(event.target.value));
+    dispatch(groupsListRequested(event.target.value));
+  },
+  loadGroupData: (group) => dispatch(initialize('group-form', group)),
+  groupRemoveRequested,
+}, dispatch);
 
 const mapStateToProps = (state) => ({
   groups: state.groups,
