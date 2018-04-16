@@ -7,13 +7,17 @@
   padding: 0.7em 1.5em;
   min-width: 22vw;
   border-width: 0.09em;
-  border-radius: 2em;
+  border-radius: 0.6em;
   line-height: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   letter-spacing: 0.006em;
   transition: none;
+}
+
+.button.rounded {
+  border-radius: 2em;
 }
 
 .button:hover {

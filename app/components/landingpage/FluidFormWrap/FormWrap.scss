@@ -1,8 +1,14 @@
 .formWrap {
   max-width: 640px;
   margin: auto;
+  font-size: 25px;
 
   input, button {
     width: 100%;
+  }
+
+  button {
+    margin-top: 0.6em;
+    min-width: 0;
   }
 }

@@ -11,12 +11,14 @@ const FluidButton = ({
   children,
   className,
   hasArrow,
+  rounded,
   ...props
 }) => {
   const buttonClasses = classnames(
     'btn',
     'btn-outline-light',
     css.button,
+    { [css.rounded]: rounded },
     className,
   );
 
@@ -32,6 +34,7 @@ FluidButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   hasArrow: PropTypes.bool,
+  rounded: PropTypes.bool,
 };
 
 export default FluidButton;

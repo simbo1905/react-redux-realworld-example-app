@@ -6,6 +6,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { compose, bindActionCreators } from 'redux';
+import injectSaga from 'utils/injectSaga';
+
 import LandingPageWrap from 'components/landingpage/LandingPageWrap';
 
 import Start from './steps/Start';
@@ -13,6 +18,8 @@ import Completed from './steps/Completed';
 import AcceptTerms from './steps/AcceptTerms';
 import CreateDepartments from './steps/CreateDepartments';
 import CreateCompany from './steps/CreateCompany';
+
+import saga from './redux/saga';
 
 class Onboarding extends Component {
   static propTypes = {
@@ -22,6 +29,10 @@ class Onboarding extends Component {
   constructor(props) {
     super(props);
     this.childUrl = this.childUrl.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('heyo', prevProps);
   }
 
   childUrl(path) {
@@ -42,4 +53,19 @@ class Onboarding extends Component {
   }
 }
 
-export default Onboarding;
+
+const mapStateToProps = createStructuredSelector({
+
+});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+
+}, dispatch);
+
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+const withSaga = injectSaga({ key: 'onboarding', saga });
+
+export default compose(
+  withSaga,
+  withConnect,
+)(Onboarding);

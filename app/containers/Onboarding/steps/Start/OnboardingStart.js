@@ -6,9 +6,10 @@ import React, { Component } from 'react';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import FluidHeader from 'components/landingpage/FluidHeader';
 import FluidButton from 'components/landingpage/FluidButton';
+import FluidFormWrap from 'components/landingpage/FluidFormWrap';
 import messages from './messages';
 import css from './OnboardingStart.scss';
-import FormWrap from '../../components/FormWrap';
+import SignupForm from './components/SignupForm';
 
 class OnboardingStart extends Component { /* eslint-disable-line */
   constructor(props) {
@@ -31,11 +32,11 @@ class OnboardingStart extends Component { /* eslint-disable-line */
           (
             <div className={css.section}>
               <FluidHeader title={<FormattedHTMLMessage {...messages.title} />} />
-              <FormWrap>
-                <FluidButton hasArrow onClick={this.toggleForm}>
+              <FluidFormWrap>
+                <FluidButton rounded hasArrow onClick={this.toggleForm}>
                   <FormattedMessage {...messages.buttonGetStarted} />
                 </FluidButton>
-              </FormWrap>
+              </FluidFormWrap>
             </div>
           )
         }
@@ -46,11 +47,7 @@ class OnboardingStart extends Component { /* eslint-disable-line */
                 title={<FormattedHTMLMessage {...messages.title2} />}
                 sub={<FormattedHTMLMessage {...messages.sub} />}
               />
-              <FormWrap>
-                <FluidButton hasArrow onClick={this.toggleForm}>
-                  <FormattedMessage {...messages.buttonFormSubmit} />
-                </FluidButton>
-              </FormWrap>
+              <SignupForm />
             </div>
           )
         }

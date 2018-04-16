@@ -28,6 +28,7 @@ import billingReducer from 'containers/Billing/redux/reducer';
 import toolsReducer from 'containers/Tools/redux/reducer';
 import groupsReducer from 'containers/Groups/redux/reducer';
 import organizationsReducer from 'containers/Organizations/redux/reducer';
+import onboardingReducer from 'containers/Onboarding/redux/reducer';
 
 /*
  * routeReducer
@@ -75,6 +76,7 @@ const rootReducer = combineReducers({
   route: routeReducer,
   app: appReducer,
   language: languageProviderReducer,
+  onboarding: onboardingReducer,
   // ...injectedReducers,
 });
 
