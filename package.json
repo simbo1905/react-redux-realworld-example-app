@@ -23,8 +23,8 @@
     "superagent-promise": "^1.1.0"
   },
   "scripts": {
-    "start": "PORT=8080 serve -s build",
-    "build": "react-scripts build ; npm install -g serve",
+    "start": "npm install -g serve ; PORT=8080 serve -s build",
+    "build": "react-scripts build",
     "eject": "react-scripts eject"
   }
 }
