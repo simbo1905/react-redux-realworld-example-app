@@ -5,20 +5,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {initialize} from 'redux-form';
+import { initialize } from 'redux-form';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import withGuard from 'utils/withGuard';
 import GroupForm from './GroupForm';
 import InfoForm from './InfoForm';
-import {
-  saveGroupRequestAPI,
-} from '../../api/requests/groups';
+import { saveGroupRequestAPI } from 'api/requests/groups';
+import { bindActionCreators } from 'redux';
+
 
 import {
-  organizationsListRequested,
-  organizationsCurrentChangeRequested
+  fetchOrganizationsList,
+  changeCurrentOrganization,
 } from '../Organizations/redux/actions';
 
 import {
@@ -27,8 +27,7 @@ import {
   groupRemoveRequested,
 } from './redux/actions';
 
-import Avatar2 from 'static/images/avatars/2.jpg';
-import AvatarM from 'static/images/avatars/m.png';
+import AvatarBlank from 'static/images/avatars/avatar-blank.svg';
 
 import {
   Row,
@@ -59,7 +58,7 @@ export class Groups extends React.Component {
   }
 
   componentDidMount() {
-    this.props.organizationsListRequested();
+    this.props.fetchOrganizationsList();
   }
 
   toggleDropDown() {
@@ -90,16 +89,16 @@ export class Groups extends React.Component {
     this.infoForm.wrappedInstance.show(this.props.groups.current);
   }
 
-  onSubmit = (values) => {
-    return saveGroupRequestAPI(values).then(() => {
-      this.hide();
-      this.props.groupsListRequested(this.props.organizations.currentId);
-    });
-  };
+  onSubmit = (values) => saveGroupRequestAPI(values).then(() => {
+    this.hide();
+    this.props.groupsListRequested(this.props.organizations.currentId);
+  });
 
   render() {
     const {
+      organizations,
       groups,
+      onOrganizationChanged,
     } = this.props;
 
     return (
@@ -115,8 +114,8 @@ export class Groups extends React.Component {
             <Row>
               <Col sm="1" className="align-self-center">Organization</Col>
               <Col sm="9">
-                <Input className="rounded" type="select" name="select" id="organization" onChange={this.props.onOrganizationChanged}>
-                  {this.props.organizations.list.map((organization) => <option key={organization.id} value={organization.id}>{organization.name}</option>)}
+                <Input className="rounded" type="select" name="select" id="organization" onChange={onOrganizationChanged}>
+                  {organizations.list.map((organization) => <option key={organization.id} value={organization.id}>{organization.name}</option>)}
                 </Input>
               </Col>
             </Row>
@@ -144,18 +143,18 @@ export class Groups extends React.Component {
           <CardBody>
             <Row>
               {groups.list.map((group, index) =>
-                <Col key={group.id} xs="12" sm="6" md="6" lg="4" xl="3" xxl="1" className="mb-3">
-                  <div className="message" onClick={() => {this.showGroupInfo(index)}} style={{cursor: 'pointer'}}>
+                (<Col key={group.id} xs="12" sm="6" md="6" lg="4" xl="3" xxl="1" className="mb-3">
+                  <div className="message" onClick={() => { this.showGroupInfo(index); }} style={{ cursor: 'pointer' }}>
                     <div className="py-1 mr-3 float-left">
                       <div className="avatar">
-                        <img src={AvatarM} className="img-avatar" alt="Marketing" />
+                        <div className="avatar-letter">{group.name[0].toLowerCase()}</div>
                       </div>
                     </div>
                     <div>
                       <small className="text-muted float-right mt-1">
                         {group.users.filter((user) => user.status === 'active').length} user(s)<br />
-                        {/*<Button onClick={() => { this.removeGroup(group); }}>[ remove ]</Button>*/}
-                        {/*<Button onClick={() => { this.editGroup(group); }}>[ edit ]</Button>*/}
+                        {/* <Button onClick={() => { this.removeGroup(group); }}>[ remove ]</Button> */}
+                        {/* <Button onClick={() => { this.editGroup(group); }}>[ edit ]</Button> */}
                       </small>
                     </div>
                     <div className="text-truncate font-weight-bold" title={group.description}>
@@ -163,14 +162,12 @@ export class Groups extends React.Component {
                     </div>
                     <div className="avatars-stack mt-2">
                       {group.users.filter((user) => user.status === 'active').map((user) =>
-                      <div key={user.id} className="avatar avatar-s">
-                        <img src={Avatar2} className="img-avatar" title={user.name + ' [' + user.email + ']'} />
-                      </div>
-                      )}
+                        (<div key={user.id} className="avatar avatar-s">
+                          <img src={AvatarBlank} className="img-avatar" title={`${user.name} [${user.email}]`} />
+                         </div>))}
                     </div>
                   </div>
-                </Col>
-              )}
+                 </Col>))}
             </Row>
           </CardBody>
         </Card>
@@ -187,7 +184,7 @@ Groups.propTypes = {
   organizations: PropTypes.object,
   groups: PropTypes.object,
   users: PropTypes.object,
-  organizationsListRequested: PropTypes.func,
+  fetchOrganizationsList: PropTypes.func,
   groupsListRequested: PropTypes.func,
   onOrganizationChanged: PropTypes.func,
   loadGroupData: PropTypes.func,
@@ -195,31 +192,25 @@ Groups.propTypes = {
   removeGroup: PropTypes.func,
 };
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    organizationsListRequested: () => dispatch(organizationsListRequested()),
-    groupsListRequested: (organizationId) => dispatch(groupsListRequested(organizationId)),
-    onOrganizationChanged: (event) => {
-      dispatch(organizationsCurrentChangeRequested(event.target.value));
-      dispatch(groupsListRequested(event.target.value));
-    },
-    loadGroupData: (group) => dispatch(initialize('group-form', group)),
-    saveGroup: (group) => dispatch(groupCreateRequested('group-form', group)),
-    removeGroup: (group) => dispatch(groupRemoveRequested(group)),
-  };
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchOrganizationsList,
+  groupsListRequested,
+  onOrganizationChanged: (event) => {
+    dispatch(changeCurrentOrganization(event.target.value));
+    dispatch(groupsListRequested(event.target.value));
+  },
+  loadGroupData: (group) => dispatch(initialize('group-form', group)),
+  groupRemoveRequested,
+}, dispatch);
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    groups: state.groups,
-    organizations: state.organizations,
-  };
-};
+const mapStateToProps = (state) => ({
+  groups: state.groups,
+  organizations: state.organizations,
+});
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
-const withGroupSaga = injectSaga({ key: 'groups', saga: groupSaga});
-const withOrganizationSaga = injectSaga({ key: 'organizations', saga: organizationSaga});
+const withGroupSaga = injectSaga({ key: 'groups', saga: groupSaga });
+const withOrganizationSaga = injectSaga({ key: 'organizations', saga: organizationSaga });
 
 export default compose(
   withGroupSaga,
