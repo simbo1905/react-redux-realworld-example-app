@@ -23,8 +23,8 @@
     "superagent-promise": "^1.1.0"
   },
   "scripts": {
-    "start": "npm install --save react react-dom react-scripts; PORT=8080 react-scripts start",
-    "build": "react-scripts build",
+    "start": "PORT=8080 serve -s build",
+    "build": "npm run build ; npm install -g serve"
     "eject": "react-scripts eject"
   }
 }
