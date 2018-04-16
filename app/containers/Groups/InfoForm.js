@@ -25,7 +25,10 @@ import {
 class InfoForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log('InfoForm construct');
+    console.log(props);
     this.state = {
+      group: {},
       modal: false,
       email: '',
       inviteError: '',
@@ -34,6 +37,7 @@ class InfoForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.inviteUser = this.inviteUser.bind(this);
     this.fetchAttachedList = this.fetchAttachedList.bind(this);
+    this.show = this.show.bind(this);
   }
 
   toggle() {
@@ -41,10 +45,14 @@ class InfoForm extends React.Component {
       modal: !this.state.modal,
     });
   }
-  show() {
+  show(group) {
     this.setState({
       modal: true,
     });
+    this.group = group;
+    console.log('show');
+    console.log(group);
+    console.log(this.group);
     this.fetchAttachedList();
   }
   hide() {

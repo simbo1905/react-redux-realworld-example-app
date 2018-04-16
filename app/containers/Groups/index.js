@@ -86,8 +86,8 @@ export class Groups extends React.Component {
   }
   showGroupInfo(index) {
     this.props.groups.current = this.props.groups.list[index];
-    console.log(this.props.groups.current);
-    this.infoForm.wrappedInstance.show();
+    console.log(this.infoForm.wrappedInstance.props);
+    this.infoForm.wrappedInstance.show(this.props.groups.current);
   }
 
   onSubmit = (values) => {
@@ -143,7 +143,7 @@ export class Groups extends React.Component {
           </CardHeader>
           <CardBody>
             <Row>
-              {this.props.groups.list.map((group, index) =>
+              {groups.list.map((group, index) =>
                 <Col key={group.id} xs="12" sm="6" md="6" lg="4" xl="3" xxl="1" className="mb-3">
                   <div className="message" onClick={() => {this.showGroupInfo(index)}} style={{cursor: 'pointer'}}>
                     <div className="py-1 mr-3 float-left">
@@ -210,6 +210,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     groups: state.groups,
     organizations: state.organizations,
