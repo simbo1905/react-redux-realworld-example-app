@@ -1,0 +1,64 @@
+/**
+** Landing Page Wrap
+*/
+
+.wrapper {
+  position: relative;
+  font-size: 16px;
+  color: #FFF;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px 30px 30px;
+}
+
+/**
+ * Logo
+ */
+
+.logo {
+  width: 80px;
+  max-width: 200px;
+}
+
+.logoWrap {
+  display: flex;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  justify-content: center;
+}
+
+
+/**
+ * Responsiveness
+ */
+
+@media screen and (min-width: 600px) {
+  .wrapper {
+    font-size: 22px;
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .logo {
+    width: 7vw;
+  }
+  .wrapper {
+    font-size: 1.8vw;
+    padding: 60px 40px;
+  }
+  .logoWrap {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .wrapper {
+    font-size: 36px;
+  }
+}
