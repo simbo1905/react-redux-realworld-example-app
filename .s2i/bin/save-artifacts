@@ -1,4 +1,4 @@
 #!/bin/bash
 pushd /opt/app-root/src >/dev/null
-tar cf - node_modules .npm 
+tar cf - node_modules 
 popd >/dev/null
