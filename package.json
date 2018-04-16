@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "PORT=8080 serve -s build",
-    "build": "npm run build ; npm install -g serve",
+    "build": "react-scripts build ; npm install -g serve",
     "eject": "react-scripts eject"
   }
 }
