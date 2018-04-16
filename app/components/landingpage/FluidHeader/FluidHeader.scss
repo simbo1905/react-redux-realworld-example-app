@@ -11,11 +11,11 @@
 .fluidHeaderTitle {
   font-weight: bold;
   font-size: 1.9em;
-  margin: 0 auto 0.4em auto;
+  margin: 0;
 }
 
 .fluidHeaderSub {
-  margin: auto;
+  margin: 0.6em auto 0 auto;
   font-size: 0.8em;
   line-height: 135%;
 }
@@ -38,7 +38,7 @@
     font-size: 1.8vw;
   }
   .fluidHeaderSub {
-    max-width: 40vw;
+    max-width: 38vw;
   }
 }
 

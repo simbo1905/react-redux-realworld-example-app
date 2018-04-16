@@ -1,0 +1,30 @@
+/**
+ * Fluid Button
+ */
+
+.button {
+  font-size: 1.2em;
+  padding: 0.7em 1.5em;
+  min-width: 22vw;
+  border-width: 0.09em;
+  border-radius: 2em;
+  line-height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.006em;
+  transition: none;
+}
+
+.button:hover {
+  .arrow {
+    fill: #000;
+  }
+}
+
+.arrow {
+  margin-top: 0.1em;
+  margin-left: 0.35em;
+  height: 0.66em;
+  fill: #FFF;
+}
