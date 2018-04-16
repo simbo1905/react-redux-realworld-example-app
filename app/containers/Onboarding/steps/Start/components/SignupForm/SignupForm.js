@@ -13,47 +13,47 @@ import { submitCreateUserForm } from 'containers/Onboarding/redux/actions';
 import FluidFormWrap from 'components/landingpage/FluidFormWrap';
 import messages from '../../messages';
 
-const SignupForm = ({ handleSubmit, submitFailed, loading, submitting, error, ...props }, context) => {
-  return (
-    <FluidFormWrap method="post" onSubmit={handleSubmit(submitCreateUserForm)}>
-      <Field
-        name="name"
-        type="text"
-        placeholder="Your name"
-        component={FluidInput}
-      />
-      <Field
-        name="email"
-        type="email"
-        placeholder="Your email"
-        component={FluidInput}
-      />
-      <Field
-        name="password"
-        type="password"
-        placeholder="Your password"
-        component={FluidInput}
-      />
-      { (false && error && submitFailed) && <div className="alert alert-danger">{ error }</div>}
-      <FluidButton hasArrow type="submit" loading={submitting}>
-        <FormattedMessage {...messages.buttonFormSubmit} />
-      </FluidButton>
-    </FluidFormWrap>
-  );
-};
+const SignupForm = ({
+  handleSubmit,
+  submitFailed,
+  submitting,
+  error,
+}) => (
+  <FluidFormWrap method="post" onSubmit={handleSubmit(submitCreateUserForm)}>
+    <Field
+      name="name"
+      type="text"
+      placeholder="Your name"
+      component={FluidInput}
+    />
+    <Field
+      name="email"
+      type="email"
+      placeholder="Your email"
+      component={FluidInput}
+    />
+    <Field
+      name="password"
+      type="password"
+      placeholder="Your password"
+      component={FluidInput}
+    />
+    { (false && error && submitFailed) && <div className="alert alert-danger">{ error }</div>}
+    <FluidButton hasArrow type="submit" loading={submitting}>
+      <FormattedMessage {...messages.buttonFormSubmit} />
+    </FluidButton>
+  </FluidFormWrap>
+);
 
 SignupForm.propTypes = {
   handleSubmit: PropTypes.func,
-  loading: PropTypes.bool,
+  submitFailed: PropTypes.bool,
+  submitting: PropTypes.bool,
+  error: PropTypes.string,
 };
 
 export default reduxForm({
   form: 'onboardingCreateUserForm',
-  initialValues: {
-    name: '',
-    email: '',
-    password: '',
-  },
   validate(values) {
     const errors = {};
 
@@ -61,7 +61,7 @@ export default reduxForm({
       errors.name = 'Your name is required';
     }
 
-    if (!isEmail(values.email)) {
+    if (!values.email || !isEmail(values.email)) {
       errors.email = 'You must provide a valid email';
     }
 
