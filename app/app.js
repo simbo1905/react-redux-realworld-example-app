@@ -47,7 +47,7 @@ import 'file-loader?name=[name].[ext]!./static/.htaccess'; // eslint-disable-lin
 import configureStore from 'store/configureStore';
 
 // Import i18n messages
-import { translationMessages } from 'translations/i18n';
+import { translationMessages } from './i18n';
 
 // Observe loading of Lato (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
@@ -101,6 +101,7 @@ if (!window.Intl) {
     .then(() => Promise.all([
       import('intl/locale-data/jsonp/en.js'),
       import('intl/locale-data/jsonp/de.js'),
+      import('intl/locale-data/jsonp/fr.js'),
     ]))
     .then(() => render(translationMessages))
     .catch((err) => {
