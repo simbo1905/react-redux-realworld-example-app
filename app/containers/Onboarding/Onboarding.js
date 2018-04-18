@@ -29,14 +29,19 @@ class Onboarding extends Component {
   constructor(props) {
     super(props);
     this.childUrl = this.childUrl.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    console.log('heyo', prevProps);
+    this.redirectRoute = this.redirectRoute.bind(this);
   }
 
   childUrl(path) {
     return `${this.props.match.url}/${path}`;
+  }
+
+  /**
+   * Determine which page to redirect page to on mount
+   * or on invalid routes
+   */
+  redirectRoute() {
+    return this.childUrl('start');
   }
 
   render() {
@@ -47,7 +52,7 @@ class Onboarding extends Component {
         <Route path={this.childUrl('create-departments')} component={CreateDepartments} />
         <Route path={this.childUrl('create-company')} component={CreateCompany} />
         <Route path={this.childUrl('completed')} component={Completed} />
-        { false && <Redirect exact from="/" to={this.childUrl('start')} />}
+        <Route exact path="/onboarding/" component={() => <Redirect to={this.redirectRoute()} />} />
       </LandingPageWrap>
     );
   }

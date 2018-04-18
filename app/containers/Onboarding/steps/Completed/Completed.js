@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import FluidHeader from 'components/landingpage/FluidHeader';
+import FluidButton from 'components/landingpage/FluidButton';
 import messages from './messages';
 
 class Completed extends Component { /* eslint-disable-line */
@@ -13,8 +14,11 @@ class Completed extends Component { /* eslint-disable-line */
       <div className="fluid-content">
         <FluidHeader
           title={<FormattedMessage {...messages.title} />}
-          sub={<FormattedHTMLMessage {...messages.sub} />}
+          sub={<FormattedMessage {...messages.sub} />}
         />
+        <FluidButton hasArrow>
+          <FormattedMessage {...messages.buttonLabel} />
+        </FluidButton>
       </div>
     );
   }
