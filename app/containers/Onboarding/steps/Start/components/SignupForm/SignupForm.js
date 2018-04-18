@@ -25,6 +25,7 @@ const SignupForm = ({
       type="text"
       placeholder="Your name"
       component={FluidInput}
+      autoFocus
     />
     <Field
       name="email"

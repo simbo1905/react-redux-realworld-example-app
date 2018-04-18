@@ -5,10 +5,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import makeSelectProfile from 'containers/Profile/redux/selectors';
 import { FormattedMessage, intlShape, injectIntl } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import FluidInput from 'components/landingpage/FluidInput';
@@ -29,7 +27,7 @@ const ConfirmationInput = (props) => {
     { [css.inputHasValues]: !!props.input.value }
   );
   return (
-    <FluidInput {...props} className={className} />
+    <FluidInput {...props} className={className} autoFocus />
   );
 };
 /* eslint-enable */
@@ -40,7 +38,6 @@ const ConfirmationForm = ({
   submitting,
   error,
   intl,
-  profile,
 }) => {
   const { formatMessage } = intl;
 
@@ -80,16 +77,13 @@ const withReduxForm = reduxForm({
     const errors = {};
 
     if (!values.confirmation_code) {
-      errors.confirmation_code = 'You must enter the 8 digit confirmation number you received by email.';
+      errors.confirmation_code = 'app.containers.onboarding.email_confirmation.error.no_code_entered';
     }
 
     if (values.confirmation_code && values.confirmation_code.length !== 8) {
-      errors.confirmation_code = 'The confirmation code must be 8 digits in total.';
+      errors.confirmation_code = 'app.containers.onboarding.email_confirmation.error.wrong_digit_count';
+      errors._error = 'app.containers.onboarding.email_confirmation.error.wrong_digit_count'; /* eslint-disable-line */
     }
-
-    // if (Object.keys(errors).length) {
-    //   errors._error = 'Please enter the 8 digit confirmaiton code to continue'; /* eslint-disable-line */
-    // }
 
     return errors;
   },
