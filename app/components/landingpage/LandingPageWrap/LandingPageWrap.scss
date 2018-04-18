@@ -16,10 +16,11 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  padding-top: 30vh;
 
   > :global(.fluid-content) {
+    margin-top: -10vh;
     width: 100%;
   }
 }
