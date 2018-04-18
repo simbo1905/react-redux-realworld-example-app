@@ -46,6 +46,10 @@ import injectSaga from 'utils/injectSaga';
 import makeSelectPasswords from './redux/selectors';
 import saga from './redux/saga';
 
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import messages from './messages';
+
+
 export class PagePasswords extends React.Component {
   constructor(props) {
     super(props);
@@ -74,7 +78,7 @@ export class PagePasswords extends React.Component {
           <title>Passwords</title>
         </Helmet>
         <h3 className="my-3">
-          Passwords
+          <FormattedMessage {...messages.header } />
         </h3>
         <Card>
           <CardHeader>
@@ -85,11 +89,11 @@ export class PagePasswords extends React.Component {
               <Col className="col-sm-2 col-md-4 align-self-center">
                 <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown} className="float-right list-style-none">
                   <DropdownToggle nav caret>
-                    <i className="icon-lock" />  Password
+                    <i className="icon-lock" />  <FormattedMessage {...messages.password } />
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem onClick={this.toggleLarge}>
-                      Add password
+                      <FormattedMessage {...messages.addPassword } />
                     </DropdownItem>
                     <DropdownItem>Select password</DropdownItem>
                     <DropdownItem>Delete selected</DropdownItem>
@@ -449,31 +453,31 @@ export class PagePasswords extends React.Component {
               <Col>
                 <Label className="mt-1">
                   <strong>
-                    Account
+                    <FormattedMessage {...messages.accountField } />
                   </strong>
                 </Label>
                 <Input className="col-md-12 mb-2 rounded border-1" required placeholder='e.g. "Accounting Calendar"' />
                 <Label className="mt-1">
                   <strong>
-                    User or E-mail Address
+                    <FormattedMessage {...messages.emailField } />
                   </strong>
                 </Label>
                 <Input className="col-md-12 rounded" placeholder="*DEPNDING ON WICH COMPANY IM LOGGED IN WITH, USE MY DOMAIN FROM CURRENT COMPANY*" />
                 <Label className="mt-1">
                   <strong>
-                    Password
+                    <FormattedMessage {...messages.passwordField } />
                   </strong>
                 </Label>
                 <Input className="col-md-12 rounded" type="text" placeholder="*THIS FIELD SHOULD READ A RANDOM GENERATED PASSWORD*" />
                 <Label className="mt-1">
                   <strong>
-                    Domain
+                    <FormattedMessage {...messages.domainField } />
                   </strong>
                 </Label>
                 <Input className="col-md-12 rounded" placeholder="www." />
                 <Label className="mt-1">
                   <strong>
-                    Additional info
+                    <FormattedMessage {...messages.additionalField } />
                   </strong>
                 </Label>
                 <Input className="col-md-12 rounded" type="textarea" />
@@ -481,8 +485,12 @@ export class PagePasswords extends React.Component {
             </Row>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggleLarge}>Create</Button>
-            <Button color="secondary" onClick={this.toggleLarge}>Cancel</Button>
+            <Button color="primary" onClick={this.toggleLarge}>
+              <FormattedMessage {...messages.saveButton } />
+            </Button>
+            <Button color="secondary" onClick={this.toggleLarge}>
+              <FormattedMessage {...messages.cancelButton } />
+            </Button>
           </ModalFooter>
         </Modal>
       </div>

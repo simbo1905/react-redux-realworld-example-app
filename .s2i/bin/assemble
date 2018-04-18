@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Running default /usr/libexec/s2i/assemble from ${PWD}"
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "After successful assembling"
+else
+    echo "After failed assembling"
+fi
+
+echo "After assembling running 'npm run build:dll'"
+npm run build:dll
+
+exit $?

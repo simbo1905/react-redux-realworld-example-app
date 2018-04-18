@@ -24,11 +24,21 @@
   }
 }
 
-@mixin avatar($width, $status-width) {
+@mixin avatar($width, $height, $status-width) {
   position: relative;
-  display: inline-block;
+  display: table-cell;
   width: $width;
+  height: $height;
 
+  .avatar-letter {
+    background: linear-gradient(45deg, #87cede, #26f092);
+    width: $width;
+    height: $height;
+    color: white;
+    font-size: 13pt;
+    text-align: center;
+    padding-top: 2px;
+  }
   .img-avatar {
     width: $width;
     height: $width;

@@ -45,18 +45,18 @@ export default {
       icon: 'icon-user',
       url: '/profile',
     },
-    {
-      name: 'app.pages.company.title',
-      icon: 'icon-cup',
-      url: '/company',
-    },
+    // {
+    //   name: 'app.pages.company.title',
+    //   icon: 'icon-cup',
+    //   url: '/company',
+    // },
     {
       name: 'app.pages.billing.title',
       icon: 'icon-wallet',
       url: '/billing',
     },
     {
-      name: 'app.auth.logout',
+      name: 'app.pages.logout.title',
       icon: 'icon-logout',
       url: '/logout',
     },

@@ -32,6 +32,10 @@ import injectSaga from 'utils/injectSaga';
 import makeSelectBilling from './redux/selectors';
 import saga from './redux/saga';
 
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import messages from './messages';
+
+
 export class Billing extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
@@ -40,19 +44,21 @@ export class Billing extends React.Component { // eslint-disable-line react/pref
           <title>Billing</title>
         </Helmet>
         <h3 className="my-3">
-          Billing
+          <FormattedMessage {...messages.header} />
         </h3>
         <Row>
           <Col>
             <Card xs="6">
               <CardHeader>
-                Update card information
+                <FormattedMessage {...messages.cardHeader} />
               </CardHeader>
               <CardBody>
                 <Row>
                   <Col xs="12">
                     <FormGroup>
-                      <Label htmlFor="ccnumber">Credit Card Number</Label>
+                      <Label htmlFor="ccnumber">
+                        <FormattedMessage {...messages.cardNumber} />
+                      </Label>
                       <InputGroup className="rounded-left">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
@@ -67,7 +73,9 @@ export class Billing extends React.Component { // eslint-disable-line react/pref
                 <Row>
                   <Col xs="4">
                     <FormGroup>
-                      <Label htmlFor="ccmonth">Month</Label>
+                      <Label htmlFor="ccmonth">
+                        <FormattedMessage {...messages.month} />
+                      </Label>
                       <Input type="select" name="ccmonth" id="ccmonth">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -86,7 +94,9 @@ export class Billing extends React.Component { // eslint-disable-line react/pref
                   </Col>
                   <Col xs="4">
                     <FormGroup>
-                      <Label htmlFor="ccyear">Year</Label>
+                      <Label htmlFor="ccyear">
+                        <FormattedMessage {...messages.year} />
+                      </Label>
                       <Input type="select" name="ccyear" id="ccyear">
                         <option>2018</option>
                         <option>2019</option>
@@ -113,15 +123,15 @@ export class Billing extends React.Component { // eslint-disable-line react/pref
                       <Label htmlFor="name">
                         Name of card holder
                       </Label>
-                      <Input type="text" id="name" placeholder="Enter the full name of the credit card holder" required className="rounded" />
+                      <Input type="text" id="name" placeholder={this.props.intl.formatMessage(messages.cardFullName)} required className="rounded" />
                     </FormGroup>
                   </Col>
                 </Row>
                 <Button className="float-right m-2" type="submit" size="sm" color="success">
-                  Submit
+                  <FormattedMessage {...messages.submit} />
                 </Button>
                 <Button className="float-right m-2" type="submit" size="sm" color="danger">
-                  Remove Card
+                  <FormattedMessage {...messages.removeCard} />
                 </Button>
               </CardBody>
               <CardFooter>
@@ -134,7 +144,7 @@ export class Billing extends React.Component { // eslint-disable-line react/pref
           <Col>
             <Card>
               <CardHeader>
-                Past Invoices
+                <FormattedMessage {...messages.pastInvoices} />
               </CardHeader>
               <CardBody>
                 <ListGroup>
@@ -148,7 +158,7 @@ export class Billing extends React.Component { // eslint-disable-line react/pref
               </CardBody>
               <CardFooter className="text-center">
                 <small className="text-muted">
-                  No more entries.
+                  <FormattedMessage {...messages.noMoreEntries} />
                 </small>
               </CardFooter>
             </Card>
@@ -162,6 +172,7 @@ export class Billing extends React.Component { // eslint-disable-line react/pref
 
 Billing.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  intl: intlShape.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

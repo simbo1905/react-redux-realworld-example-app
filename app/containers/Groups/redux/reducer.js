@@ -14,6 +14,7 @@ import {
 
 const initialState = {
   list: [],
+  current: null,
 };
 
 function groupsReducer(state = initialState, action) {

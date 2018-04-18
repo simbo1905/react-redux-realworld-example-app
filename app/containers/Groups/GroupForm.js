@@ -13,6 +13,10 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import messages from './messages';
+
+
 class GroupForm extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +49,9 @@ class GroupForm extends React.Component {
 
     return (
       <Modal isOpen={this.state.modal} toggle={() => { this.toggle(); }}>
-        <ModalHeader>Create new Group</ModalHeader>
+        <ModalHeader>
+          <FormattedMessage {...messages.addGroup } />
+        </ModalHeader>
         <form onSubmit={handleSubmit} >
           <ModalBody>
             <Row>
@@ -54,16 +60,20 @@ class GroupForm extends React.Component {
                 {/*<div>error: {error && <strong>{error}</strong>} </div>*/}
                 <input type="hidden" name="id" />
                 <input type="hidden" name="organization_id" />
-                <Label className="col-md-3 mt-3">Group Name*</Label>
+                <Label className="col-md-3 mt-3"><FormattedMessage {...messages.nameField } /> *</Label>
                 <Input tag={Field} component="input" name="name" className="col-md-12 my-3 py-1 rounded border-1" required placeholder="Group name" />
-                <Label className="col-md-3 mt-3">Description</Label>
+                <Label className="col-md-3 mt-3"><FormattedMessage {...messages.descriptionField } /></Label>
                 <Input tag={Field} component="textarea" name="description" className="col-md-12 rounded" style={{height: 200}} />
               </Col>
             </Row>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" type="submit" disabled={submitting}>Save</Button>
-            <Button color="secondary" onClick={() => { this.hide(); }}>Cancel</Button>
+            <Button color="primary" type="submit" disabled={submitting}>
+              <FormattedMessage {...messages.saveButton } />
+            </Button>
+            <Button color="secondary" onClick={() => { this.hide(); }}>
+              <FormattedMessage {...messages.closeButton } />
+            </Button>
           </ModalFooter>
         </form>
       </Modal>
