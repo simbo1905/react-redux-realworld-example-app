@@ -28,4 +28,12 @@ export default defineMessages({
     id: 'app.containers.onboarding.email_confirmation.error.unknown_error',
     defaultMessage: 'An unknown error occurred. Please try again later or contact us by email. Sorry for the inconvenience.',
   },
+  formConfirmationErrorDigits: {
+    id: 'app.containers.onboarding.email_confirmation.error.wrong_digit_count',
+    defaultMessage: 'The confirmation code must be 8 digits in total.',
+  },
+  formConfirmationErrorNoCode: {
+    id: 'app.containers.onboarding.email_confirmation.error.no_code_entered',
+    defaultMessage: 'You must enter the 8 digit confirmation number you received by email.',
+  },
 });

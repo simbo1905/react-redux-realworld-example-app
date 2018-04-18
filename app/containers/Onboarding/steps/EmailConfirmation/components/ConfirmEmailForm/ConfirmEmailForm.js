@@ -11,6 +11,7 @@ import { FormattedMessage, intlShape, injectIntl } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
 import FluidInput from 'components/landingpage/FluidInput';
 import FluidButton from 'components/landingpage/FluidButton';
+import FluidMessage from 'components/landingpage/FluidMessage';
 import { submitConfirmEmailForm } from 'containers/Onboarding/redux/actions';
 import FluidFormWrap from 'components/landingpage/FluidFormWrap';
 import messages from '../../messages';
@@ -40,7 +41,7 @@ const ConfirmationForm = ({
   intl,
 }) => {
   const { formatMessage } = intl;
-
+console.log('error', error, submitFailed);
   return (
     <FluidFormWrap method="post" onSubmit={handleSubmit(submitConfirmEmailForm)}>
       <Field
@@ -50,7 +51,7 @@ const ConfirmationForm = ({
         placeholder={formatMessage(messages.inputPlaceholder)}
         component={ConfirmationInput}
       />
-      { (error && submitFailed) && <div className="alert alert-danger">{ error }</div>}
+      { (error && submitFailed) && <FluidMessage translationObject={error} />}
       <FluidButton hasArrow type="submit" loading={submitting}>
         <FormattedMessage {...messages.buttonLabel} />
       </FluidButton>
@@ -62,7 +63,7 @@ ConfirmationForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitFailed: PropTypes.bool,
   submitting: PropTypes.bool,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object]),
   intl: intlShape.isRequired,
   profile: PropTypes.object,
 };
@@ -77,12 +78,13 @@ const withReduxForm = reduxForm({
     const errors = {};
 
     if (!values.confirmation_code) {
-      errors.confirmation_code = 'app.containers.onboarding.email_confirmation.error.no_code_entered';
+      errors.confirmation_code = true;
+      errors._error = messages.formConfirmationErrorNoCode; /* eslint-disable-line */
     }
 
     if (values.confirmation_code && values.confirmation_code.length !== 8) {
-      errors.confirmation_code = 'app.containers.onboarding.email_confirmation.error.wrong_digit_count';
-      errors._error = 'app.containers.onboarding.email_confirmation.error.wrong_digit_count'; /* eslint-disable-line */
+      errors.confirmation_code = true;
+      errors._error = messages.formConfirmationErrorDigits; /* eslint-disable-line */
     }
 
     return errors;

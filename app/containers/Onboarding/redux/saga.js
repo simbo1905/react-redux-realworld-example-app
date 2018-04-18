@@ -6,7 +6,8 @@ import { confirmUserRequest } from 'api/requests/user';
 import { setProfileData } from 'containers/Profile/redux/actions';
 import { submitCreateUserForm, submitConfirmEmailForm } from './actions';
 import { } from './constants';
-
+import confirmationMessages from '../steps/EmailConfirmation/messages';
+console.log('confirmationMessages', confirmationMessages);
 /**
  * Watcher
  */
@@ -49,24 +50,30 @@ function* handleUserSignUp(action) {
  */
 
 function* handleEmailConfirmation(action) {
-  const { user_id, confirmation_code } = action.payload;
+  const { user_id, confirmation_code } = action.payload; /* eslint-disable-line camelcase */
 
   try {
     // Submit request
     const response = yield call(confirmUserRequest, user_id, confirmation_code);
 
     // Wrong confirmation code
-    if (response.data.status_code === 400) {
+    if (response.data.message === 'Unknown confirmation code') {
       yield put(submitConfirmEmailForm.failure(new SubmissionError({
-        _error: 'app.containers.onboarding.email_confirmation.error.invalid_code',
+        confirmation_code: true,
+        _error: confirmationMessages.formErrorWrongCode,
       })));
-    }
 
+    // For now we just redirect if the user tries to confirm twice
+    // We'ææ probably make sure this isn't possible at a later point
+    } else if (response.data.message === 'User already confirmed') {
+      yield put(replace('/onboarding/create-company'));
     // Success
-    yield put(replace('/onboarding/create-company'));
+    } else {
+      yield put(replace('/onboarding/create-company'));
+    }
   } catch (err) {
     const formError = new SubmissionError({
-      _error: 'app.containers.onboarding.email_confirmation.error.unknown_error', // global form error
+      _error: confirmationMessages.formUnknownError,
     });
 
     yield put(submitConfirmEmailForm.failure(formError));

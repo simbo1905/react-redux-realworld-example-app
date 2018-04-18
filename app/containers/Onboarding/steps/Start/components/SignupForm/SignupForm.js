@@ -9,6 +9,7 @@ import { Field, reduxForm } from 'redux-form';
 import isEmail from 'validator/lib/isEmail';
 import FluidInput from 'components/landingpage/FluidInput';
 import FluidButton from 'components/landingpage/FluidButton';
+import FluidMessage from 'components/landingpage/FluidMessage';
 import { submitCreateUserForm } from 'containers/Onboarding/redux/actions';
 import FluidFormWrap from 'components/landingpage/FluidFormWrap';
 import messages from '../../messages';
@@ -39,7 +40,7 @@ const SignupForm = ({
       placeholder="Your password"
       component={FluidInput}
     />
-    { (false && error && submitFailed) && <div className="alert alert-danger">{ error }</div>}
+    { (error && submitFailed) && <FluidMessage translationId={error} />}
     <FluidButton hasArrow type="submit" loading={submitting}>
       <FormattedMessage {...messages.buttonFormSubmit} />
     </FluidButton>
