@@ -12,6 +12,7 @@ import css from './FluidInput.scss';
 const FluidInput = ({
   input,
   meta,
+  className,
   ...rest
 }) => {
 
@@ -19,6 +20,7 @@ const FluidInput = ({
     'form-control',
     css.input,
     { [css.hasError]: meta.error && meta.submitFailed },
+    className,
   );
   return (
     <div className={css.formGroup}>

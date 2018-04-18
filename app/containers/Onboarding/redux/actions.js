@@ -13,3 +13,9 @@ import {
 
 // Submit login form (redux-form action)
 export const submitCreateUserForm = createFormAction('onboardingCreateUserForm');
+
+/**
+ * Confirm Email
+ */
+
+export const submitConfirmEmailForm = createFormAction('onboardingEmailConfirmationForm');

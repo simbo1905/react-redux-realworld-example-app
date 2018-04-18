@@ -23,7 +23,7 @@ class OnboardingStart extends Component { /* eslint-disable-line */
   constructor(props) {
     super(props);
     this.state = {
-      showForm: true,
+      showForm: false,
     };
     this.toggleForm = this.toggleForm.bind(this);
   }
@@ -34,7 +34,7 @@ class OnboardingStart extends Component { /* eslint-disable-line */
 
   render() {
     const { showForm } = this.state;
-    console.log('heyo', this.props.loading);
+
     return (
       <div>
         { !showForm &&

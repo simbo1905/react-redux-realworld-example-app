@@ -14,6 +14,7 @@ import injectSaga from 'utils/injectSaga';
 import LandingPageWrap from 'components/landingpage/LandingPageWrap';
 
 import Start from './steps/Start';
+import EmailConfirmation from './steps/EmailConfirmation';
 import Completed from './steps/Completed';
 import AcceptTerms from './steps/AcceptTerms';
 import CreateDepartments from './steps/CreateDepartments';
@@ -43,6 +44,7 @@ class Onboarding extends Component {
     return (
       <LandingPageWrap gradient="blue-violet">
         <Route path={this.childUrl('start')} component={Start} />
+        <Route path={this.childUrl('email-confirmation')} component={EmailConfirmation} />
         <Route path={this.childUrl('accept-terms')} component={AcceptTerms} />
         <Route path={this.childUrl('create-departments')} component={CreateDepartments} />
         <Route path={this.childUrl('completed')} component={Completed} />
