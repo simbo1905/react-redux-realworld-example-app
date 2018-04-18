@@ -64,8 +64,7 @@ LatoObserver.load().then(() => {
 const initialState = {};
 const history = createHistory();
 const setupStore = configureStore(initialState, history);
-const store = setupStore.store;
-const persistor = setupStore.persistor;
+const { store, persistor } = setupStore;
 const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {
