@@ -96,11 +96,11 @@ const withReduxForm = reduxForm({
  */
 const mapStateToProps = (state) => {
   const profile = state.profile.data;
+  console.warn('Confirmation Code', profile.confirmation_code);
   return {
     profile,
     initialValues: {
       user_id: profile.id,
-      confirmation_code: profile.confirmation_code,
     },
   };
 };
