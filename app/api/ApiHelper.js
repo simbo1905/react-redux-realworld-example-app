@@ -50,7 +50,7 @@ class ApiHelper {
 
           if (token) {
             axiosConfig.headers.common = {
-              Authorization: token,
+              Authorization: `Bearer ${token}`,
             };
           }
         }
