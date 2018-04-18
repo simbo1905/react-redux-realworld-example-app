@@ -6,6 +6,11 @@
  * QR Code
  */
 
+.QRCodeWrap {
+  display: flex;
+  justify-content: center;
+}
+
 .QRCode {
   border-radius: 12px;
   width: 220px !important;

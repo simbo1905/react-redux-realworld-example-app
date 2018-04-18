@@ -36,7 +36,7 @@ class OnboardingStart extends Component { /* eslint-disable-line */
     const { showForm } = this.state;
 
     return (
-      <div>
+      <div className="fluid-content">
         { !showForm &&
           (
             <div className={css.section}>

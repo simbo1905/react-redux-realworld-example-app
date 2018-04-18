@@ -22,7 +22,7 @@ class CreateCompany extends Component { /* eslint-disable-line */
   render() {
     const { profile: { name } } = this.props;
     return (
-      <div>
+      <div className="fluid-content">
         <FluidHeader
           title={<FormattedMessage {...messages.title} values={{ name }} />}
           sub={<FormattedMessage {...messages.sub} />}

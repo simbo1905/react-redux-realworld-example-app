@@ -11,7 +11,9 @@ import messages from './messages';
 class CreateDepartments extends Component { /* eslint-disable-line */
   render() {
     return (
-      <div>Create departments</div>
+      <div className="fluid-content">
+        Create departments
+      </div>
     );
   }
 }

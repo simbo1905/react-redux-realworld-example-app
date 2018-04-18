@@ -13,7 +13,7 @@ import ConfirmEmailForm from './components/ConfirmEmailForm';
 class EmailConfirmation extends Component { /* eslint-disable-line */
   render() {
     return (
-      <div>
+      <div className="fluid-content">
         <div className={css.section}>
           <FluidHeader
             title={<FormattedMessage {...messages.title} />}

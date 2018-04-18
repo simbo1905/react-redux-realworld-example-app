@@ -56,12 +56,14 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
     };
     return (
       <LandingPageWrap gradient="purple-orange">
-        <FluidHeader
-          title={<FormattedHTMLMessage {...messages.title} />}
-          sub={<FormattedMessage {...messages.sub} />}
-        />
-        <div className={css.QRCodeWrap}>
-          <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size={600} />
+        <div className="fluid-content">
+          <FluidHeader
+            title={<FormattedHTMLMessage {...messages.title} />}
+            sub={<FormattedMessage {...messages.sub} />}
+          />
+          <div className={css.QRCodeWrap}>
+            <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size={600} />
+          </div>
         </div>
       </LandingPageWrap>
     );
