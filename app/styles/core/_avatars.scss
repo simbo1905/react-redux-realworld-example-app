@@ -4,26 +4,30 @@
 
 .avatar {
   $width: 36px;
+  $height: 36px;
   $status-width: 10px;
-  @include avatar($width,$status-width);
+  @include avatar($width,$height,$status-width);
 }
 
 .avatar.avatar-xs {
   $width: 20px;
+  $height: 20px;
   $status-width: 8px;
-  @include avatar($width,$status-width);
+  @include avatar($width,$height,$status-width);
 }
 
 .avatar.avatar-sm {
   $width: 24px;
+  $height: 24px;
   $status-width: 8px;
-  @include avatar($width,$status-width);
+  @include avatar($width,$height,$status-width);
 }
 
 .avatar.avatar-lg {
   $width: 72px;
+  $height: 72px;
   $status-width: 12px;
-  @include avatar($width,$status-width);
+  @include avatar($width,$height,$status-width);
 }
 
 .avatars-stack {

@@ -32,6 +32,10 @@ import makeSelectProfile from './redux/selectors';
 import { fetchProfile } from './redux/actions';
 import saga from './redux/saga';
 
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import messages from './messages';
+
+
 export class Profile extends React.Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
     fetchProfile: PropTypes.func.isRequired,
@@ -75,7 +79,7 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
           <title>Profile</title>
         </Helmet>
         <h3 className="my-3">
-          My Account
+          <FormattedMessage {...messages.header } />
         </h3>
         <Row>
           <Col md="4" className="text-center">
@@ -85,18 +89,18 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
                   <img src={oneAvatar} className="img-circle by-1" alt="Username avatar" height="100" width="100" />
                 </div>
                 <p className="lead">John Deer</p>
-                <small className="text-muted">14 passwords | 3 groups | 3 rules</small>
+                <small className="text-muted">14 <FormattedMessage {...messages.passwords } /> | 3 <FormattedMessage {...messages.groups } /> | 3 <FormattedMessage {...messages.rules } /></small>
                 <hr />
 
                 <Row className="py-3">
                   <Col sm="4" className="float-left">
-                    Avg. Security score
+                    <FormattedMessage {...messages.avgSecurity } />
                   </Col>
                   <Col sm="4" className="float-left">
-                    Reused Passwords
+                    <FormattedMessage {...messages.reusedPasswords } />
                   </Col>
                   <Col sm="4" className="float-left">
-                    Accounts with low security
+                    <FormattedMessage {...messages.accountsWithLowSecurity } />
                   </Col>
                   <Col sm="4" className="float-left">
                     100%
@@ -118,7 +122,7 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
                   className={classnames({ active: this.state.activeTab === '1' })}
                   onClick={() => { this.toggle('1'); }}
                 >
-                  <i className="fa fa-gear"></i> Settings
+                  <i className="fa fa-gear"></i> <FormattedMessage {...messages.settingsTab } />
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -126,7 +130,7 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
                   className={classnames({ active: this.state.activeTab === '2' })}
                   onClick={() => { this.toggle('2'); }}
                 >
-                  <i className="icon-lock"></i> Passwords
+                  <i className="icon-lock"></i> <FormattedMessage {...messages.passwordsTab } />
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -134,7 +138,7 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
                   className={classnames({ active: this.state.activeTab === '3' })}
                   onClick={() => { this.toggle('3'); }}
                 >
-                  <i className="icon-people"></i> Groups
+                  <i className="icon-people"></i> <FormattedMessage {...messages.groupsTab } />
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -142,7 +146,7 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
                   className={classnames({ active: this.state.activeTab === '4' })}
                   onClick={() => { this.toggle('4'); }}
                 >
-                  <i className="icon-briefcase"></i> Companys
+                  <i className="icon-briefcase"></i> <FormattedMessage {...messages.companiesTab } />
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -150,7 +154,7 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
                   className={classnames({ active: this.state.activeTab === '5' })}
                   onClick={() => { this.toggle('5'); }}
                 >
-                  <i className="icon-doc"></i> Log
+                  <i className="icon-doc"></i> <FormattedMessage {...messages.logTab } />
                 </NavLink>
               </NavItem>
             </Nav>
@@ -158,25 +162,25 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
               <TabPane tabId="1">
                 <Row>
                   <Col sm="2" className="py-2 float-left">
-                    Name
+                    <FormattedMessage {...messages.name } />
                   </Col>
                   <Col sm="10" className="py-2 float-left">
                     <Input type="text" value="John Deer" rounded className="rounded" />
                   </Col>
                   <Col sm="2" className="py-2 float-left">
-                    Username
+                    <FormattedMessage {...messages.username } />
                   </Col>
                   <Col sm="10" className="py-2 float-left">
                     <Input type="text" placeholder="@johnny" disabled className="rounded" />
                   </Col>
                   <Col sm="2" className="py-2 float-left">
-                    E-mail
+                    <FormattedMessage {...messages.email } />
                   </Col>
                   <Col sm="10" className="py-2 float-left">
                     <Input type="email" value="johnny@outlook.co.uk" className="rounded" />
                   </Col>
                   <Col sm="2" className="py-2 float-left">
-                    Password
+                    <FormattedMessage {...messages.password } />
                   </Col>
                   <Col sm="10" className="py-2 float-left">
                     <Input type="password" value="passwordforjohnnyboy" className="rounded" />
@@ -184,7 +188,7 @@ export class Profile extends React.Component { // eslint-disable-line react/pref
                 </Row>
                 <Row>
                   <Col className="text-right mt-3">
-                    <Button color="primary" className="text-right">Update profil</Button>
+                    <Button color="primary" className="text-right"><FormattedMessage {...messages.updateProfile } /></Button>
                   </Col>
                 </Row>
               </TabPane>

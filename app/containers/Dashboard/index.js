@@ -16,6 +16,9 @@ import { Row, Col, Jumbotron, Button } from 'reactstrap';
 import { makeSelectProfile } from 'containers/Profile/redux/selectors';
 import { fetchProfile } from 'containers/Profile/redux/actions';
 
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import messages from './messages';
+
 export class Dashboard extends Component {
   static propTypes = {
     fetchProfile: PropTypes.func.isRequired,
@@ -38,13 +41,17 @@ export class Dashboard extends Component {
         <Row>
           <Col className="col-md-8">
             <Jumbotron>
-              <h1 className="display-5">Welcome back, {name}!</h1>
-              <p className="lead">Get off to a great start with these 3 simple steps</p>
+              <h1 className="display-5">
+                <FormattedMessage {...messages.welcome} values={{name}} />
+              </h1>
+              <p className="lead">
+                <FormattedMessage {...messages.threeSteps } />
+              </p>
               <hr className="my-2" />
-              <p>1 - Download the UniqKey app on you smart device.</p>
-              <p>2 - Add the first team member. Or invite them to join by e-mail</p>
-              <p>3 - Create a group for easier joint access</p>
-              <Button color="primary">Learn More</Button>
+              <p><FormattedMessage {...messages.firstStep } /></p>
+              <p><FormattedMessage {...messages.secondStep } /></p>
+              <p><FormattedMessage {...messages.thirdStep } /></p>
+              <Button color="primary"><FormattedMessage {...messages.learnMore } /></Button>
             </Jumbotron>
           </Col>
         </Row>

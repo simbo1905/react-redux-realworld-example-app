@@ -12,7 +12,7 @@ import {
 } from './constants';
 
 // Organizations
-export const organizationsListRequested = () => ({
+export const fetchOrganizationsList = () => ({
   type: ORGANIZATIONS_LIST_REQUESTED,
 });
 
@@ -25,7 +25,7 @@ export const organizationsListFailed = (error) => ({
   error,
 });
 
-export const organizationsCurrentChangeRequested = (id) => ({
+export const changeCurrentOrganization = (id) => ({
   type: ORGANIZATIONS_CURRENT_CHANGED,
   id,
 });
