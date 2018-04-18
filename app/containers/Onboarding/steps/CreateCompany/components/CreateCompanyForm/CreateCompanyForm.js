@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { FormattedMessage, intlShape, injectIntl } from 'react-intl';
 import { Field, reduxForm } from 'redux-form';
+import FluidCheckbox from 'components/landingpage/FluidCheckbox';
 import FluidInput from 'components/landingpage/FluidInput';
 import FluidButton from 'components/landingpage/FluidButton';
 import FluidMessage from 'components/landingpage/FluidMessage';
@@ -22,6 +23,11 @@ const ConfirmationForm = ({
   intl,
 }) => {
   const { formatMessage } = intl;
+  const checkboxLabel = (
+    <span>
+      I agree to the <a tabIndex="-1" href="https://uniqkey.eu/terms-and-conditions" target="_blank">Terms and Conditions</a>
+    </span>
+  );
   return (
     <FluidFormWrap method="post" onSubmit={handleSubmit(submitCreateCompanyForm)}>
       <Field
@@ -30,6 +36,12 @@ const ConfirmationForm = ({
         placeholder={formatMessage(messages.inputPlaceholder)}
         component={FluidInput}
         autoFocus
+      />
+      <Field
+        name="acceptTerms"
+        id="accept-terms-and-conditions"
+        label={checkboxLabel}
+        component={FluidCheckbox}
       />
       { (error && submitFailed) && <FluidMessage translationObject={error} />}
       <FluidButton hasArrow type="submit" loading={submitting}>
@@ -58,6 +70,10 @@ const withReduxForm = reduxForm({
 
     if (!values.companyName) {
       errors.companyName = true;
+    }
+
+    if (!values.acceptTerms) {
+      errors.acceptTerms = true;
     }
 
     return errors;
