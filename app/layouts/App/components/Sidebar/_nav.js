@@ -45,11 +45,11 @@ export default {
       icon: 'icon-user',
       url: '/profile',
     },
-    {
-      name: 'app.pages.company.title',
-      icon: 'icon-cup',
-      url: '/company',
-    },
+    // {
+    //   name: 'app.pages.company.title',
+    //   icon: 'icon-cup',
+    //   url: '/company',
+    // },
     {
       name: 'app.pages.billing.title',
       icon: 'icon-wallet',
