@@ -46,6 +46,9 @@ import injectSaga from 'utils/injectSaga';
 import groupSaga from './redux/saga';
 import organizationSaga from '../Organizations/redux/saga';
 
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import messages from './messages';
+
 
 // eslint-disable-line react/prefer-stateless-function
 export class Groups extends React.Component {
@@ -107,7 +110,7 @@ export class Groups extends React.Component {
           <title>Groups</title>
         </Helmet>
         <h3 className="my-3">
-          Groups
+          <FormattedMessage {...messages.header } />
         </h3>
         <Card>
           <CardHeader>
@@ -128,11 +131,13 @@ export class Groups extends React.Component {
               <Col sm="2" className="align-self-center">
                 <Dropdown nav isOpen={this.state.dropdownOpen} toggle={() => { this.toggleDropDown(); }} className="float-right list-style-none">
                   <DropdownToggle nav caret>
-                    <i className="icon-people" /> Groups
+                    <i className="icon-people" /> <FormattedMessage {...messages.header } />
                   </DropdownToggle>
                   <DropdownMenu>
                     <DropdownItem header>Login Rules</DropdownItem>
-                    <DropdownItem onClick={() => { this.createGroup(); }}>Add group</DropdownItem>
+                    <DropdownItem onClick={() => { this.createGroup(); }}>
+                      <FormattedMessage {...messages.addGroup } />
+                    </DropdownItem>
                     <DropdownItem>Time Based</DropdownItem>
                     <DropdownItem>IP address / range</DropdownItem>
                   </DropdownMenu>

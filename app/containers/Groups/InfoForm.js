@@ -21,6 +21,9 @@ import {
   detachUserRequest,
 } from 'api/requests/groups';
 
+import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import messages from './messages';
+
 
 class InfoForm extends React.Component {
   constructor(props) {
@@ -139,7 +142,7 @@ class InfoForm extends React.Component {
         <ModalBody>
           <Row>
             <Col sm="2">
-              Users <a href="#" onClick={() => this.fetchAttachedList()}>refresh</a>
+              <FormattedMessage {...messages.users } /> <a href="#" onClick={() => this.fetchAttachedList()}>refresh</a>
             </Col>
             <Col sm="10">
               <Row>
@@ -174,22 +177,28 @@ class InfoForm extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col sm={2}>Invite User</Col>
+            <Col sm={2}>
+              <FormattedMessage {...messages.inviteUser } />
+            </Col>
             <Col sm={6}>
-              <Input name="userEmail" placeholder="User email" value={this.state.email} onChange={this.handleChange} />
+              <Input name="userEmail" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
               <div className="danger">
                 {this.state.inviteError}
               </div>
             </Col>
             <Col sm={2}>
-              <Button color="primary" onClick={this.inviteUser}>Invite</Button>
+              <Button color="primary" onClick={this.inviteUser}>
+                <FormattedMessage {...messages.inviteButton } />
+              </Button>
             </Col>
           </Row>
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" type="submit" >Edit Users</Button> */}
           {/* <Button color="warning" onClick={() => { this.hide(); }}>Delete Group</Button> */}
-          <Button color="secondary" onClick={() => { this.hide(); }}>Close</Button>
+          <Button color="secondary" onClick={() => { this.hide(); }}>
+            <FormattedMessage {...messages.closeButton } />
+          </Button>
         </ModalFooter>
       </Modal>
     );
