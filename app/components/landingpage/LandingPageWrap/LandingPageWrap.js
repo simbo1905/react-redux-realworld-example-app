@@ -3,6 +3,9 @@
  *
  * Adds a wrap with a header which contains the logo
  * and adds gradient to the background
+ *
+ * This wrapper serves as a font-size control for all fluid elements
+ * and is required to achieve a responsive and consistent result
  */
 
 import React from 'react';
@@ -20,12 +23,14 @@ const LandingPageWrap = ({ children, gradient, className }) => {
 
   return (
     <div className={classes}>
-      <div className={css.logoWrap}>
-        <a href="https://www.uniqkey.eu" title="UniqKey">
-          <img className={css.logo} src={Logo} alt="UniqKey" />
-        </a>
+      <div className={css.inner}>
+        <div className={css.logoWrap}>
+          <a href="https://www.uniqkey.eu" title="UniqKey">
+            <img className={css.logo} src={Logo} alt="UniqKey" />
+          </a>
+        </div>
+        { children }
       </div>
-      { children }
     </div>
   );
 };

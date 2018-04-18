@@ -3,14 +3,14 @@
  * FluidHeader
  */
 .fluidHeader {
-  font-size: 16px;
+  font-size: 1em;
   text-align: center;
   margin-bottom: 2em;
 }
 
 .fluidHeaderTitle {
   font-weight: bold;
-  font-size: 1.9em;
+  font-size: 1.6em;
   margin: 0;
 }
 
@@ -24,7 +24,7 @@
  * Responsiveness
  */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .fluidHeaderSub, .fluidHeaderTitle {
     br {
       display: none;
@@ -34,7 +34,7 @@
 
 @media screen and (min-width: 600px) {
   .fluidHeader {
-    font-size: 22px;
+    // font-size: 22px;
   }
   .fluidHeaderSub {
     max-width: 70vw;
@@ -43,15 +43,18 @@
 
 @media screen and (min-width: 1100px) {
   .fluidHeader {
-    font-size: 1.8vw;
+    // font-size: 1.8vw;
   }
   .fluidHeaderSub {
-    max-width: 38vw;
+    max-width: 55vw;
   }
 }
 
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 1800px) {
   .fluidHeader {
-    font-size: 36px;
+    // font-size: 36px;
+  }
+  .fluidHeaderSub {
+    max-width: 700;
   }
 }

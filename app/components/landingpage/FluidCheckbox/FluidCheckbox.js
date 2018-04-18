@@ -12,8 +12,7 @@ const FluidCheckbox = ({
   className,
   meta,
   id,
-  input,
-  ...rest,
+  input
 }) => {
   const wrapClasses = classnames(
     css.wrap,

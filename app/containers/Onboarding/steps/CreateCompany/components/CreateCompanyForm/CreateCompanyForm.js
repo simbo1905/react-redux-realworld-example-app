@@ -13,6 +13,8 @@ import FluidButton from 'components/landingpage/FluidButton';
 import FluidMessage from 'components/landingpage/FluidMessage';
 import { submitCreateCompanyForm } from 'containers/Onboarding/redux/actions';
 import FluidFormWrap from 'components/landingpage/FluidFormWrap';
+
+import css from './CreateCompanyForm.scss';
 import messages from '../../messages';
 
 const ConfirmationForm = ({
@@ -42,6 +44,7 @@ const ConfirmationForm = ({
         id="accept-terms-and-conditions"
         label={checkboxLabel}
         component={FluidCheckbox}
+        className={css.checkbox}
       />
       { (error && submitFailed) && <FluidMessage translationObject={error} />}
       <FluidButton hasArrow type="submit" loading={submitting}>

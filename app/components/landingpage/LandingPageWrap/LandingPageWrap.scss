@@ -8,10 +8,21 @@
   color: #FFF;
   flex: 1;
   display: flex;
+  padding: 20px;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 100px 30px 30px;
+  padding-top: 40px;
+
+  > * {
+    width: 100%;
+  }
 }
 
 /**
@@ -26,9 +37,9 @@
 .logoWrap {
   display: flex;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
   justify-content: center;
 }
 
@@ -53,15 +64,14 @@
   }
   .wrapper {
     font-size: 1.8vw;
-    padding: 60px 40px;
   }
   .logoWrap {
     justify-content: flex-start;
   }
 }
 
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 1800px) {
   .wrapper {
-    font-size: 36px;
+    font-size: 30px;
   }
 }
