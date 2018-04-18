@@ -1,19 +1,26 @@
 import { take, takeEvery, call, put, select } from 'redux-saga/effects';
+import AuthModel from 'models/Auth';
 import { SubmissionError } from 'redux-form';
 import { replace } from 'react-router-redux';
+
 import { signUpRequest } from 'api/requests/auth';
 import { confirmUserRequest } from 'api/requests/user';
+import { createOrganizationRequest } from 'api/requests/organization';
+
 import { setProfileData } from 'containers/Profile/redux/actions';
-import { submitCreateUserForm, submitConfirmEmailForm } from './actions';
+import { submitCreateUserForm, submitConfirmEmailForm, submitCreateCompanyForm } from './actions';
 import { } from './constants';
 import confirmationMessages from '../steps/EmailConfirmation/messages';
-console.log('confirmationMessages', confirmationMessages);
+
+const Auth = new AuthModel();
+
 /**
  * Watcher
  */
 export default function* watcher() {
   yield takeEvery(submitCreateUserForm.REQUEST, handleUserSignUp);
   yield takeEvery(submitConfirmEmailForm.REQUEST, handleEmailConfirmation);
+  yield takeEvery(submitCreateCompanyForm.REQUEST, handleCreateCompany);
 }
 
 /**
@@ -29,14 +36,15 @@ function* handleUserSignUp(action) {
     // Save profile data for newly created user in state
     yield put(setProfileData(user));
 
+    // Set auth token
+    Auth.setToken(access_token);
+
     // Form success
     yield put(submitCreateUserForm.success());
 
     // Continue to next page
     yield put(replace('/onboarding/email-confirmation'));
-
   } catch (err) {
-    console.log('error', err);
     const formError = new SubmissionError({
       _error: 'Signup failed..', // global form error
     });
@@ -72,6 +80,30 @@ function* handleEmailConfirmation(action) {
       yield put(replace('/onboarding/create-company'));
     }
   } catch (err) {
+    const formError = new SubmissionError({
+      _error: confirmationMessages.formUnknownError,
+    });
+
+    yield put(submitConfirmEmailForm.failure(formError));
+  }
+}
+
+
+/**
+ * Create Company
+ */
+
+function* handleCreateCompany(action) {
+  const { companyName } = action.payload;
+
+  try {
+    const response = yield call(createOrganizationRequest, { name: companyName });
+
+    // Continue on success
+    yield put(replace('/onboarding/accept-terms'));
+
+
+  } catch (e) {
     const formError = new SubmissionError({
       _error: confirmationMessages.formUnknownError,
     });

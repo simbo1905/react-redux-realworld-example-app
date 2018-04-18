@@ -21,7 +21,7 @@ const LandingPageWrap = ({ children, gradient, className }) => {
   return (
     <div className={classes}>
       <div className={css.logoWrap}>
-        <a href="https://www.uniqkey.ey" title="UniqKey">
+        <a href="https://www.uniqkey.eu" title="UniqKey">
           <img className={css.logo} src={Logo} alt="UniqKey" />
         </a>
       </div>

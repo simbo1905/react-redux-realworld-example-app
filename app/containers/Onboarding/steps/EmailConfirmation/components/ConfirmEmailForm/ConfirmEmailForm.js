@@ -41,7 +41,6 @@ const ConfirmationForm = ({
   intl,
 }) => {
   const { formatMessage } = intl;
-console.log('error', error, submitFailed);
   return (
     <FluidFormWrap method="post" onSubmit={handleSubmit(submitConfirmEmailForm)}>
       <Field

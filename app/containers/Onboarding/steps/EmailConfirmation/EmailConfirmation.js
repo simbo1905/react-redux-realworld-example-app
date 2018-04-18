@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import FluidHeader from 'components/landingpage/FluidHeader';
 
 import messages from './messages';
@@ -17,7 +17,7 @@ class EmailConfirmation extends Component { /* eslint-disable-line */
         <div className={css.section}>
           <FluidHeader
             title={<FormattedMessage {...messages.title} />}
-            sub={<FormattedMessage {...messages.sub} />}
+            sub={<FormattedHTMLMessage {...messages.sub} />}
           />
         </div>
         <ConfirmEmailForm />

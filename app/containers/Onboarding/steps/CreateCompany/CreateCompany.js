@@ -11,8 +11,8 @@ import { createStructuredSelector } from 'reselect';
 import { makeSelectProfile } from 'containers/Profile/redux/selectors';
 
 import FluidHeader from 'components/landingpage/FluidHeader';
-import FluidButton from 'components/landingpage/FluidButton';
 import messages from './messages';
+import CreateCompanyForm from './components/CreateCompanyForm';
 
 class CreateCompany extends Component { /* eslint-disable-line */
   static propTypes = {
@@ -25,7 +25,9 @@ class CreateCompany extends Component { /* eslint-disable-line */
       <div>
         <FluidHeader
           title={<FormattedMessage {...messages.title} values={{ name }} />}
+          sub={<FormattedMessage {...messages.sub} />}
         />
+        <CreateCompanyForm />
       </div>
     );
   }

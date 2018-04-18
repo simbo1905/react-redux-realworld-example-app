@@ -10,7 +10,7 @@ export default defineMessages({
   },
   sub: {
     id: 'app.containers.onboarding.email_confirmation.sub',
-    defaultMessage: 'We sent you an email with a confirmation code. Please enter the 8 digit code here to confirm your email.',
+    defaultMessage: 'We sent you an email with a confirmation code. <br />Please enter the 8 digit code in the field below to confirm your email.',
   },
   buttonLabel: {
     id: 'app.containers.onboarding.email_confirmation.buttonLabel',

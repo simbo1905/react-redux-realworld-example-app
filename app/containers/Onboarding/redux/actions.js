@@ -19,3 +19,9 @@ export const submitCreateUserForm = createFormAction('onboardingCreateUserForm')
  */
 
 export const submitConfirmEmailForm = createFormAction('onboardingEmailConfirmationForm');
+
+/**
+ * Create company
+ */
+
+export const submitCreateCompanyForm = createFormAction('onboardingCreateCompanyForm');
