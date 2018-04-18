@@ -20,7 +20,7 @@
   flex-direction: column;
 
   > :global(.fluid-content) {
-    margin-top: -10vh;
+    margin-top: -5vh;
     width: 100%;
   }
 }
@@ -70,7 +70,7 @@
   }
 }
 
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 2000px) {
   .wrapper {
     font-size: 30px;
   }

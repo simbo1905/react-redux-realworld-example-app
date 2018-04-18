@@ -99,10 +99,10 @@ function* handleCreateCompany(action) {
   try {
     const response = yield call(createOrganizationRequest, { name: companyName });
 
-    // Continue on success
-    yield put(replace('/onboarding/accept-terms'));
-
-
+    if (response.status >= 200) {
+      // Continue on success
+      yield put(replace('/onboarding/completed'));
+    }
   } catch (e) {
     const formError = new SubmissionError({
       _error: confirmationMessages.formUnknownError,
