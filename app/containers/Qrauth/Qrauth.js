@@ -11,10 +11,11 @@ import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
+import FluidHeader from 'components/landingpage/FluidHeader';
+import LandingPageWrap from 'components/landingpage/LandingPageWrap';
+
 import uuidv1 from 'uuid/v1';
 import QRCode from 'qrcode.react';
-
-import Logo from 'static/logo/logo-white.svg';
 
 import injectSaga from 'utils/injectSaga';
 import makeSelectQrauth from './redux/selectors';
@@ -54,22 +55,17 @@ export class Qrauth extends React.Component { // eslint-disable-line react/prefe
       publicKey: 'this-is-public-key',
     };
     return (
-      <div className={css.wrapper}>
-        <div className={css.logoWrap}>
-          <a href="https://www.uniqkey.ey">
-            <img className={css.logo} src={Logo} alt="UniqKey" />
-          </a>
+      <LandingPageWrap gradient="purple-orange">
+        <div className="fluid-content">
+          <FluidHeader
+            title={<FormattedHTMLMessage {...messages.title} />}
+            sub={<FormattedMessage {...messages.sub} />}
+          />
+          <div className={css.QRCodeWrap}>
+            <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size={600} />
+          </div>
         </div>
-        <header className={css.header}>
-          <h1 className={css.headerTitle}>
-            <FormattedHTMLMessage {...messages.title} />
-          </h1>
-          <h2 className={css.headerSub}><FormattedMessage {...messages.sub} /></h2>
-        </header>
-        <div className={css.QRCodeWrap}>
-          <QRCode className={css.QRCode} value={JSON.stringify(qrdata)} size="600" />
-        </div>
-      </div>
+      </LandingPageWrap>
     );
   }
 }

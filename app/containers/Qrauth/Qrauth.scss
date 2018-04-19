@@ -2,63 +2,19 @@
  * QR Auth Page
  */
 
-.wrapper {
-  position: relative;
-  font-size: 16px;
-  background: linear-gradient(33deg, #FE63DA 20%, #FF8E2E 80%);
-  color: #FFF;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 100px 30px 30px;
-}
-
-/**
- * Header
- */
-.header {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-.headerTitle {
-  font-weight: bold;
-  font-size: 1.9em;
-  margin: 0 auto 0.4em auto;
-}
-
-.headerSub {
-  margin: auto;
-  font-size: 0.8em;
-  line-height: 135%;
-}
-
-/**
- * Logo
- */
-
-.logo {
-  width: 80px;
-}
-
-.logoWrap {
-  display: flex;
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  justify-content: center;
-}
-
 /**
  * QR Code
  */
 
+.QRCodeWrap {
+  display: flex;
+  justify-content: center;
+}
+
 .QRCode {
   border-radius: 12px;
-  width: 220px;
+  width: 220px !important;
+  height: 220px !important;
 }
 
 /**
@@ -66,39 +22,15 @@
  */
 
 @media screen and (min-width: 600px) {
-  .wrapper {
-    font-size: 22px;
-    padding: 40px;
-  }
-  .headerSub {
-    max-width: 70vw;
-  }
   .QRCode {
     width: 300px !important;
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  .logo {
-    width: 7vw;
-  }
-  .wrapper {
-    font-size: 1.8vw;
-    padding: 60px 40px;
-  }
-  .headerSub {
-    max-width: 40vw;
-  }
-  .logoWrap {
-    justify-content: flex-start;
+    height: 300px !important;
   }
 }
 
 @media screen and (min-width: 2000px) {
-  .wrapper {
-    font-size: 36px;
-  }
   .QRCode {
     width: 400px !important;
+    height: 400px !important;
   }
 }

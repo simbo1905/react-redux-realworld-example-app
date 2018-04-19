@@ -1,4 +1,5 @@
 {
+  "app.common.pleasewait": "",
   "app.containers.404.header": "",
   "app.containers.Home.header": "",
   "app.containers.Organizations.header": "",
@@ -35,6 +36,10 @@
   "app.containers.groups.users": "",
   "app.containers.groups.users_count": "",
   "app.containers.login.header": "",
+  "app.containers.onboarding.create_company.buttonLabel": "",
+  "app.containers.onboarding.create_company.inputPlaceholder": "",
+  "app.containers.onboarding.create_company.sub": "",
+  "app.containers.onboarding.create_company.title": "",
   "app.containers.passwords.account_field": "",
   "app.containers.passwords.add_password": "",
   "app.containers.passwords.additional_field": "",

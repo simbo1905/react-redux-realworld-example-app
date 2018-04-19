@@ -1,0 +1,60 @@
+
+/**
+ * FluidHeader
+ */
+.fluidHeader {
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.fluidHeaderTitle {
+  font-weight: bold;
+  font-size: 1.6em;
+  margin: 0;
+}
+
+.fluidHeaderSub {
+  margin: 0.6em auto 0 auto;
+  font-size: 0.8em;
+  line-height: 135%;
+}
+
+/**
+ * Responsiveness
+ */
+
+@media screen and (max-width: 768px) {
+  .fluidHeaderSub, .fluidHeaderTitle {
+    br {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .fluidHeader {
+    // font-size: 22px;
+  }
+  .fluidHeaderSub {
+    max-width: 70vw;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .fluidHeader {
+    // font-size: 1.8vw;
+  }
+  .fluidHeaderSub {
+    max-width: 55vw;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .fluidHeader {
+    // font-size: 36px;
+  }
+  .fluidHeaderSub {
+    max-width: 700;
+  }
+}

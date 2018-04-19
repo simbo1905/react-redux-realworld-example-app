@@ -64,8 +64,7 @@ LatoObserver.load().then(() => {
 const initialState = {};
 const history = createHistory();
 const setupStore = configureStore(initialState, history);
-const store = setupStore.store;
-const persistor = setupStore.persistor;
+const { store, persistor } = setupStore;
 const MOUNT_NODE = document.getElementById('app');
 
 const render = (messages) => {
@@ -87,7 +86,7 @@ if (module.hot) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
-  module.hot.accept(['./i18n', 'containers/App'], () => {
+  module.hot.accept(['i18n', 'containers/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
     render(translationMessages);
   });

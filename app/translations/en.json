@@ -1,4 +1,5 @@
 {
+  "app.common.pleasewait": "Please wait",
   "app.containers.404.header": "404 - page not found.",
   "app.containers.Home.header": "This is Home container !",
   "app.containers.Organizations.header": "This is Organizations container !",
@@ -35,6 +36,10 @@
   "app.containers.groups.users": "User",
   "app.containers.groups.users_count": "user(s)",
   "app.containers.login.header": "Login",
+  "app.containers.onboarding.create_company.buttonLabel": "Continue",
+  "app.containers.onboarding.create_company.inputPlaceholder": "Name of your company",
+  "app.containers.onboarding.create_company.sub": "Enter the name of your company",
+  "app.containers.onboarding.create_company.title": "Welcome, {name}!",
   "app.containers.passwords.account_field": "Account",
   "app.containers.passwords.add_password": "Add password",
   "app.containers.passwords.additional_field": "Additional info",
