@@ -32,11 +32,11 @@ function* handleQRCheck(action) {
     yield put({ type: LOGIN_SUCCESS });
 
     // Save profile data from response
-    const { token, user } = response.data; // eslint-disable-line
+    const { token: { access_token }, user } = response.data; // eslint-disable-line
     yield put(setProfileData(user));
 
     // Save auth token in localStorage
-    Auth.setToken(token);
+    Auth.setToken(access_token);
 
     // Redirect user on login
     yield put(replace('/dashboard'));
