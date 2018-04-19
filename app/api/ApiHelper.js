@@ -50,7 +50,7 @@ class ApiHelper {
 
           if (token) {
             axiosConfig.headers.common = {
-              Authorization: `Bearer ${token.replace('Bearer ', '')}`, /* eslint-disable-line // temp fix. Needs to be removed. */
+              Authorization: `Bearer ${token}`,
             };
           }
         }
