@@ -313,6 +313,10 @@
                   {
                       "name": "PORT",
                       "value": "8080"
+                  },
+                  {
+                    "name":"API_ROOT",
+                    "value":"backend.${NAMESPACE}.svc"
                   }
               ]
               }
