@@ -316,7 +316,7 @@
                   },
                   {
                     "name":"API_ROOT",
-                    "value":"backend.${NAMESPACE}.svc"
+                    "value":"http://backend.${NAMESPACE}.svc/api"
                   }
               ]
               }
