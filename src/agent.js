@@ -4,7 +4,7 @@ import _superagent from 'superagent';
 const superagent = superagentPromise(_superagent, global.Promise);
 
 function apiRoot() {
-  if( typeof ENV_API_ROOT === 'string') return eval('ENV_API_ROOT')
+  if( typeof window.ENV_API_ROOT === 'string') return window.ENV_API_ROOT
   else return 'https://conduit.productionready.io/api'
 }
 

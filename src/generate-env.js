@@ -1,9 +1,9 @@
 #! /usr/bin/env node
 var fs = require('fs');
-fs.writeFile("./public/env.js", "const ENV_API_ROOT='"+process.env.API_ROOT+"';\n", function(err) {
+fs.writeFile("./public/env.js", "window.ENV_API_ROOT='"+process.env.API_ROOT+"';\n", function(err) {
     if(err) {
         return console.log(err);
     }
 
-    console.log("./public/env.js contains "+process.env.API_ROOT);
+    console.log("./public/env.js contains window.ENV_API_ROOT="+process.env.API_ROOT);
 });
