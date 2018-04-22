@@ -3,7 +3,12 @@ import _superagent from 'superagent';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
-const API_ROOT = 'http://backend-sjm-staging.7e14.starter-us-west-2.openshiftapps.com/api';
+function apiRoot() {
+  if( typeof ENV_API_ROOT === 'string') return eval('ENV_API_ROOT')
+  else return 'https://conduit.productionready.io/api'
+}
+
+const API_ROOT = apiRoot();
 console.log("API_ROOT="+API_ROOT);
 
 const encode = encodeURIComponent;

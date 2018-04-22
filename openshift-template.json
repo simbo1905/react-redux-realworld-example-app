@@ -247,7 +247,7 @@
       },
       "spec": {
         "strategy": {
-          "type": "Rolling"
+          "type": "Recreate"
         },
         "triggers": [
           {
@@ -316,7 +316,7 @@
                   },
                   {
                     "name":"API_ROOT",
-                    "value":"http://backend.${NAMESPACE}.svc/api"
+                    "value":"${API_ROOT}"
                   }
               ]
               }
@@ -390,6 +390,12 @@
       "displayName": "Custom NPM Mirror URL",
       "description": "The custom NPM mirror URL",
       "value": ""
+    },
+    {
+      "name": "API_ROOT",
+      "displayName": "Backend API to use",
+      "description": "The backend API to use",
+      "value": "https://conduit.productionready.io/api"
     }
   ]
 }
