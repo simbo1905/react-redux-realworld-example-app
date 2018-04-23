@@ -1,1 +1,1 @@
-window.env={'API_ROOT':'http://www.hello.com/api'}
+window.env={'API_ROOT':'https://conduit.productionready.io/api'}
