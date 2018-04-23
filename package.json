@@ -25,7 +25,7 @@
     "superagent-promise": "^1.1.0"
   },
   "scripts": {
-    "start": "npm install -g serve ; npm run-script generate-env; PORT=8080 serve -s build",
+    "start": "./src/generate-env.js ; npm install -g serve ; PORT=8080 serve -s build",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "generate-env": "./src/generate-env.js"
