@@ -4,18 +4,15 @@ import _superagent from 'superagent';
 const superagent = superagentPromise(_superagent, global.Promise);
 
 function apiRoot() {
-  if( typeof window.env !== 'undefined') {
-    console.log("API_ROOT=window.ENV_API_ROOT");
-    return window.ENV_API_ROOT
+  if( window.env.API_ROOT !== 'undefined') {
+    return window.env.API_ROOT
   }
   else {
-    console.log("API_ROOT is using default");
     return 'https://conduit.productionready.io/api'
   }
 }
 
 const API_ROOT = apiRoot();
-
 
 const encode = encodeURIComponent;
 const responseBody = res => res.body;
