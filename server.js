@@ -14,9 +14,9 @@ app.get('/env.js', function (req, res) {
 });
 
 app.get('/*', function (req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
