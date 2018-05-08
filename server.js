@@ -13,6 +13,11 @@ app.get('/env.js', function (req, res) {
   res.send(WINDOW_ENV);
 });
 
+app.get('/commit', function (req, res) {
+  res.set('Content-Type', 'text/plain');
+  res.send(process.env.OPENSHIFT_BUILD_COMMIT);
+});
+
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
