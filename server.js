@@ -7,9 +7,12 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 const WINDOW_ENV = "window.env={'API_ROOT':'"+process.env.API_ROOT+"'}\n";
 
+console.log('WINDOW_ENV:'+WINDOW_ENV);
+
 app.get('/env.js', function (req, res) {
   res.setHeader("Cache-Control", "public, max-age=300");
   res.set('Content-Type', 'application/javascript');
+  console.log('WINDOW_ENV:'+WINDOW_ENV);
   res.send(WINDOW_ENV);
 });
 
