@@ -1,4 +1,9 @@
 #!/bin/bash
+
+if [ -z ${API_ROOT+x} ]; then
+  API_ROOT="https://conduit.productionready.io/api"
+fi
+
 SOURCE_REPOSITORY_REF=$(git status | awk 'NR==1{print $NF}')
 if [[ -n "$SOURCE_REPOSITORY_REF" ]]; then
   PROJECT=$(oc project --short)
