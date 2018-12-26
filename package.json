@@ -24,7 +24,8 @@
     "serialize-javascript": "^1.5.0",
     "serve": "^6.5.5",
     "superagent": "^2.3.0",
-    "superagent-promise": "^1.1.0"
+    "superagent-promise": "^1.1.0",
+    "upgrade": "^1.1.0"
   },
   "scripts": {
     "start": "PORT=8080 node server.js",
