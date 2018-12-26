@@ -5,7 +5,7 @@
   "devDependencies": {
     "cross-env": "^4.0.0",
     "npm": "^6.5.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "^2.1.2"
   },
   "dependencies": {
     "express": "^4.16.3",
@@ -23,7 +23,7 @@
     "redux-logger": "^3.0.1",
     "serialize-javascript": "^1.5.0",
     "serve": "^6.5.5",
-    "superagent": "^2.3.0",
+    "superagent": "^4.0.0",
     "superagent-promise": "^1.1.0",
     "upgrade": "^1.1.0"
   },
