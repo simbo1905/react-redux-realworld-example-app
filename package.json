@@ -25,8 +25,7 @@
     "serve": "^6.5.5",
     "superagent": "^4.0.0",
     "superagent-promise": "^1.1.0",
-    "upgrade": "^1.1.0",
-    "hoek": ">=4.2.1"
+    "upgrade": "^1.1.0"
   },
   "scripts": {
     "start": "PORT=8080 node server.js",
