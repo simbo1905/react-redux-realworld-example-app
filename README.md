@@ -1,3 +1,7 @@
+# Realworld React + Redux Example App for OKD Openshift
+
+This repo can be build on OKD/OpenShift/Minishift. [Here is a video](https://www.loom.com/share/4c312e230888417bb65f111c0b7e2f77) showing minishift building it. 
+
 # ![React + Redux Example App](project-logo.png)
 
 [![RealWorld Frontend](https://img.shields.io/badge/realworld-frontend-%23783578.svg)](http://realworld.io)
