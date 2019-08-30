@@ -7,6 +7,17 @@ environment variable into the react app. Without that every container build will
 variable so you cannot use the same container in different environments testing with different APIs. 
 
 This repo also has an `.s2i/bin/sve-artifacts` to speed up incremental builds when building with s2i. 
+To build this using s2i just like it would run on OpenShift try: 
+
+```sh
+s2i --copy --incremental=true build . centos/nodejs-8-centos7 react-redux-realworld
+```
+
+You can then run it with:
+
+```sh
+docker run -it -p 8080:8080 react-redux-realworld
+```
 
 # ![React + Redux Example App](project-logo.png)
 
