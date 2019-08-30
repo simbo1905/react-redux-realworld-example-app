@@ -1,6 +1,12 @@
 # Realworld React + Redux Example App for OKD Openshift
 
-This repo can be build on OKD/OpenShift/Minishift. [Here is a video](https://www.loom.com/share/4c312e230888417bb65f111c0b7e2f77) showing minishift building it. 
+This repo can be build on OKD/OpenShift/Minishift. [Here is a video](https://www.loom.com/share/4c312e230888417bb65f111c0b7e2f77) showing minishift and running this app. 
+
+The main addition to this repo is how it loads `/env.js` from an express server to load the API_ROOT 
+environment variable into the react app. Without that every container build will bake in the API_ROOT 
+variable so you cannot use the same container in different environments testing with different APIs. 
+
+This repo also has an `.s2i/bin/sve-artifacts` to speed up incremental builds when building with s2i. 
 
 # ![React + Redux Example App](project-logo.png)
 
